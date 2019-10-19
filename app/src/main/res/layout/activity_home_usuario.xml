@@ -6,4 +6,149 @@
     android:layout_height="match_parent"
     tools:context=".infra.gui.HomeUsuario">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/barra_superior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#AF0D25"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Serviços agendados"
+        android:textColor="#FEF7F7F7"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/barra_superior"
+        app:layout_constraintStart_toStartOf="@+id/barra_superior"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/lupa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#008F8497"
+        app:layout_constraintEnd_toEndOf="@+id/barra_superior"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_search_category_default" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="675dp"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="56dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="650dp">
+
+            <ImageView
+                android:id="@+id/imagem1"
+                android:layout_width="56dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="250dp"
+                android:layout_marginLeft="350dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.993"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:srcCompat="@drawable/chat" />
+
+            <ImageView
+                android:id="@+id/imagem2"
+                android:layout_width="57dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="155dp"
+                android:layout_marginLeft="330dp"
+                tools:layout_editor_absoluteX="320dp"
+                tools:layout_editor_absoluteY="164dp"
+                tools:srcCompat="@drawable/chat"/>
+            <TextView
+                android:id="@+id/nomedoServico"
+                android:layout_width="192dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="160dp"
+                android:text="Companhia para exame"
+                android:textColor="#AF0D25"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.073"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/nomedServico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:text="Companhia para o dia"
+                android:textColor="#AF0D25"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.073"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonNovoServico"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="110dp"
+                android:layout_marginTop="460dp"
+                android:background="#AF0D25"
+                android:text="Agendar serviço"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="124dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:text="20/12/19" />
+
+            <TextView
+                android:id="@+id/data2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="184dp"
+                android:text="21/01/20" />
+
+            <TextView
+                android:id="@+id/hora1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="124dp"
+                android:text="14:00 -- 16:00"/>
+
+            <TextView
+                android:id="@+id/hora2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="184dp"
+                android:text="14:00 -- 16:00" />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
