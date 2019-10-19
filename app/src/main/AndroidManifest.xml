@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".infra.gui.ServicosActivity"></activity>
+        <activity android:name=".infra.gui.HomeUsuario"></activity>
+        <activity android:name=".infra.gui.HomeProfissional" />
         <activity android:name=".infra.gui.CadastroProfissional2Activity" />
         <activity android:name=".infra.gui.CadastroProfissional1Activity" />
         <activity android:name=".infra.gui.CadastroUsuario2Activity" />

@@ -6,13 +6,104 @@
     android:layout_height="match_parent"
     tools:context=".infra.gui.MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        app:srcCompat="@drawable/logo"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/botaoEntrar"
+        android:layout_width="213dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="340dp"
+        android:background="#AF0D25"
+        android:text="ENTRAR"
+        android:textColor="#FAF3F3"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botaoCadastro"
+        android:layout_width="115dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="420dp"
+        android:background="#AF0D25"
+        android:shadowColor="#00719E7F"
+        android:text="Cadastre-se"
+        android:textColor="#FCF5F5F5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/caixatxtEmailLogin"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+        android:hint="Digite seu E-mail"
+        android:inputType="textEmailAddress"
+        android:textColor="#0E0606"
+        app:layout_constraintEnd_toEndOf="@+id/caixatxtSenhaLogin"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/caixatxtSenhaLogin"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/caixatxtSenhaLogin"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="224dp"
+        android:ems="10"
+        android:hint="Digite sua senha"
+        android:inputType="textPassword"
+        android:textColor="#0A0303"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switchUsuarioProfissional"
+        android:layout_width="124dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="280dp"
+        android:background="#00FFFFFF"
+        android:text="Cliente"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/lableEsqueceuSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="396dp"
+        android:text="Esqueceu sua senha?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelProfissional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="280dp"
+        android:text="Profissonal"
+        android:textColor="#0A0404"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
