@@ -53,6 +53,6 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
 
         long id = dao.cadastrarUsuario(usuario);
 
-        Toast.makeText(this, "Usuario salvo com sucesso", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Usuario salvo com sucesso " + id, Toast.LENGTH_SHORT).show();
     }
 }
