@@ -21,6 +21,9 @@ public class UsuarioDAO {
         values.put(DBHelper.COL_ENDERECO_USUARIO, usuario.getEndereco());
         values.put(DBHelper.COL_EMAIL_USUARIO, usuario.getEmail());
         values.put(DBHelper.COL_TELEFONE_USUARIO, usuario.getTelefone());
+        values.put(DBHelper.COL_SENHA_USUARIO, usuario.getSenha());
 
+        db.insert(DBHelper.TABELA_USUARIO, null, values);
+        db.close();
     }
 }
