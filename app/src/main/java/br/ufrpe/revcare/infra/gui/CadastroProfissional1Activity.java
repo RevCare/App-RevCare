@@ -13,5 +13,7 @@ public class CadastroProfissional1Activity extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_profissional1);
+        getSupportActionBar().hide();
+
     }
 }
