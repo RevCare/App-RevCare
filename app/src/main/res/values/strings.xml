@@ -22,4 +22,6 @@
     <string name="logo">LOGO</string>
     <string name="finalizar_cads">Finalizar cadastro</string>
     <string name="dd_mm_aaaa">DD/MM/AAAA</string>
+    <string name="dd_mm_aaaa_">dd_mm_aaaa</string>
+    <string name="Finalizar_Cadastro">Finalizar cadastro</string>
 </resources>
