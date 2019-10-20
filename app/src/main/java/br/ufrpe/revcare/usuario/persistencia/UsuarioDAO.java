@@ -1,4 +1,23 @@
 package br.ufrpe.revcare.usuario.persistencia;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
+import br.ufrpe.revcare.infra.persistencia.DBHelper;
+import br.ufrpe.revcare.usuario.dominio.Usuario;
 
 public class UsuarioDAO {
+    private Context context;
+    private DBHelper dbHelper = new DBHelper(context);
+    //private Usuario usuario = new Usuario();
+
+    public void cadastrarUsuario(Usuario usuario){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(DBHelper.COL_NOME_USUARIO, usuario.getNome());
+        values.put(DBHelper.COL_CPF_USUARIO, usuario.getCpf());
+        values.put(DBHelper.COL_NASCIMENTO_USUARIO, usuario.getDataNascimento());
+        values.put(DBHelper.COL_ENDERCO)
+    }
 }
