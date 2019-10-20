@@ -5,12 +5,20 @@ public class Profissional {
     private String nome;
     private String dataNascimento;
     private String cpf;
+    private String telefone;
     private String email;
     private String endereco;
     private String certificado;
     private String senha;
     private String confirmarSenha;
 
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
 
     public long getId() {
         return id;
