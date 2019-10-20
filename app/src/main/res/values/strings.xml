@@ -8,9 +8,9 @@
     <string name="e_mail">E-mail</string>
     <string name="endere_o">Endereço</string>
     <string name="digite_seu_endereco">Digite seu endereco</string>
-    <string name="digite_seu_cpf">Digite seu cpf</string>
+    <string name="digite_seu_cpf">Digite seu CPF</string>
     <string name="nome">Nome</string>
-    <string name="endereco">Endereco</string>
+    <string name="endereco">Endereço</string>
     <string name="telefone">Telefone</string>
     <string name="cpf">CPF</string>
     <string name="data_de_nascimento">Data de Nascimento</string>
@@ -19,7 +19,6 @@
     <string name="digite_sua_senha">Digite sua senha</string>
     <string name="confirma_senha">Confirme sua senha</string>
     <string name="Certificado">Certificado (Opcional)</string>
-    <string name="digite_seu_endereco">Digite seu endereco</string>
     <string name="logo">LOGO</string>
     <string name="finalizar_cads">Finalizar cadastro</string>
     <string name="dd_mm_aaaa">DD/MM/AAAA</string>
