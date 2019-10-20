@@ -24,7 +24,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo" />
+                app:srcCompat="@drawable/logo"
+                android:contentDescription="@string/logo" />
 
             <Button
                 android:id="@+id/botaoFinalizarCadastro"
@@ -34,7 +35,7 @@
                 android:layout_marginTop="700dp"
                 android:layout_marginRight="70dp"
                 android:background="#AF0D25"
-                android:text="Finalizar cadastro"
+                android:text="@string/finalizar_cads"
                 android:textColor="#FFFFFF"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.182"
@@ -53,7 +54,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.254"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="Autofill"
+                android:layout_marginStart="5dp" />
 
             <EditText
                 android:id="@+id/enderecoTextField"
@@ -61,13 +64,15 @@
                 android:layout_height="47dp"
                 android:layout_marginTop="360dp"
                 android:ems="10"
-                android:hint="Digite seu endereco"
+                android:hint="@string/digite_seu_endereco"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.233"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp"
+                tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/cpfTextField"
@@ -81,7 +86,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.245"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp"
+                tools:ignore="Autofill" />
 
             <TextView
                 android:id="@+id/labelNome"
@@ -94,7 +101,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.071"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp" />
 
             <TextView
                 android:id="@+id/labelDataNascimento"
@@ -119,7 +127,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.075"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp" />
 
             <TextView
                 android:id="@+id/labelEndereco"
@@ -132,7 +141,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.077"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp" />
 
             <EditText
                 android:id="@+id/dataNascimentoTextField"
@@ -140,19 +150,20 @@
                 android:layout_height="47dp"
                 android:layout_marginTop="280dp"
                 android:ems="10"
-                android:hint="DD/MM/AAAA"
+                android:hint="@string/dd_mm_aaaa"
                 android:inputType="date"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.241"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp" />
 
             <TextView
                 android:id="@+id/labelTelefone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="500dp"
                 android:text="@string/telefone"
                 android:textColor="#0A0404"
@@ -166,9 +177,7 @@
                 android:id="@+id/caixatxtEmailCadastro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginLeft="24dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="580dp"
                 android:text="@string/e_mail"
                 android:textColor="#050101"
@@ -180,7 +189,7 @@
                 android:id="@+id/labelSenha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="840dp"
                 android:text="@string/digite_sua_senha"
                 android:textColor="#0F0000"
@@ -194,7 +203,7 @@
                 android:id="@+id/emailTextField"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
-                android:layout_marginHorizontal="5dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="520dp"
                 android:ems="10"
                 android:hint="@string/digite_seu_e_mail"
@@ -203,7 +212,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.241"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="Autofill" />
 
         </RelativeLayout>
     </ScrollView>
