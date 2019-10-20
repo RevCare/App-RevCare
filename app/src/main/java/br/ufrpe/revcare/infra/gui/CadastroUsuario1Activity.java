@@ -26,7 +26,7 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_cadastro_usuario1);
-        Button botao_continuar_cadastro = findViewById(R.id.botaoContinuarCadastro);
+        Button botao_continuar_cadastro = findViewById(R.id.botaoFinalizarCadastro);
         botao_continuar_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
