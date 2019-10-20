@@ -37,7 +37,7 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
                 nEndereco = findViewById(R.id.enderecoTextField);
                 nTelefone = findViewById(R.id.telefoneTextField);
                 nEmail = findViewById(R.id.emailTextField);
-                nSenha = findViewById(R.id.senhaTextField);
+                nSenha = findViewById(R.id.caixaTxtSenhaLogin);
                 nConfirmarSenha = findViewById(R.id.confirmarSenhaTextField);
                 
                 Validacao valido = new Validacao();
