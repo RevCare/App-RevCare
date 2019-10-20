@@ -9,7 +9,6 @@ import br.ufrpe.revcare.usuario.dominio.Usuario;
 public class UsuarioDAO {
     private Context context;
     private DBHelper dbHelper = new DBHelper(context);
-    //private Usuario usuario = new Usuario();
 
     public void cadastrarUsuario(Usuario usuario){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
