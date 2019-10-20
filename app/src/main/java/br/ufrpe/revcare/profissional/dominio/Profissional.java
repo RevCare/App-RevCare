@@ -7,17 +7,10 @@ public class Profissional {
     private String cpf;
     private String email;
     private String endereco;
-
-    public String getCertificado() {
-        return certificado;
-    }
-
-    public void setCertificado(String certificado) {
-        this.certificado = certificado;
-    }
-
     private String certificado;
     private String senha;
+    private String confirmarSenha;
+
 
     public long getId() {
         return id;
@@ -66,6 +59,13 @@ public class Profissional {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
+    public String getCertificado() {
+        return certificado;
+    }
+
+    public void setCertificado(String certificado) {
+        this.certificado = certificado;
+    }
 
     public String getSenha() {
         return senha;
@@ -82,7 +82,5 @@ public class Profissional {
     public void setConfirmarSenha(String confirmarSenha) {
         this.confirmarSenha = confirmarSenha;
     }
-
-    private String confirmarSenha;
 
 }
