@@ -22,8 +22,6 @@
     <string name="logo">LOGO</string>
     <string name="finalizar_cads">Finalizar cadastro</string>
     <string name="dd_mm_aaaa">DD/MM/AAAA</string>
-    <string name="digite_seu_endereco">Digite seu endereco</string>
-    <string name="dd_mm_aaaa">DD/MM/AAAA</string>
     <string name="continuar_cadastro">Continuar cadastro</string>
     <string name="logotipo">Logo</string>
 </resources>
