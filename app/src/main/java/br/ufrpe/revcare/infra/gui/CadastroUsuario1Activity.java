@@ -30,14 +30,13 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
         botao_continuar_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 nNome = findViewById(R.id.nomeTextField);
                 nDataNascimento = findViewById(R.id.dataNascimentoTextField);
                 nCpf = findViewById(R.id.cpfTextField);
                 nEndereco = findViewById(R.id.enderecoTextField);
                 nTelefone = findViewById(R.id.telefoneTextField);
                 nEmail = findViewById(R.id.emailTextField);
-                nSenha = findViewById(R.id.caixaTxtSenhaLogin);
+                nSenha = findViewById(R.id.senhaTextField);
                 nConfirmarSenha = findViewById(R.id.confirmarSenhaTextField);
                 
                 Validacao valido = new Validacao();

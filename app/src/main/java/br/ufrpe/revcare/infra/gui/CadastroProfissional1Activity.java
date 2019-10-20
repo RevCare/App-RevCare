@@ -31,7 +31,6 @@ public class CadastroProfissional1Activity extends AppCompatActivity {
         botao_continuar_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 nNome = findViewById(R.id.nomeTextField);
                 nDataNascimento = findViewById(R.id.dataNascimentoTextField);
                 nCpf = findViewById(R.id.cpfTextField);
