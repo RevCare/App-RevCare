@@ -20,7 +20,9 @@ public class ProfissionalDAO {
         values.put(DBHelper.COL_ENDERECO_PROFISSIONAL, profissional.getEndereco());
         values.put(DBHelper.COL_EMAIL_PROFISSIONAL, profissional.getEmail());
         values.put(DBHelper.COL_TELEFONE_PROFISSIONAL, profissional.getTelefone());
+        values.put(DBHelper.COL_REGULAMENTACAO_PROFISSIONAL, profissional.getCertificado());
         values.put(DBHelper.COL_SENHA_PROFISSIONAL, profissional.getSenha());
+
 
         db.insert(DBHelper.TABELA_PROFISSIONAL, null, values);
         db.close();

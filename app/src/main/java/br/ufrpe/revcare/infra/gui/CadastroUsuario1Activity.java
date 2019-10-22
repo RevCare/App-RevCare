@@ -32,7 +32,7 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
         if (validarCampos()) {
             Usuario usuario = criarUsuario();
 
-            startActivity(new Intent(CadastroUsuario1Activity.this, HomeUsuario.class));
+            startActivity(new Intent(CadastroUsuario1Activity.this, MainActivity.class));
         }
     }
 
@@ -72,13 +72,13 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
         EditText nSenha = findViewById(R.id.senhaTextField);
 
         Usuario result = new Usuario();
-        result.setNome(nNome.getText().toString());
-        result.setCpf(nCpf.getText().toString());
-        result.setEndereco(nEndereco.getText().toString());
-        result.setTelefone(nTelefone.getText().toString());
-        result.setEmail(nEmail.getText().toString());
-        result.setDataNascimento(nDataNascimento.getText().toString());
-        result.setSenha(nSenha.getText().toString());
+        result.setNome(nNome.getText().toString().trim());
+        result.setCpf(nCpf.getText().toString().trim());
+        result.setEndereco(nEndereco.getText().toString().trim());
+        result.setTelefone(nTelefone.getText().toString().trim());
+        result.setEmail(nEmail.getText().toString().trim());
+        result.setDataNascimento(nDataNascimento.getText().toString().trim());
+        result.setSenha(nSenha.getText().toString().trim());
         return result;
     }
 }
