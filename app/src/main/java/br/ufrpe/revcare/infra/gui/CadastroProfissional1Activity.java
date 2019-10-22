@@ -2,6 +2,7 @@ package br.ufrpe.revcare.infra.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -43,7 +44,8 @@ public class CadastroProfissional1Activity extends AppCompatActivity {
     private void cadastrar() {
         if (validarCampos()) {
             Profissional profissional = criarProfissional();
-
+            ProfissionalDAO dao = new ProfissionalDAO(this);
+            dao.cadastrarProfissional(profissional);
             startActivity(new Intent(CadastroProfissional1Activity.this, MainActivity.class));
         }
     }

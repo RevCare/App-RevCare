@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
+import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
 public class CadastroUsuario1Activity extends AppCompatActivity {
     @Override
@@ -24,7 +25,8 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 cadastrar();
-                Toast.makeText(getApplicationContext(),"Usuário cadastrado com sucesso.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso.", Toast.LENGTH_LONG).show();
+
             }
         });
     }
@@ -32,7 +34,8 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
     private void cadastrar() {
         if (validarCampos()) {
             Usuario usuario = criarUsuario();
-
+            UsuarioDAO dao = new UsuarioDAO(this);
+            dao.cadastrarUsuario(usuario);
             startActivity(new Intent(CadastroUsuario1Activity.this, MainActivity.class));
         }
     }
@@ -58,7 +61,7 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
         EditText nConfirmarSenha = findViewById(R.id.confirmarSenhaTextField);
         if (!nSenha.getText().toString().equals(nConfirmarSenha.getText().toString())) {
             result = false;
-            Toast.makeText(getApplicationContext(),"Senhas diferentes", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Senhas diferentes", Toast.LENGTH_LONG).show();
         }
         return result;
     }
