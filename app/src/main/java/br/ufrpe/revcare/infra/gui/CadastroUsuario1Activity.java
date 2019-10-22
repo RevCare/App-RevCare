@@ -1,14 +1,14 @@
 package br.ufrpe.revcare.infra.gui;
-//
+
 import androidx.appcompat.app.AppCompatActivity;
-//
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import android.widget.EditText;
 import android.widget.Toast;
-//
+
 import android.widget.Button;
 
 import br.ufrpe.revcare.R;
@@ -24,8 +24,8 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_cadastro_usuario1);
 
-        Button botao_continuar_cadastro = findViewById(R.id.botaoFinalizarCadastro);
-        botao_continuar_cadastro.setOnClickListener(new View.OnClickListener() {
+        Button btnFinalizarCadastro = findViewById(R.id.botaoFinalizarCadastro);
+        btnFinalizarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 cadastrar();
@@ -36,7 +36,7 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
     private void cadastrar() {
         if (validarCampos()) {
             Usuario usuario = criarUsuario();
-            
+
             startActivity(new Intent(CadastroUsuario1Activity.this, HomeUsuario.class));
         }
     }
