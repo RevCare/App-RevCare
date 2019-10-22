@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 
+import java.util.ArrayList;
+
 import br.ufrpe.revcare.R;
 
 public class MainActivity extends AppCompatActivity {

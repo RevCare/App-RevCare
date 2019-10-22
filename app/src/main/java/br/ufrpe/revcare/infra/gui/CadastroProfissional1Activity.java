@@ -34,7 +34,7 @@ public class CadastroProfissional1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 cadastrar();
-
+                Toast.makeText(getApplicationContext(),"Profissional cadastrado com sucesso.", Toast.LENGTH_LONG).show();
             }
 
         });
