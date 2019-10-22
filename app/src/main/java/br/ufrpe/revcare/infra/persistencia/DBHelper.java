@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "revcare.bd";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 3;
 
 
     public static final String TABELA_USUARIO = "Tabela_Usuario";
@@ -50,14 +50,13 @@ public class DBHelper extends SQLiteOpenHelper {
     private void createTableUsuario(SQLiteDatabase db) {
         String sqlTbUsuario = SQL_CREATE_TABLE + "( " +
                 SQL_INTEGER_AUTOINCREMENT +
-                "  %3$s TEXT NOT NULL, " +
-                "  %4$s TEXT NOT NULL, " +
+                " %3$s TEXT NOT NULL, " +
+                " %4$s TEXT NOT NULL, " +
                 " %5$s TEXT NOT NULL, " +
                 " %6$s TEXT NOT NULL, " +
                 " %7$s TEXT NOT NULL, " +
                 " %8$s TEXT NOT NULL, " +
-                " %9$s TEXT NOT NULL, " +
-
+                " %9$s TEXT NOT NULL " +
                 ");";
         sqlTbUsuario = String.format(sqlTbUsuario,
                 TABELA_USUARIO, COL_ID_USUARIO, COL_NOME_USUARIO,
@@ -68,31 +67,27 @@ public class DBHelper extends SQLiteOpenHelper {
     private void createTableProfissional(SQLiteDatabase db) {
         String sqlTbProfissional = SQL_CREATE_TABLE + "( " +
                 SQL_INTEGER_AUTOINCREMENT +
-                "  %3$s TEXT NOT NULL, " +
-                "  %4$s TEXT NOT NULL, " +
+                " %3$s TEXT NOT NULL, " +
+                " %4$s TEXT NOT NULL, " +
                 " %5$s TEXT NOT NULL, " +
                 " %6$s TEXT NOT NULL, " +
                 " %7$s TEXT NOT NULL, " +
                 " %8$s TEXT NOT NULL, " +
                 " %9$s TEXT NOT NULL, " +
-                " %10$s TEXT NOT NULL, " +
-
+                " %10$s TEXT NOT NULL " +
                 ");";
         sqlTbProfissional= String.format(sqlTbProfissional,
                 TABELA_PROFISSIONAL, COL_ID_PROFISSIONAL, COL_NOME_PROFISSIONAL,
                 COL_NASCIMENTO_PROFISSIONAL, COL_TELEFONE_PROFISSIONAL,
                 COL_EMAIL_PROFISSIONAL, COL_CPF_PROFISSIONAL,COL_ENDERECO_PROFISSIONAL ,
                 COL_REGULAMENTACAO_PROFISSIONAL,COL_SENHA_PROFISSIONAL);
-
         db.execSQL(sqlTbProfissional);
     }
 
     public void dropTables(SQLiteDatabase db) {
+        String dropSql = "DROP TABLE IF EXISTS %1$s;";
         for (String tabela : TABELAS) {
-            StringBuilder dropTable = new StringBuilder();
-            dropTable.append(" DROP TABLE IF EXISTS ");
-            dropTable.append(tabela);
-            db.execSQL(dropTable.toString());
+            db.execSQL(String.format(dropSql,tabela));
         }
     }
     @Override
