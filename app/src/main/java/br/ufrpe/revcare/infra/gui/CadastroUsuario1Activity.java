@@ -34,12 +34,9 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
     }
 
     private void cadastrar() {
-//        UsuarioDAO crud = new UsuarioDAO(getBaseContext());
-//        String retornoCadastrar;
         if (validarCampos()) {
             Usuario usuario = criarUsuario();
-            //retornoCadastrar = crud.cadastrarUsuario(usuario);
-            //Toast.makeText(getApplicationContext(),retornoCadastrar, Toast.LENGTH_LONG).show();
+            
             startActivity(new Intent(CadastroUsuario1Activity.this, HomeUsuario.class));
         }
     }
