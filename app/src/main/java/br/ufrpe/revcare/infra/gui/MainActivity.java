@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -53,15 +54,16 @@ public class MainActivity extends AppCompatActivity {
                Validacao validarcampos = new Validacao();
                 boolean respostaLogin = validarcampos.isCampoValido(campoLogin);
                 boolean respostaSenha = validarcampos.isCampoValido(campoSenha);
+                boolean result = false;
 
                 if(respostaLogin && respostaSenha){
                     ValidarLogin validar = new ValidarLogin();
                     String txtLogin = campoLogin.getText().toString().trim();
                     String txtSenha = campoSenha.getText().toString().trim();
-                    validar.search(String txtLogin,String txtSenha);
+                    result = validar.search(getBaseContext(),txtLogin, txtSenha);
                 }
 
-                if(){
+                if(result){
                     if (switchUsuarioProfissional.isChecked()) {
                         startActivity(new Intent(MainActivity.this, HomeProfissional.class));
 
@@ -71,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 }
-
+                else
+                    Toast.makeText(getBaseContext(), "Email não cadastrado",Toast.LENGTH_SHORT).show();
 
             }
 
