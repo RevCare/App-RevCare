@@ -10,8 +10,8 @@
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="26dp">
+        tools:layout_editor_absoluteX="94dp"
+        tools:layout_editor_absoluteY="-136dp">
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -20,12 +20,11 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
-                app:srcCompat="@drawable/logo"
                 android:layout_marginTop="50dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                />
+                app:srcCompat="@drawable/logo" />
 
             <Button
                 android:id="@+id/botaoFinalizarCadastro"
@@ -45,14 +44,14 @@
 
             <EditText
                 android:id="@+id/nomeTextField"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_width="357dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="210dp"
                 android:ems="10"
                 android:hint="@string/digite_seu_nome"
                 android:inputType="textPersonName"
-                android:textSize="14dp"
+                android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.254"
                 app:layout_constraintStart_toStartOf="parent"
@@ -60,14 +59,14 @@
 
             <EditText
                 android:id="@+id/enderecoTextField"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_width="377dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="360dp"
+                android:layout_marginTop="370dp"
                 android:ems="10"
                 android:hint="Digite seu endereco"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.233"
                 app:layout_constraintStart_toStartOf="parent"
@@ -75,14 +74,14 @@
 
             <EditText
                 android:id="@+id/cpfTextField"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_width="373dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="440dp"
+                android:layout_marginTop="450dp"
                 android:ems="10"
                 android:hint="@string/digite_seu_cpf"
                 android:inputType="number"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.245"
                 app:layout_constraintStart_toStartOf="parent"
@@ -147,14 +146,14 @@
 
             <EditText
                 android:id="@+id/dataNascimentoTextField"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_width="368dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="280dp"
+                android:layout_marginTop="290dp"
                 android:ems="10"
                 android:hint="DD/MM/AAAA"
                 android:inputType="date"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.241"
                 app:layout_constraintStart_toStartOf="parent"
@@ -162,14 +161,14 @@
 
             <EditText
                 android:id="@+id/telefoneTextField"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_width="379dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="520dp"
+                android:layout_marginTop="530dp"
                 android:ems="10"
                 android:hint="@string/digite_seu_telefone"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.254"
                 app:layout_constraintStart_toStartOf="parent"
@@ -177,14 +176,14 @@
 
             <EditText
                 android:id="@+id/certificadoTextField"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_width="381dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="600dp"
+                android:layout_marginTop="610dp"
                 android:ems="10"
                 android:hint="Digite seu Certificado"
                 android:inputType="textPersonName"
-                android:textSize="14sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.233"
                 app:layout_constraintStart_toStartOf="parent"
@@ -204,6 +203,7 @@
                 app:layout_constraintHorizontal_bias="0.245"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/caixaConfirmaSenha"
                 android:layout_width="match_parent"
@@ -276,15 +276,15 @@
 
             <EditText
                 android:id="@+id/emailTextField"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_width="384dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="680dp"
+                android:layout_marginTop="690dp"
                 android:ems="10"
                 android:hint="Digite aqui seu email"
 
                 android:inputType="textPersonName"
-                android:textSize="14sp"
+                android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.241"
                 app:layout_constraintStart_toStartOf="parent"
