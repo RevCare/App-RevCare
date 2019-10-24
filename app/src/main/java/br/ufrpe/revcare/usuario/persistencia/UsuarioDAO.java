@@ -1,6 +1,7 @@
 package br.ufrpe.revcare.usuario.persistencia;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
@@ -32,4 +33,14 @@ public class UsuarioDAO {
         return id;
 
     }
+
+//    public boolean buscaCpf (String cpf){
+//        SQLiteDatabase db = null;
+//        Cursor cursor;
+//        String query = "SELECT cpf FROM Tabela_Usuario";
+//
+//        db = this.dbHelper.getReadableDatabase();
+//        cursor = db.rawQuery(query,null);
+//
+//    }
 }
