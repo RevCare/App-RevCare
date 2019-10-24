@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "revcare.bd";
-    private static final int DB_VERSION = 7;
+    private static final int DB_VERSION = 6;
 
 
     public static final String TABELA_USUARIO = "Tabela_Usuario";
