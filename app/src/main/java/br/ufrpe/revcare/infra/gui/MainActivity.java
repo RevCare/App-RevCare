@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     ValidarLogin validar = new ValidarLogin();
                     String txtLogin = campoLogin.getText().toString().trim();
                     String txtSenha = campoSenha.getText().toString().trim();
-                    result = validar.search(getBaseContext(),txtLogin, txtSenha);
+                    result = validar.searchEmail(getBaseContext(),txtLogin);
                 }
 
                 if(result){

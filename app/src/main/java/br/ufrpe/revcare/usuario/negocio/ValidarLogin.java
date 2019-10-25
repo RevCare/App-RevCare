@@ -1,26 +1,35 @@
 package br.ufrpe.revcare.usuario.negocio;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_USUARIO;
+
 public class ValidarLogin {
-    public  boolean search(Context context, String email, String senha){
+    public boolean searchEmail(Context context, String email) {
         DBHelper helper = new DBHelper(context);
         SQLiteDatabase db = helper.getReadableDatabase();
 
-        String seleciona = "SELECT COL_EMAIL_USUARIO, COL_SENHA_USUARIO FROM TABELA_USUARIO WHERE COL_EMAIL_USUARIO = email AND COL_SENHA_USUARIO = senha";
+        String seleciona = "SELECT * FROM TABELA_USUARIO WHERE email  = ?";
 
-        //Cursor cursor = db.rawQuery(seleciona, null);
-        //cursor = db.
+        Cursor cursor = db.rawQuery(seleciona, null);
 
-//        if (cursor != null) {
-//            cursor.moveToFirst();
-//            if (cursor.getCount() > 0){
-        db.close();
-        return (!seleciona.equals(email)) && (seleciona.equals(senha));
-        
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            while(cursor != null){
+                if cursor ;
+
+            }
+
+            //cursor.close();
+            db.close();
+            return (seleciona.equals(email));
+
+
+        }
 
     }
-
 }
