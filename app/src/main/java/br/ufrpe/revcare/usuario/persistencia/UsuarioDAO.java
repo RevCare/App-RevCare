@@ -32,7 +32,7 @@ public class UsuarioDAO  {
         values.put(DBHelper.COL_CPF_USUARIO, usuario.getCpf());
         values.put(DBHelper.COL_NASCIMENTO_USUARIO, usuario.getDataNascimento());
         values.put(DBHelper.COL_ENDERECO_USUARIO, usuario.getEndereco());
-        values.put(COL_EMAIL_USUARIO, usuario.getEmail());
+        values.put(DBHelper.COL_EMAIL_USUARIO, usuario.getEmail());
         values.put(DBHelper.COL_TELEFONE_USUARIO, usuario.getTelefone());
         values.put(DBHelper.COL_SENHA_USUARIO, usuario.getSenha());
 
@@ -42,28 +42,6 @@ public class UsuarioDAO  {
 
     }
 
-//    public Usuario getUsuarioById(long id) {
-//        Usuario result = null;
-//        db = this.dbHelper.getReadableDatabase();
-//        String sql = "SELECT * FROM " + DBHelper.TABELA_USUARIO + " WHERE " + this.dbHelper.getReadableDatabase() + " LIKE ?;";
-//        Cursor cursor = db.rawQuery(sql, new String[]{Long.toString(id)});
-//        if (cursor.moveToFirst()) {
-//            result = createUsuario(cursor);
-//        }
-//        return result;
-//    }
 
-        public Usuario searchUsuario (String email){
-            String query = " SELECT * FROM " + TABELA_USUARIO + " WHERE " + COL_EMAIL_USUARIO + " LIKE ?;";
-            SQLiteDatabase db = dbHelper.getReadableDatabase();
-            Cursor cursor = db.rawQuery(query,null);
-            if (cursor.moveToFirst()){
-                Usuario usuario = new Usuario();
-                usuario.setEmail(cursor.getString(5));
-                usuario.setSenha(cursor.getString(9));
-                return usuario;
-            }
-        return null;
-    }
 
     }

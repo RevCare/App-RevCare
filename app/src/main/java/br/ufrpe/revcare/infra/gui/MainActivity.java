@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
+import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,11 +58,11 @@ public class MainActivity extends AppCompatActivity {
 
                     startActivity(new Intent(MainActivity.this, HomeProfissional.class));
                 } else {
-                    UsuarioDAO dao = new UsuarioDAO(getBaseContext());
+                    UsuarioServices services = new UsuarioServices(getBaseContext());
                     Validacao validacao = new Validacao();
                     if (validacao.isValido(campoEmail,campoSenha)){
                         String email = campoEmail.getText().toString().trim();
-                        Usuario procuraUser = dao.searchUsuario(email);
+                        Usuario procuraUser = services.searchUsuario(email);
                         if (procuraUser != null){
                             String senhaDB = procuraUser.getSenha();
                             senha = campoSenha.getText().toString().trim();
