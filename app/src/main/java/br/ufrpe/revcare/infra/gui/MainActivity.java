@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Button btnEntrar = findViewById(R.id.botaoEntrar);
         Button btnCadastrar = findViewById(R.id.botaoCadastro);
-        final EditText campoLogin = findViewById(R.id.caixatxtEmailLogin);
+        final EditText campoEmail = findViewById(R.id.caixatxtEmailLogin);
         final EditText campoSenha = findViewById(R.id.caixatxtSenhaLogin);
         final Switch switchUsuarioProfissional = findViewById(R.id.switchUsuarioProfissional);
 
@@ -52,15 +52,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                Validacao validarcampos = new Validacao();
-                boolean respostaLogin = validarcampos.isCampoValido(campoLogin);
+                boolean respostaLogin = validarcampos.isCampoValido(campoEmail);
                 boolean respostaSenha = validarcampos.isCampoValido(campoSenha);
                 boolean result = false;
 
                 if(respostaLogin && respostaSenha){
                     ValidarLogin validar = new ValidarLogin();
-                    String txtLogin = campoLogin.getText().toString().trim();
+                    String txtEmail = campoEmail.getText().toString().trim();
                     String txtSenha = campoSenha.getText().toString().trim();
-                    result = validar.searchEmail(getBaseContext(),txtLogin);
+                    result = validar.searchEmail(getBaseContext(),txtEmail);
                 }
 
                 if(result){
