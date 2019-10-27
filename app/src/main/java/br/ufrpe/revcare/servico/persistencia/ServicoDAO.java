@@ -3,6 +3,7 @@ package br.ufrpe.revcare.servico.persistencia;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.servico.dominio.Servico;
@@ -15,7 +16,7 @@ public class ServicoDAO {
 //
 //    public ServicoDAO(Context context) {
 //        dbHelper = new DBHelper(context);
-//    }
+//   }
 //
 //    public long cadastrarServico(Servico servico){
 //
@@ -33,4 +34,13 @@ public class ServicoDAO {
 //        return id;
 //
 //    }
+
+//    public void excluirServico(Servico servico){
+//        SQLiteDatabase db = dbHelper.getWritableDatabase();
+//        db.delete(dbHelper.TABELA_SERVICO, DBHelper.COL_ID_SERVICO + " = ?",
+//                new String[]{String.valueOf(servico.getId())});
+//
+//        db.close();
+//    }
+
 }
