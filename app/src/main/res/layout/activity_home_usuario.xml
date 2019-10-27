@@ -42,113 +42,30 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="675dp"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="56dp">
+        android:layout_height="480dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="83dp"
+        android:background="#cecece">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="650dp">
-
-            <ImageView
-                android:id="@+id/imagem1"
-                android:layout_width="56dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="250dp"
-                android:layout_marginLeft="350dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.993"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@drawable/chat" />
-
-            <ImageView
-                android:id="@+id/imagem2"
-                android:layout_width="57dp"
-                android:layout_height="55dp"
-                android:layout_marginTop="155dp"
-                android:layout_marginLeft="330dp"
-                tools:layout_editor_absoluteX="320dp"
-                tools:layout_editor_absoluteY="164dp"
-                tools:srcCompat="@drawable/chat"/>
-            <TextView
-                android:id="@+id/nomedoServico"
-                android:layout_width="192dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="160dp"
-                android:text="Companhia para exame"
-                android:textColor="#AF0D25"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.073"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/nomedServico"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:text="Companhia para o dia"
-                android:textColor="#AF0D25"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.073"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/buttonNovoServico"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="110dp"
-                android:layout_marginTop="460dp"
-                android:background="#AF0D25"
-                android:text="Agendar serviço"
-                android:textColor="#FFFFFF" />
-
-            <TextView
-                android:id="@+id/data"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="124dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:text="20/12/19" />
-
-            <TextView
-                android:id="@+id/data2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="184dp"
-                android:text="21/01/20" />
-
-            <TextView
-                android:id="@+id/hora1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="90dp"
-                android:layout_marginTop="124dp"
-                android:text="14:00 -- 16:00"/>
-
-            <TextView
-                android:id="@+id/hora2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="90dp"
-                android:layout_marginTop="184dp"
-                android:text="14:00 -- 16:00" />
+            android:layout_height="450dp">
 
 
         </RelativeLayout>
 
+
     </ScrollView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:text="+"
+        android:textSize="35sp"
+        android:textColor="#fff"
+        tools:layout_editor_absoluteX="299dp"
+        tools:layout_editor_absoluteY="636dp"
+        android:background="@drawable/button"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

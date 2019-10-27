@@ -105,6 +105,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="Autofill" />
 
+
             <TextView
                 android:id="@+id/labelEndereco"
                 android:layout_width="101dp"
@@ -119,7 +120,6 @@
                 app:layout_constraintHorizontal_bias="0.077"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
             <EditText
                 android:id="@+id/enderecoTextField"
