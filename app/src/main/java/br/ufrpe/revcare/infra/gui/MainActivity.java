@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
                 if (switchUsuarioProfissional.isChecked()) {
                     email = campoEmail.getText().toString().trim();
                     senha = campoSenha.getText().toString().trim();
@@ -82,8 +83,18 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
-        });
-    }}
+      });}}
+
+
+
+
+
+
+
+
+
+
+
 
 //    private boolean camposValidos() {
 ////        boolean result = true;

@@ -13,9 +13,9 @@
         android:background="#AF0D25"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textView"
@@ -44,25 +44,28 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="480dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="83dp"
+        android:layout_height="650dp"
         android:background="#cecece"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="36dp">
 
 
     </ScrollView>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
+        android:layout_width="76dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="460dp"
         android:background="@drawable/button"
         android:text="@string/mais_button"
         android:textColor="#fff"
         android:textSize="35sp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="327dp"
-        tools:layout_editor_absoluteY="634dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

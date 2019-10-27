@@ -44,6 +44,7 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String SQL_INTEGER_AUTOINCREMENT = "  %2$s INTEGER PRIMARY KEY AUTOINCREMENT, ";
     private static final String[] TABELAS = {
             TABELA_PROFISSIONAL, TABELA_USUARIO
+            //TABELA_SERVICO
     };
 
 
