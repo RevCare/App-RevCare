@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     Validacao validacao = new Validacao();
                     if (validacao.isValido(campoEmail,campoSenha)){
                         String email = campoEmail.getText().toString().trim();
-                        Usuario procuraUser = services.searchUsuario(email);
+                        Usuario procuraUser = services.searchUsuariobyEmail(email);
                         if (procuraUser != null){
                             String senhaDB = procuraUser.getSenha();
                             senha = campoSenha.getText().toString().trim();

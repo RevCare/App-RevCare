@@ -1,4 +1,4 @@
-package br.ufrpe.revcare.servicos.dominio;
+package br.ufrpe.revcare.servico.dominio;
 
 import java.sql.Time;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 
-public class Servicos {
+public class Servico {
     private String nome;
     private long id;
     private Usuario solicitante;

@@ -18,7 +18,7 @@ public class UsuarioServices {
         dbHelper = new DBHelper(context);
     }
 
-    public Usuario searchUsuario (String email){
+    public Usuario searchUsuariobyEmail (String email){
         String query = " SELECT * FROM " + TABELA_USUARIO + " WHERE " + COL_EMAIL_USUARIO + " LIKE ?;";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(query,null);
