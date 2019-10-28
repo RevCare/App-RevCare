@@ -19,7 +19,7 @@ public class UsuarioServices {
     }
 
     public Usuario searchUsuariobyEmail (String email){
-        String query = " SELECT * FROM " + TABELA_USUARIO + " WHERE " + COL_EMAIL_USUARIO + " LIKE ?;";
+        String query = " SELECT * FROM " + TABELA_USUARIO + " WHERE " + COL_EMAIL_USUARIO + " LIKE ? ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(query,null);
         if (cursor.moveToFirst()){
@@ -29,6 +29,9 @@ public class UsuarioServices {
 
             return usuario;
         }
-        return null;
+        else{
+            return null;
+        }
+
     }
 }

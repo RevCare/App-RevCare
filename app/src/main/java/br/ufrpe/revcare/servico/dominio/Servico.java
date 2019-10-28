@@ -11,9 +11,9 @@ public class Servico {
     private long id;
     private Usuario solicitante;
     private Profissional profissional;
-    private Time horarioInicial;
-    private Time horarioFinal;
-    private Date data;
+    private String horarioInicial;
+    private String horarioFinal;
+    private String data;
 
     public long getId() {
         return id;
@@ -47,27 +47,27 @@ public class Servico {
         this.profissional = profissional;
     }
 
-    public Time getHorarioInicial() {
+    public String getHorarioInicial() {
         return horarioInicial;
     }
 
-    public void setHorarioInicial(Time horarioInicial) {
+    public void setHorarioInicial(String horarioInicial) {
         this.horarioInicial = horarioInicial;
     }
 
-    public Time getHorarioFinal() {
+    public String getHorarioFinal() {
         return horarioFinal;
     }
 
-    public void setHorarioFinal(Time horarioFinal) {
+    public void setHorarioFinal(String horarioFinal) {
         this.horarioFinal = horarioFinal;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 }
