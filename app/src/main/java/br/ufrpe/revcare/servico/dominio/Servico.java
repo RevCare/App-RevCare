@@ -16,10 +16,12 @@ public class Servico {
     private Date data;
 
     public long getId() {
+
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(long id)
+    {
         this.id = id;
     }
 
@@ -28,6 +30,7 @@ public class Servico {
     }
 
     public void setSolicitante(Usuario solicitante) {
+
         this.solicitante = solicitante;
     }
 
@@ -36,6 +39,7 @@ public class Servico {
     }
 
     public void setNome(String nome) {
+
         this.nome = nome;
     }
 
@@ -48,18 +52,22 @@ public class Servico {
     }
 
     public Time getHorarioInicial() {
+
         return horarioInicial;
     }
 
-    public void setHorarioInicial(Time horarioInicial) {
+    public void setHorarioInicial(Time horarioInicial)
+    {
         this.horarioInicial = horarioInicial;
     }
 
     public Time getHorarioFinal() {
+
         return horarioFinal;
     }
 
     public void setHorarioFinal(Time horarioFinal) {
+
         this.horarioFinal = horarioFinal;
     }
 
