@@ -16,10 +16,12 @@ public class Servico {
     private String data;
 
     public long getId() {
+
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(long id)
+    {
         this.id = id;
     }
 
@@ -28,6 +30,7 @@ public class Servico {
     }
 
     public void setSolicitante(Usuario solicitante) {
+
         this.solicitante = solicitante;
     }
 
@@ -36,6 +39,7 @@ public class Servico {
     }
 
     public void setNome(String nome) {
+
         this.nome = nome;
     }
 
@@ -46,7 +50,7 @@ public class Servico {
     public void setProfissional(Profissional profissional) {
         this.profissional = profissional;
     }
-
+    
     public String getHorarioInicial() {
         return horarioInicial;
     }
@@ -60,6 +64,7 @@ public class Servico {
     }
 
     public void setHorarioFinal(String horarioFinal) {
+
         this.horarioFinal = horarioFinal;
     }
 
