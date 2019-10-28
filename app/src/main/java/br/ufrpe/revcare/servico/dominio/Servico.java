@@ -50,7 +50,7 @@ public class Servico {
     public void setProfissional(Profissional profissional) {
         this.profissional = profissional;
     }
-    
+
     public String getHorarioInicial() {
         return horarioInicial;
     }
