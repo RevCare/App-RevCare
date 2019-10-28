@@ -14,6 +14,15 @@ public class Servico {
     private String horarioInicial;
     private String horarioFinal;
     private String data;
+    private String preco;
+
+    public String getPreco() {
+        return preco;
+    }
+
+    public void setPreco(String preco) {
+        this.preco = preco;
+    }
 
     public long getId() {
 

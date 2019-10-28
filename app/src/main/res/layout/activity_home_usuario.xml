@@ -63,7 +63,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botaoMais"
         android:layout_width="76dp"
         android:layout_height="72dp"
         android:layout_marginTop="460dp"
