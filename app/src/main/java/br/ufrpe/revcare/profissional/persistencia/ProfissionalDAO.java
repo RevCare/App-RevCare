@@ -20,6 +20,7 @@ public class ProfissionalDAO {
     private DBHelper dbHelper;
 
     public ProfissionalDAO(Context context) {
+
         dbHelper = new DBHelper(context);
     }
 
