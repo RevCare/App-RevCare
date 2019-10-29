@@ -42,9 +42,9 @@ public class ProfissionalDAO {
         return id;
 
     }
-    public List<Profissional> getListaSenhaProfissional(){
+    public List<Profissional> getListaProfissional(){
 
-        List<Profissional> listaSenhaProfissionais = new ArrayList<>();
+        List<Profissional> listaProfissionais = new ArrayList<>();
         SQLiteDatabase db = null;
         Cursor cursor;
         String query = "SELECT * FROM TABELA_PROFISSIONAL;";
@@ -61,7 +61,7 @@ public class ProfissionalDAO {
                     profissionalTemporario.setEmail(cursor.getString(5));
                     profissionalTemporario.setSenha(cursor.getString(9));
 
-                    listaSenhaProfissionais.add(profissionalTemporario);
+                    listaProfissionais.add(profissionalTemporario);
 
 
                 }while (cursor.moveToNext());
@@ -77,6 +77,6 @@ public class ProfissionalDAO {
                  db.close();
              }
         }
-        return listaSenhaProfissionais;
+        return listaProfissionais;
     }
 }

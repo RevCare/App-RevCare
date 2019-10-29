@@ -34,10 +34,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABELA_SERVICO = "Tabela Servico";
     public static final String COL_NOME_SERVICO = "nome";
     public static final String COL_ID_SERVICO = "id";
-    public static final String COL_SOLICITANTE = "solicitante";
-    public static final String COL_PROFISSIONAL = "profissional";
-    public static final String COL_HORARIO_INICIAL = "Horario Inicial";
-    public static final String COL_HORARIO_FINAL = "Horario Final";
+    public static final String COL_SOLICITANTE = "id_solicitante";
+    public static final String COL_PROFISSIONAL = "id_profissional";
+    public static final String COL_HORARIO_INICIAL = "horario_inicial";
+    public static final String COL_HORARIO_FINAL = "horario_final";
     public static final String COL_DATA = "data";
 
     private static final String SQL_CREATE_TABLE = "CREATE TABLE %1$s ";

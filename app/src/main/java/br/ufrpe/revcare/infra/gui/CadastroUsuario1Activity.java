@@ -35,7 +35,7 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
         if (validarCampos()) {
             Usuario usuario = criarUsuario();
             UsuarioDAO dao = new UsuarioDAO(this);
-            dao.cadastrarUsuario(usuario);
+            dao.cadastrar(usuario);
             startActivity(new Intent(CadastroUsuario1Activity.this, MainActivity.class));
         }
     }
