@@ -24,4 +24,7 @@
     <string name="dd_mm_aaaa">DD/MM/AAAA</string>
     <string name="continuar_cadastro">Continuar cadastro</string>
     <string name="logotipo">Logo</string>
+    <string name="servi_os_agendados">Serviços agendados</string>
+    <string name="lupa">Lupa</string>
+    <string name="mais_button">+</string>
 </resources>

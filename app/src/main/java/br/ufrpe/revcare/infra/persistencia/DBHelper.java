@@ -31,10 +31,20 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_SENHA_PROFISSIONAL = "senha";
     public static final String COL_ENDERECO_PROFISSIONAL = "endereco";
 
+    public static final String TABELA_SERVICO = "Tabela Servico";
+    public static final String COL_NOME_SERVICO = "nome";
+    public static final String COL_ID_SERVICO = "id";
+    public static final String COL_SOLICITANTE = "id_solicitante";
+    public static final String COL_PROFISSIONAL = "id_profissional";
+    public static final String COL_HORARIO_INICIAL = "horario_inicial";
+    public static final String COL_HORARIO_FINAL = "horario_final";
+    public static final String COL_DATA = "data";
+
     private static final String SQL_CREATE_TABLE = "CREATE TABLE %1$s ";
     private static final String SQL_INTEGER_AUTOINCREMENT = "  %2$s INTEGER PRIMARY KEY AUTOINCREMENT, ";
     private static final String[] TABELAS = {
-            TABELA_PROFISSIONAL, TABELA_USUARIO
+            TABELA_PROFISSIONAL, TABELA_USUARIO,
+            TABELA_SERVICO
     };
 
 
@@ -46,7 +56,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         createTableUsuario(db);
         createTableProfissional(db);
+        createTableServicos(db);
     }
+
     private void createTableUsuario(SQLiteDatabase db) {
         String sqlTbUsuario = SQL_CREATE_TABLE + "( " +
                 SQL_INTEGER_AUTOINCREMENT +
@@ -64,6 +76,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 COL_EMAIL_USUARIO, COL_CPF_USUARIO, COL_ENDERECO_USUARIO, COL_SENHA_USUARIO);
         db.execSQL(sqlTbUsuario);
     }
+
     private void createTableProfissional(SQLiteDatabase db) {
         String sqlTbProfissional = SQL_CREATE_TABLE + "( " +
                 SQL_INTEGER_AUTOINCREMENT +
@@ -84,6 +97,25 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(sqlTbProfissional);
     }
 
+    private void createTableServicos(SQLiteDatabase db){
+        String sqlTbServicos = SQL_CREATE_TABLE + "( " +
+                SQL_INTEGER_AUTOINCREMENT +
+                " %3$s TEXT NOT NULL, " +
+                " %4$s TEXT NOT NULL, " +
+                " %5$s TEXT NOT NULL, " +
+                " %4$s TEXT NOT NULL, " +
+                " %4$s TEXT NOT NULL, " +
+                " %4$s TEXT NOT NULL, " +
+                " %4$s TEXT NOT NULL " +
+                ");";
+        sqlTbServicos = String.format(sqlTbServicos,
+                TABELA_SERVICO, COL_ID_SERVICO, COL_NOME_SERVICO, COL_SOLICITANTE,
+                COL_PROFISSIONAL, COL_HORARIO_INICIAL,
+                COL_HORARIO_FINAL, COL_DATA);
+        db.execSQL(sqlTbServicos);
+
+    }
+
     public void dropTables(SQLiteDatabase db) {
         String dropSql = "DROP TABLE IF EXISTS %1$s;";
         for (String tabela : TABELAS) {
@@ -96,4 +128,5 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
 
     }
+
 }

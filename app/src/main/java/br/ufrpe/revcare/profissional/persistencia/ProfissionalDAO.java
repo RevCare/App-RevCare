@@ -3,9 +3,16 @@ package br.ufrpe.revcare.profissional.persistencia;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
+import android.util.Log;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
-import br.ufrpe.revcare.usuario.dominio.Usuario;
+
 
 
 public class ProfissionalDAO {
@@ -13,6 +20,7 @@ public class ProfissionalDAO {
     private DBHelper dbHelper;
 
     public ProfissionalDAO(Context context) {
+
         dbHelper = new DBHelper(context);
     }
 
@@ -33,5 +41,42 @@ public class ProfissionalDAO {
         db.close();
         return id;
 
+    }
+    public List<Profissional> getListaProfissional(){
+
+        List<Profissional> listaProfissionais = new ArrayList<>();
+        SQLiteDatabase db = null;
+        Cursor cursor;
+        String query = "SELECT * FROM TABELA_PROFISSIONAL;";
+
+        try{
+            db = this.dbHelper.getReadableDatabase();
+            cursor = db.rawQuery(query,null);
+
+            if(cursor.moveToFirst()){
+                Profissional profissionalTemporario = null;
+
+                do {
+                    profissionalTemporario = new Profissional();
+                    profissionalTemporario.setEmail(cursor.getString(5));
+                    profissionalTemporario.setSenha(cursor.getString(9));
+
+                    listaProfissionais.add(profissionalTemporario);
+
+
+                }while (cursor.moveToNext());
+
+            }
+
+        }catch (Exception e){
+            Log.d("ERRO LISTA PROFISSIONAL","ERRO AO RETORNAR OS PROFISSIONAIS");
+            return null;
+
+        }finally {
+             if (db != null){
+                 db.close();
+             }
+        }
+        return listaProfissionais;
     }
 }

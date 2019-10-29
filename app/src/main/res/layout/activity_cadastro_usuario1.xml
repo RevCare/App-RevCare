@@ -43,12 +43,27 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/labelNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="160dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/nome"
+                android:textColor="#0A0404"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.071"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/nomeTextField"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="180dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="190dp"
                 android:layout_marginRight="5dp"
                 android:ems="10"
                 android:hint="@string/digite_seu_nome"
@@ -60,12 +75,58 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="Autofill" />
 
+            <TextView
+                android:id="@+id/labelDataNascimento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="240dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/data_de_nascimento"
+                android:textColor="#050101"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/dataNascimentoTextField"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="270dp"
+                android:layout_marginRight="5dp"
+                android:ems="10"
+                android:hint="@string/dd_mm_aaaa"
+                android:inputType="date"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.241"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="Autofill" />
+
+
+            <TextView
+                android:id="@+id/labelEndereco"
+                android:layout_width="101dp"
+                android:layout_height="23dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="320dp"
+                android:layout_marginRight="5dp"
+                android:text="Endereço"
+                android:textColor="#090101"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.077"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/enderecoTextField"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="340dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="350dp"
                 android:layout_marginRight="5dp"
                 android:ems="10"
                 android:hint="@string/digite_seu_endereco"
@@ -77,12 +138,27 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="Autofill" />
 
+            <TextView
+                android:id="@+id/labelCpf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="400dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/cpf"
+                android:textColor="#0F0000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.075"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/cpfTextField"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="420dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="430dp"
                 android:layout_marginRight="5dp"
                 android:ems="10"
                 android:hint="@string/digite_seu_cpf"
@@ -95,13 +171,13 @@
                 tools:ignore="Autofill" />
 
             <TextView
-                android:id="@+id/labelNome"
+                android:id="@+id/labelTelefone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="160dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="480dp"
                 android:layout_marginRight="5dp"
-                android:text="@string/nome"
+                android:text="@string/telefone"
                 android:textColor="#0A0404"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -109,72 +185,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/labelDataNascimento"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="240dp"
-                android:layout_marginRight="5dp"
-                android:text="@string/data_de_nascimento"
-                android:textColor="#050101"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/labelCpf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="400dp"
-                android:layout_marginRight="5dp"
-                android:text="@string/cpf"
-                android:textColor="#0F0000"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.075"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/labelEndereco"
-                android:layout_width="101dp"
-                android:layout_height="23dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="320dp"
-                android:layout_marginRight="5dp"
-                android:text="Endereço"
-                android:textColor="#090101"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.077"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/dataNascimentoTextField"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="260dp"
-                android:layout_marginRight="5dp"
-                android:ems="10"
-                android:hint="@string/dd_mm_aaaa"
-                android:inputType="date"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.241"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="Autofill" />
 
             <EditText
                 android:id="@+id/telefoneTextField"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="500dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="510dp"
                 android:layout_marginRight="5dp"
                 android:ems="10"
                 android:hint="@string/digite_seu_telefone"
@@ -186,12 +203,57 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="Autofill" />
 
+            <TextView
+                android:id="@+id/caixatxtEmailCadastro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="560dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/e_mail"
+                android:textColor="#050101"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/emailTextField"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="590dp"
+                android:layout_marginRight="5dp"
+                android:ems="10"
+                android:hint="@string/digite_seu_e_mail"
+                android:inputType="textEmailAddress"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.241"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="Autofill" />
+
+            <TextView
+                android:id="@+id/labelSenha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="640dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/digite_sua_senha"
+                android:textColor="#0F0000"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.075"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/senhaTextField"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="660dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="670dp"
                 android:layout_marginRight="5dp"
                 android:ems="10"
                 android:hint="@string/digite_sua_senha"
@@ -207,7 +269,7 @@
                 android:id="@+id/confirmarSenhaTextField"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="700dp"
                 android:layout_marginRight="5dp"
                 android:ems="10"
@@ -220,65 +282,12 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="Autofill" />
 
-            <TextView
-                android:id="@+id/labelTelefone"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="480dp"
-                android:layout_marginRight="5dp"
-                android:text="@string/telefone"
-                android:textColor="#0A0404"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.071"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/caixatxtEmailCadastro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="560dp"
-                android:layout_marginRight="5dp"
-                android:text="@string/e_mail"
-                android:textColor="#050101"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/labelSenha"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="640dp"
-                android:layout_marginRight="5dp"
-                android:text="@string/digite_sua_senha"
-                android:textColor="#0F0000"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.075"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/emailTextField"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="580dp"
-                android:layout_marginRight="5dp"
-                android:ems="10"
-                android:hint="@string/digite_seu_e_mail"
-                android:inputType="textEmailAddress"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.241"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="Autofill" />
+
+
+
 
         </RelativeLayout>
     </ScrollView>

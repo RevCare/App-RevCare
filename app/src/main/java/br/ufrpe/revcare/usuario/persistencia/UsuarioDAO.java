@@ -1,13 +1,21 @@
 package br.ufrpe.revcare.usuario.persistencia;
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
+import br.ufrpe.revcare.infra.gui.CadastroUsuario1Activity;
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_USUARIO;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_SENHA_USUARIO;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_USUARIO;
 
-public class UsuarioDAO {
+
+public class UsuarioDAO  {
 
     private DBHelper dbHelper;
 
@@ -15,7 +23,7 @@ public class UsuarioDAO {
         dbHelper = new DBHelper(context);
     }
 
-    public long cadastrarUsuario(Usuario usuario){
+    public long cadastrar(Usuario usuario){
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -27,9 +35,47 @@ public class UsuarioDAO {
         values.put(DBHelper.COL_TELEFONE_USUARIO, usuario.getTelefone());
         values.put(DBHelper.COL_SENHA_USUARIO, usuario.getSenha());
 
-        long id = db.insert(DBHelper.TABELA_USUARIO, null, values);
+        long id = db.insert(TABELA_USUARIO, null, values);
         db.close();
         return id;
 
+    }
+
+    public Usuario consultar(String email,String senha){
+        Usuario result = null;
+        String query =
+                " SELECT * " +
+                        " FROM " + TABELA_USUARIO +
+                        " WHERE " + COL_EMAIL_USUARIO + " = ? " +
+                        " AND " + COL_SENHA_USUARIO + " = ? ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{email,senha});
+        if (cursor.moveToFirst()){
+            result = criarUsuario(cursor);
+        }
+        return result;
+    }
+
+
+    public Usuario consultar(String email) {
+        Usuario result = null;
+        String query =
+                " SELECT * " +
+                        " FROM " + TABELA_USUARIO +
+                        " WHERE " + COL_EMAIL_USUARIO + " = ? ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{email});
+        if (cursor.moveToFirst()){
+            result = criarUsuario(cursor);
+        }
+        return result;
+    }
+
+    private Usuario criarUsuario(Cursor cursor) {
+        Usuario result = new Usuario();
+        result.setEmail(cursor.getString(5));
+        result.setSenha(cursor.getString(9));
+
+        return result;
     }
 }
