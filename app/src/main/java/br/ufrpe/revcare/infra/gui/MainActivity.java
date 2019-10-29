@@ -11,13 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
+
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
-
-
-
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -37,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (switchUsuarioProfissional.isChecked()) {
                     startActivity(new Intent(MainActivity.this, CadastroProfissional1Activity.class));
-<<<<<<< Updated upstream
-=======
                 } else {
                     startActivity(new Intent(MainActivity.this, CadastroUsuario1Activity.class));
                 }
@@ -52,14 +48,72 @@ public class MainActivity extends AppCompatActivity {
                 entrar(switchUsuarioProfissional, campoEmail, campoSenha);
             }
         });}
->>>>>>> Stashed changes
 
-                } else {
-                    startActivity(new Intent(MainActivity.this, CadastroUsuario1Activity.class));
+    private void entrar(Switch switchUsuarioProfissional, EditText campoEmail, EditText campoSenha) {
+        if (switchUsuarioProfissional.isChecked()) {
+            startActivity(new Intent(MainActivity.this, HomeProfissional.class));
+        } else {
 
-                }
+            entrarUsuario(campoEmail, campoSenha);
+        }
+    }
+
+    private void entrarUsuario(EditText campoEmail, EditText campoSenha) {
+        UsuarioServices services = new UsuarioServices(getBaseContext());
+        Validacao validacao = new Validacao();
+        if (validacao.isValido(campoEmail,campoSenha)){
+            String email = campoEmail.getText().toString().trim();
+            String senha = campoSenha.getText().toString().trim();
+            try {
+                services.logar(email,senha);
+                startActivity(new Intent(MainActivity.this, HomeUsuario.class));
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Email/senha incorretos.", Toast.LENGTH_LONG).show();
             }
+        }
+    }
+}
 
-        });
 
-        btnEntrar.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+
+
+
+
+
+
+//    private boolean camposValidos() {
+////        boolean result = true;
+////        email = campoEmail.getText().toString().trim();
+////
+////        View focusView = null;
+////        if (TextUtils.isEmpty(senha)) {
+////            campoSenha.setError("Preencha a senha");
+////            focusView = campoSenha;
+////            result = false;
+////        }
+////        if (TextUtils.isEmpty(email)) {
+////            campoEmail.setError("Campo obrigatorio");
+////            focusView = campoEmail;
+////            result = false;
+////        } else if (!validaEmail(email)) {
+////            campoEmail.setError("Email inválido");
+////            focusView = campoEmail;
+////            result = false;
+////        }
+////        if (!result) {
+////            focusView.requestFocus();
+////        }
+////        return result;
+////    }
+////
+////
+////    private boolean validaEmail(String email) {
+////        return (!(TextUtils.isEmpty(email)) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+////    }
+//       Validacao validacao = new Validacao();
+//       validacao.isValido(campoEmail,campoSenha);
+//}
