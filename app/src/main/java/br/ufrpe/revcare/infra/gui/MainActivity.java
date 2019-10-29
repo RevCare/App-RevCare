@@ -37,6 +37,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (switchUsuarioProfissional.isChecked()) {
                     startActivity(new Intent(MainActivity.this, CadastroProfissional1Activity.class));
+<<<<<<< Updated upstream
+=======
+                } else {
+                    startActivity(new Intent(MainActivity.this, CadastroUsuario1Activity.class));
+                }
+            }
+
+        });
+
+        btnEntrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                entrar(switchUsuarioProfissional, campoEmail, campoSenha);
+            }
+        });}
+>>>>>>> Stashed changes
 
                 } else {
                     startActivity(new Intent(MainActivity.this, CadastroUsuario1Activity.class));
