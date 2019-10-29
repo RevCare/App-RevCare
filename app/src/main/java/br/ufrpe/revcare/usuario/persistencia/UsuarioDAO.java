@@ -11,12 +11,11 @@ import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_USUARIO;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_SENHA_USUARIO;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_USUARIO;
 
 
 public class UsuarioDAO  {
-
-    private SQLiteDatabase db;
 
     private DBHelper dbHelper;
 
@@ -24,7 +23,7 @@ public class UsuarioDAO  {
         dbHelper = new DBHelper(context);
     }
 
-    public long cadastrarUsuario(Usuario usuario){
+    public long cadastrar(Usuario usuario){
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -42,6 +41,41 @@ public class UsuarioDAO  {
 
     }
 
-
-
+    public Usuario consultar(String email,String senha){
+        Usuario result = null;
+        String query =
+                " SELECT * " +
+                        " FROM " + TABELA_USUARIO +
+                        " WHERE " + COL_EMAIL_USUARIO + " = ? " +
+                        " AND " + COL_SENHA_USUARIO + " = ? ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{email,senha});
+        if (cursor.moveToFirst()){
+            result = criarUsuario(cursor);
+        }
+        return result;
     }
+
+
+    public Usuario consultar(String email) {
+        Usuario result = null;
+        String query =
+                " SELECT * " +
+                        " FROM " + TABELA_USUARIO +
+                        " WHERE " + COL_EMAIL_USUARIO + " = ? ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{email});
+        if (cursor.moveToFirst()){
+            result = criarUsuario(cursor);
+        }
+        return result;
+    }
+
+    private Usuario criarUsuario(Cursor cursor) {
+        Usuario result = new Usuario();
+        result.setEmail(cursor.getString(5));
+        result.setSenha(cursor.getString(9));
+
+        return result;
+    }
+}
