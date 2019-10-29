@@ -23,6 +23,6 @@ public class GenericDAO {
 
 
 
-class AbstractDAO {
+public class AbstractDAO {
 
 }
