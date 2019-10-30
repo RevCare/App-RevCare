@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.infra.Sessao;
+import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
@@ -52,12 +53,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void entrar(Switch switchUsuarioProfissional, EditText campoEmail, EditText campoSenha) {
         if (switchUsuarioProfissional.isChecked()) {
-            startActivity(new Intent(MainActivity.this, HomeProfissional.class));
+            entrarProfissional(campoEmail,campoSenha);
         } else {
 
             entrarUsuario(campoEmail, campoSenha);
         }
     }
+
 
     private void entrarUsuario(EditText campoEmail, EditText campoSenha) {
         UsuarioServices services = new UsuarioServices(getBaseContext());
@@ -68,6 +70,21 @@ public class MainActivity extends AppCompatActivity {
             try {
                 services.logar(email,senha);
                 startActivity(new Intent(MainActivity.this, HomeUsuario.class));
+
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Email/senha incorretos.", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+    private void entrarProfissional(EditText campoEmail, EditText campoSenha) {
+        ProfissionalServices services = new ProfissionalServices(getBaseContext());
+        Validacao validacao = new Validacao();
+        if (validacao.isValido(campoEmail,campoSenha)){
+            String email = campoEmail.getText().toString().trim();
+            String senha = campoSenha.getText().toString().trim();
+            try {
+                services.logar(email,senha);
+                startActivity(new Intent(MainActivity.this, HomeProfissional.class));
 
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Email/senha incorretos.", Toast.LENGTH_LONG).show();

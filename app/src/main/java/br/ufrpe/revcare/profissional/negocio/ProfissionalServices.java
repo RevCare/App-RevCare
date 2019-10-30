@@ -1,39 +1,36 @@
 package br.ufrpe.revcare.profissional.negocio;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-
-import java.util.ArrayList;
-
-import br.ufrpe.revcare.infra.persistencia.DBHelper;
+import java.util.Date;
+import br.ufrpe.revcare.infra.Sessao;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
+import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
-import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_PROFISSIONAL;
-import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_PROFISSIONAL;
 
 public class ProfissionalServices {
-    private DBHelper dbHelper;
-    private ArrayList<Profissional> ListaProfissonal;
+    private ProfissionalDAO dao;
 
-    public ProfissionalServices (Context context) {
-        dbHelper = new DBHelper(context);
+    public ProfissionalServices(Context context) {
+        dao = new ProfissionalDAO(context);
     }
 
-    public Profissional searchProfissonalbyEmail (String email){
-        String query = " SELECT * FROM " + TABELA_PROFISSIONAL + " WHERE " + COL_EMAIL_PROFISSIONAL + " LIKE ? ";
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query,null);
-        if (cursor.moveToFirst()){
-            Profissional profissional = new Profissional();
-            profissional.setEmail(cursor.getString(6));
-            profissional.setSenha(cursor.getString(10));
-
-            return profissional;
+    public long cadastrar(Profissional profissional) throws Exception {
+        Profissional profissionalBD = dao.consultar(profissional.getEmail());
+        if (profissionalBD != null) {
+            throw new Exception("Email já cadastrado.");
         }
-        else{
-            return null;
-        }
-
+        return dao.cadastrarProfissional(profissional);
     }
-}
+
+    public void logout() {
+        Sessao.reset();
+    }
+
+    public void logar(String email, String senha) throws Exception {
+        Profissional profissional = dao.consultar(email,senha);
+        if (profissional == null) {
+            Sessao.usuarioLogado = null;
+            throw new Exception("Usuário/senha inválidos.");
+        }
+    }
+    }
