@@ -1,8 +1,7 @@
-package br.ufrpe.revcare.infra.gui;
+package br.ufrpe.revcare.profissional.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +10,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.infra.gui.MainActivity;
+import br.ufrpe.revcare.infra.gui.Validacao;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
