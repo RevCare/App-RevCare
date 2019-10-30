@@ -167,7 +167,7 @@
                 android:layout_marginTop="530dp"
                 android:ems="10"
                 android:hint="@string/digite_seu_telefone"
-                android:inputType="textPersonName"
+                android:inputType="phone"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.254"
