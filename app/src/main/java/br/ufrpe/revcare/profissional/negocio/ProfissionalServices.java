@@ -19,7 +19,7 @@ public class ProfissionalServices {
         if (profissionalBD != null) {
             throw new Exception("Email já cadastrado.");
         }
-        return dao.cadastrarProfissional(profissional);
+        return dao.cadastrar(profissional);
     }
 
     public void logout() {

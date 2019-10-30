@@ -19,7 +19,7 @@ public class ProfissionalDAO {
         dbHelper = new DBHelper(context);
     }
 
-    public long cadastrarProfissional(Profissional profissional){
+    public long cadastrar(Profissional profissional){
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -76,7 +76,8 @@ public class ProfissionalDAO {
         result.setEndereco(cursor.getString(6));
         result.setCpf(cursor.getString(5));
         result.setEmail(cursor.getString(4));
-        result.setSenha(cursor.getString(7));
+        result.setCertificado(cursor.getString(7));
+        result.setSenha(cursor.getString(8));
 
         return result;
     }
