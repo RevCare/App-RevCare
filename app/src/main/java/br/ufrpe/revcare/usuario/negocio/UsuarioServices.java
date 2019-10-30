@@ -31,10 +31,10 @@ public class UsuarioServices {
     public void logar(String email, String senha) throws Exception {
         Usuario usuario = dao.consultar(email,senha);
         if (usuario == null) {
-            //Sessao.usuarioLogado = null;
+            Sessao.usuarioLogado = null;
             throw new Exception("Usuário/senha inválidos.");
         }
-        //Sessao.usuarioLogado = usuario;
-        //Sessao.horaLogin = new Date();
+        Sessao.usuarioLogado = usuario;
+        Sessao.horaLogin = new Date();
     }
 }

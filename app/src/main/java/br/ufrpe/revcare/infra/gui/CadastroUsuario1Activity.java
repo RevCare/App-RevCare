@@ -30,8 +30,6 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
-
             }
         });
     }
@@ -39,8 +37,6 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
     private void cadastrar() throws Exception {
         if (validarCampos()) {
             Usuario usuario = criarUsuario();
-            //UsuarioDAO dao = new UsuarioDAO(this);
-            //dao.cadastrar(usuario);
             UsuarioServices services = new UsuarioServices(getBaseContext());
             services.cadastrar(usuario);
             Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso.", Toast.LENGTH_LONG).show();
