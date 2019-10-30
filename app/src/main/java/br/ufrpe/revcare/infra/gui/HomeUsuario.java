@@ -16,18 +16,5 @@ public class HomeUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_home_usuario);
         getSupportActionBar().hide();
 
-        Button btnMais = findViewById(R.id.botaoMais);
-        btnMais.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-
-            }
-        });
-
-
-
-
     }
 }
