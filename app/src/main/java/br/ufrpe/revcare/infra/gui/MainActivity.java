@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
             String senha = campoSenha.getText().toString().trim();
             try {
                 services.logar(email,senha);
+                //O usuario está logando  e vai para a tela de profissonal
                 startActivity(new Intent(MainActivity.this, HomeUsuario.class));
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Email/senha incorretos.", Toast.LENGTH_LONG).show();
