@@ -1,4 +1,4 @@
-package br.ufrpe.revcare.profissional.gui;
+package br.ufrpe.revcare.infra.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 

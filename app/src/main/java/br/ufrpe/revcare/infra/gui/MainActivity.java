@@ -13,11 +13,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
-import br.ufrpe.revcare.profissional.gui.CadastroProfissional1Activity;
-import br.ufrpe.revcare.profissional.gui.HomeProfissional;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
-import br.ufrpe.revcare.usuario.gui.CadastroUsuario1Activity;
-import br.ufrpe.revcare.usuario.gui.HomeUsuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 

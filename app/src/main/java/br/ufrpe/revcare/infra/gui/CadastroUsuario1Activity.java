@@ -1,4 +1,6 @@
-package br.ufrpe.revcare.usuario.gui;
+package br.ufrpe.revcare.infra.gui;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import br.ufrpe.revcare.R;
-import br.ufrpe.revcare.infra.gui.MainActivity;
-import br.ufrpe.revcare.infra.gui.Validacao;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
@@ -34,7 +33,6 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
 
     private void cadastrar() {
         if (validarCampos()) {
-
             Usuario usuario = criarUsuario();
             UsuarioDAO dao = new UsuarioDAO(this);
             dao.cadastrar(usuario);
