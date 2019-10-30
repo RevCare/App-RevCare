@@ -68,53 +68,10 @@ public class MainActivity extends AppCompatActivity {
             try {
                 services.logar(email,senha);
                 startActivity(new Intent(MainActivity.this, HomeUsuario.class));
+
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Email/senha incorretos.", Toast.LENGTH_LONG).show();
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//    private boolean camposValidos() {
-////        boolean result = true;
-////        email = campoEmail.getText().toString().trim();
-////
-////        View focusView = null;
-////        if (TextUtils.isEmpty(senha)) {
-////            campoSenha.setError("Preencha a senha");
-////            focusView = campoSenha;
-////            result = false;
-////        }
-////        if (TextUtils.isEmpty(email)) {
-////            campoEmail.setError("Campo obrigatorio");
-////            focusView = campoEmail;
-////            result = false;
-////        } else if (!validaEmail(email)) {
-////            campoEmail.setError("Email inválido");
-////            focusView = campoEmail;
-////            result = false;
-////        }
-////        if (!result) {
-////            focusView.requestFocus();
-////        }
-////        return result;
-////    }
-////
-////
-////    private boolean validaEmail(String email) {
-////        return (!(TextUtils.isEmpty(email)) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
-////    }
-//       Validacao validacao = new Validacao();
-//       validacao.isValido(campoEmail,campoSenha);
-//}
