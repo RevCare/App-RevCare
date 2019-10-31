@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import br.ufrpe.revcare.R;
 
-public class CadastroServico extends AppCompatActivity {
+public class CadastroServicoActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

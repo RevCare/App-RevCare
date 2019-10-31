@@ -6,7 +6,7 @@ import java.util.Date;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 
-public class Servico {
+public class ddServico {
     private String nome;
     private long id;
     private Usuario solicitante;

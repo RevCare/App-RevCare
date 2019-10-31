@@ -2,11 +2,13 @@ package br.ufrpe.revcare.usuario.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.servico.gui.CadastroServicoActivity;
 
 public class HomeUsuario extends AppCompatActivity {
 
@@ -17,6 +19,14 @@ public class HomeUsuario extends AppCompatActivity {
         getSupportActionBar().hide();
 
         Button btnMais = findViewById(R.id.botaoMais);
+
+        btnMais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(HomeUsuario.this, CadastroServicoActivity.class));
+
+            }
+        });
 
     }
 }
