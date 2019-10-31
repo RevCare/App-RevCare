@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
+import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class CadastroProfissional1Activity extends AppCompatActivity {
@@ -30,22 +31,27 @@ public class CadastroProfissional1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_cadastro_profissional1);
-        Button botao_continuar_cadastro = findViewById(R.id.botaoFinalizarCadastro);
-        botao_continuar_cadastro.setOnClickListener(new View.OnClickListener() {
+        Button btnFinalizarCadastro = findViewById(R.id.botaoFinalizarCadastro);
+        btnFinalizarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cadastrar();
-                Toast.makeText(getApplicationContext(),"Profissional cadastrado com sucesso.", Toast.LENGTH_LONG).show();
+                try {
+                    cadastrar();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
 
         });
 
     }
-    private void cadastrar() {
+    private void cadastrar() throws Exception {
         if (validarCampos()) {
             Profissional profissional = criarProfissional();
-            ProfissionalDAO dao = new ProfissionalDAO(this);
-            dao.cadastrarProfissional(profissional);
+            ProfissionalServices services = new ProfissionalServices(getBaseContext());
+            services.cadastrar(profissional);
+            Toast.makeText(getApplicationContext(),"Profissional cadastrado com sucesso.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(CadastroProfissional1Activity.this, MainActivity.class));
         }
     }

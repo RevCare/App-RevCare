@@ -73,8 +73,14 @@ public class UsuarioDAO  {
 
     private Usuario criarUsuario(Cursor cursor) {
         Usuario result = new Usuario();
-        result.setEmail(cursor.getString(5));
-        result.setSenha(cursor.getString(9));
+        result.setId(cursor.getInt(0));
+        result.setNome(cursor.getString(1));
+        result.setTelefone(cursor.getString(3));
+        result.setDataNascimento(cursor.getString(2));
+        result.setEndereco(cursor.getString(6));
+        result.setCpf(cursor.getString(5));
+        result.setEmail(cursor.getString(4));
+        result.setSenha(cursor.getString(7));
 
         return result;
     }

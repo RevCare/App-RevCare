@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
+import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
 public class CadastroUsuario1Activity extends AppCompatActivity {
@@ -24,18 +25,21 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
         btnFinalizarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cadastrar();
-                Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso.", Toast.LENGTH_LONG).show();
-
+                try {
+                    cadastrar();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
 
-    private void cadastrar() {
+    private void cadastrar() throws Exception {
         if (validarCampos()) {
             Usuario usuario = criarUsuario();
-            UsuarioDAO dao = new UsuarioDAO(this);
-            dao.cadastrar(usuario);
+            UsuarioServices services = new UsuarioServices(getBaseContext());
+            services.cadastrar(usuario);
+            Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(CadastroUsuario1Activity.this, MainActivity.class));
         }
     }

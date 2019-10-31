@@ -13,6 +13,8 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.infra.Sessao;
+import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
@@ -33,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-            if (switchUsuarioProfissional.isChecked()) {
-                startActivity(new Intent(MainActivity.this, CadastroProfissional1Activity.class));
-            } else {
-                startActivity(new Intent(MainActivity.this, CadastroUsuario1Activity.class));
-            }
+                if (switchUsuarioProfissional.isChecked()) {
+                    startActivity(new Intent(MainActivity.this, CadastroProfissional1Activity.class));
+                } else {
+                    startActivity(new Intent(MainActivity.this, CadastroUsuario1Activity.class));
+                }
             }
 
         });
@@ -47,16 +49,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 entrar(switchUsuarioProfissional, campoEmail, campoSenha);
             }
-      });}
+        });}
 
     private void entrar(Switch switchUsuarioProfissional, EditText campoEmail, EditText campoSenha) {
         if (switchUsuarioProfissional.isChecked()) {
-            startActivity(new Intent(MainActivity.this, HomeProfissional.class));
+            entrarProfissional(campoEmail,campoSenha);
         } else {
 
             entrarUsuario(campoEmail, campoSenha);
         }
     }
+
 
     private void entrarUsuario(EditText campoEmail, EditText campoSenha) {
         UsuarioServices services = new UsuarioServices(getBaseContext());
@@ -67,53 +70,25 @@ public class MainActivity extends AppCompatActivity {
             try {
                 services.logar(email,senha);
                 startActivity(new Intent(MainActivity.this, HomeUsuario.class));
+
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Email/senha incorretos.", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+    private void entrarProfissional(EditText campoEmail, EditText campoSenha) {
+        ProfissionalServices services = new ProfissionalServices(getBaseContext());
+        Validacao validacao = new Validacao();
+        if (validacao.isValido(campoEmail,campoSenha)){
+            String email = campoEmail.getText().toString().trim();
+            String senha = campoSenha.getText().toString().trim();
+            try {
+                services.logar(email,senha);
+                startActivity(new Intent(MainActivity.this, HomeProfissional.class));
+
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Email/senha incorretos.", Toast.LENGTH_LONG).show();
             }
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//    private boolean camposValidos() {
-////        boolean result = true;
-////        email = campoEmail.getText().toString().trim();
-////
-////        View focusView = null;
-////        if (TextUtils.isEmpty(senha)) {
-////            campoSenha.setError("Preencha a senha");
-////            focusView = campoSenha;
-////            result = false;
-////        }
-////        if (TextUtils.isEmpty(email)) {
-////            campoEmail.setError("Campo obrigatorio");
-////            focusView = campoEmail;
-////            result = false;
-////        } else if (!validaEmail(email)) {
-////            campoEmail.setError("Email inválido");
-////            focusView = campoEmail;
-////            result = false;
-////        }
-////        if (!result) {
-////            focusView.requestFocus();
-////        }
-////        return result;
-////    }
-////
-////
-////    private boolean validaEmail(String email) {
-////        return (!(TextUtils.isEmpty(email)) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
-////    }
-//       Validacao validacao = new Validacao();
-//       validacao.isValido(campoEmail,campoSenha);
-//}
