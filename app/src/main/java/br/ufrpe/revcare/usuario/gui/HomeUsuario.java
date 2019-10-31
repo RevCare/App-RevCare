@@ -1,4 +1,4 @@
-package br.ufrpe.revcare.infra.gui;
+package br.ufrpe.revcare.usuario.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,8 @@ public class HomeUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_usuario);
         getSupportActionBar().hide();
+
+        Button btnMais = findViewById(R.id.botaoMais);
 
     }
 }
