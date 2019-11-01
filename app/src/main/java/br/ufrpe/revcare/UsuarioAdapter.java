@@ -19,7 +19,7 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHold
     private ArrayList<String> listTextViewDescricao = new ArrayList<>();
     private Context mContext;
 
-    public UsuarioAdapter(RecyclerViewUsuario listTextViewnomes, ArrayList<String> listTextViewDescricao, ArrayList<String> mContext) {
+    public UsuarioAdapter(Context mContext, ArrayList<String> listTextViewnomes, ArrayList<String> listTextViewDescricao) {
         this.listTextViewnomes = listTextViewnomes;
         this.listTextViewDescricao = listTextViewDescricao;
         this.mContext = mContext;
