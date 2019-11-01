@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.ufrpe.revcare">
-    <!-- To access Google+ APIs: -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".servico.gui.CadastroServicoActivity"></activity>
+        <activity android:name=".RecyclerViewUsuario"></activity>
+        <activity android:name=".usuario.gui.telaInicialUsuario" />
+        <activity android:name=".servico.gui.CadastroServicoActivity" />
         <activity android:name=".usuario.gui.HomeUsuario" />
         <activity android:name=".infra.gui.HomeProfissional" />
         <activity android:name=".infra.gui.CadastroProfissional1Activity" />
@@ -22,7 +26,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
