@@ -16,8 +16,6 @@ import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.infra.Sessao;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
-import br.ufrpe.revcare.usuario.gui.CadastroUsuario1Activity;
-import br.ufrpe.revcare.usuario.gui.HomeUsuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
