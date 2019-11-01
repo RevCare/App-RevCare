@@ -25,34 +25,34 @@ public class RecyclerViewUsuario extends AppCompatActivity {
     }
     private void initImageBitmaps(){
 
-        mDescricao.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
-        mNomes.add("Havasu Falls");
+        mDescricao.add("Descrição de teste.");
+        mNomes.add("Teste");
 
-        mDescricao.add("https://i.redd.it/tpsnoz5bzo501.jpg");
-        mNomes.add("Trondheim");
+        mDescricao.add("Descrição de teste.");
+        mNomes.add("Teste");
 
-        mDescricao.add("https://i.redd.it/qn7f9oqu7o501.jpg");
-        mNomes.add("Portugal");
+        mDescricao.add("Descrição de teste.");
+        mNomes.add("Teste");
 
-        mDescricao.add("https://i.redd.it/j6myfqglup501.jpg");
-        mNomes.add("Rocky Mountain National Park");
-
-
-        mDescricao.add("https://i.redd.it/0h2gm1ix6p501.jpg");
-        mNomes.add("Mahahual");
-
-        mDescricao.add("https://i.redd.it/k98uzl68eh501.jpg");
-        mNomes.add("Frozen Lake");
+        mDescricao.add("Descrição de teste.");
+        mNomes.add("Teste");
 
 
-        mDescricao.add("https://i.redd.it/glin0nwndo501.jpg");
-        mNomes.add("White Sands Desert");
+        mDescricao.add("Descrição de teste.");
+        mNomes.add("Teste");
 
-        mDescricao.add("https://i.redd.it/obx4zydshg601.jpg");
-        mNomes.add("Austrailia");
+        mDescricao.add("Descrição de teste.");
+        mNomes.add("Teste");
 
-        mDescricao.add("https://i.imgur.com/ZcLLrkY.jpg");
-        mNomes.add("Washington");
+
+        mDescricao.add("Descrição de teste.");
+        mNomes.add("Teste");
+
+        mDescricao.add("Descrição de teste.");
+        mNomes.add("Teste");
+
+        mDescricao.add("Descrição de teste.");
+        mNomes.add("Teste");
 
         initRecyclerView();
     }
