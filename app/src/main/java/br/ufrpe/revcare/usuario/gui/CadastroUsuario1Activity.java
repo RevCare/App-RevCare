@@ -29,7 +29,8 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
                 try {
                     cadastrar();
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Ocorreu um erro inesperado e a aplicação será cancelada.", Toast.LENGTH_LONG).show();
+
                 }
             }
         });

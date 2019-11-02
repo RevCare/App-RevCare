@@ -7,7 +7,7 @@
     tools:context=".servico.gui.CadastroServico">
 
     <EditText
-        android:id="@+id/DataTextField"
+        android:id="@+id/dataTextField"
         android:layout_width="181dp"
         android:layout_height="43dp"
         android:layout_marginTop="340dp"
@@ -93,18 +93,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/nomeTextField"
-        android:layout_width="186dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="108dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.893"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
         android:id="@+id/descricaoTextField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -137,6 +125,18 @@
         android:inputType="time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.893"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nomeServicoTextField"
+        android:layout_width="191dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="96dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
