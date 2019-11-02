@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,11 +11,10 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
-import br.ufrpe.revcare.infra.Sessao;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
-import br.ufrpe.revcare.usuario.dominio.Usuario;
+import br.ufrpe.revcare.usuario.gui.CadastroUsuario1Activity;
+import br.ufrpe.revcare.usuario.gui.HomeUsuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
-import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
 public class MainActivity extends AppCompatActivity {
     @Override

@@ -1,4 +1,4 @@
-package br.ufrpe.revcare.infra.gui;
+package br.ufrpe.revcare.usuario.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,9 +10,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.infra.gui.MainActivity;
+import br.ufrpe.revcare.infra.gui.Validacao;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
-import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
 public class CadastroUsuario1Activity extends AppCompatActivity {
     @Override
