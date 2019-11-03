@@ -11,6 +11,7 @@ import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.infra.persistencia.GenericDAO;
 import br.ufrpe.revcare.servico.dominio.Servico;
 
+import static br.ufrpe.revcare.infra.Sessao.getNomeUsuario;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_SERVICO;
 
 public class ServicoDAO {
@@ -32,8 +33,8 @@ public class ServicoDAO {
         values.put(DBHelper.COL_HORARIO_INICIAL, servico.getHorarioInicial());
         values.put(DBHelper.COL_HORARIO_FINAL, servico.getHorarioFinal());
         values.put(DBHelper.COL_DATA, servico.getData());
-//        values.put(DBHelper.COL_SOLICITANTE, servico.getSolicitante().getId());
-//        values.put(DBHelper.COL_PROFISSIONAL, servico.getProfissional().getId());
+        //values.put(DBHelper.COL_SOLICITANTE, servico.getSolicitante().getId());
+        //values.put(DBHelper.COL_PROFISSIONAL, servico.getProfissional().getId());
         long id = db.insert(TABELA_SERVICO, null, values);
         db.close();
         return id;
