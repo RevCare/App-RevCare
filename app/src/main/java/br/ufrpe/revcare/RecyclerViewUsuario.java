@@ -4,12 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.infra.gui.MainActivity;
+import br.ufrpe.revcare.servico.gui.CadastroServicoActivity;
 
 public class RecyclerViewUsuario extends AppCompatActivity {
     private ArrayList<String> mNomes = new ArrayList<>();
@@ -20,6 +25,15 @@ public class RecyclerViewUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_recycler_view_usuario);
         getSupportActionBar().hide();
         initServicos();
+        Button btnAdicionar = findViewById(R.id.botaoMais);
+        btnAdicionar.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                    startActivity(new Intent(RecyclerViewUsuario.this, CadastroServicoActivity.class));
+            }
+
+        });
 
     }
 

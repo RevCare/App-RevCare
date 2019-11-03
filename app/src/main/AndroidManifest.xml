@@ -16,6 +16,7 @@
         <activity android:name=".profissional.gui.CadastroProfissional1Activity" />
         <activity android:name=".usuario.gui.CadastroUsuario1Activity" />
         <activity android:name=".RecyclerViewUsuario"/>
+        <activity android:name=".servico.gui.CadastroServicoActivity"/>
         <activity android:name=".infra.gui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

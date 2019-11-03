@@ -41,21 +41,21 @@ tools:context=".RecyclerViewUsuario">
 
 </androidx.recyclerview.widget.RecyclerView>
 
-<Button
-    android:id="@+id/botaoMais"
-    android:layout_width="65dp"
-    android:layout_height="65dp"
-    android:layout_marginTop="380dp"
-    android:background="@drawable/button"
-    android:layout_marginLeft="270dp"
-    android:text="+"
-    android:textColor="#fff"
-    android:textSize="35sp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.929"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/botaoMais"
+        android:layout_width="61dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="270dp"
+        android:layout_marginTop="480dp"
+        android:background="@drawable/button"
+        android:text="+"
+        android:textColor="#fff"
+        android:textSize="35sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
 
 </RelativeLayout>
