@@ -1,12 +1,9 @@
 package br.ufrpe.revcare.usuario.persistencia;
-import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.Toast;
 
-import br.ufrpe.revcare.infra.gui.CadastroUsuario1Activity;
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 

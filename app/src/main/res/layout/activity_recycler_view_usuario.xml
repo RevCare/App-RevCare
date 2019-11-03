@@ -26,7 +26,7 @@ tools:context=".RecyclerViewUsuario">
     android:text="Serviços agendados"
     android:textColor="#FEF7F7F7"
     android:textSize="24sp"
-    android:layout_marginLeft="100dp"
+    android:layout_centerHorizontal="true"
     app:layout_constraintEnd_toEndOf="@+id/barra_superior"
     app:layout_constraintStart_toStartOf="@+id/barra_superior"
     app:layout_constraintTop_toTopOf="parent" />
@@ -36,6 +36,7 @@ tools:context=".RecyclerViewUsuario">
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="55dp"
+    android:layout_centerHorizontal="true"
     >
 
 </androidx.recyclerview.widget.RecyclerView>
@@ -44,9 +45,9 @@ tools:context=".RecyclerViewUsuario">
     android:id="@+id/botaoMais"
     android:layout_width="65dp"
     android:layout_height="65dp"
-    android:layout_marginTop="580dp"
+    android:layout_marginTop="380dp"
     android:background="@drawable/button"
-    android:layout_marginLeft="300dp"
+    android:layout_marginLeft="270dp"
     android:text="+"
     android:textColor="#fff"
     android:textSize="35sp"
