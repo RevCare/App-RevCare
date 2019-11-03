@@ -9,57 +9,38 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import br.ufrpe.revcare.usuario.dominio.Usuario;
+import br.ufrpe.revcare.R;
 
 public class RecyclerViewUsuario extends AppCompatActivity {
-
     private ArrayList<String> mNomes = new ArrayList<>();
     private ArrayList<String> mDescricao = new ArrayList<>();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view_usuario);
-        initImageBitmaps();
+        getSupportActionBar().hide();
+        initServicos();
+
     }
-    private void initImageBitmaps(){
 
-        mDescricao.add("Descrição de teste.");
-        mNomes.add("Teste");
+    private void initServicos(){
+        mNomes.add("Levar ao médico");
+        mDescricao.add("Preciso de um acompanhante para me levar ao médico no bairro de Casa amarela ás 15:00");
 
-        mDescricao.add("Descrição de teste.");
-        mNomes.add("Teste");
-
-        mDescricao.add("Descrição de teste.");
-        mNomes.add("Teste");
-
-        mDescricao.add("Descrição de teste.");
-        mNomes.add("Teste");
-
-
-        mDescricao.add("Descrição de teste.");
-        mNomes.add("Teste");
-
-        mDescricao.add("Descrição de teste.");
-        mNomes.add("Teste");
-
-
-        mDescricao.add("Descrição de teste.");
-        mNomes.add("Teste");
-
-        mDescricao.add("Descrição de teste.");
-        mNomes.add("Teste");
-
-        mDescricao.add("Descrição de teste.");
-        mNomes.add("Teste");
+        mNomes.add("Passar a tarde");
+        mDescricao.add("Preciso de um cuidador para ficar com a minha vó de 13:00 até as 18:00");
+        mNomes.add("Passar a tarde");
+        mDescricao.add("Preciso de um cuidador para ficar com a minha vó de 13:00 até as 18:00");
+        mNomes.add("Passar a tarde");
+        mDescricao.add("Preciso de um cuidador para ficar com a minha vó de 13:00 até as 18:00");
 
         initRecyclerView();
+
     }
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.usuariorecylcer);
-        UsuarioAdapter adapter = new UsuarioAdapter(this, mNomes, mDescricao);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mDescricao);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

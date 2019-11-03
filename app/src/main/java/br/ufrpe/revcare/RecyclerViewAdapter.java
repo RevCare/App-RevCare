@@ -1,6 +1,7 @@
 package br.ufrpe.revcare;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +13,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHolder>{
-    private static final String TAG = "UsuarioAdapter";
+import br.ufrpe.revcare.R;
 
-    private ArrayList<String> listTextViewnomes = new ArrayList<>();
-    private ArrayList<String> listTextViewDescricao = new ArrayList<>();
+public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+    private ArrayList<String> mNome = new ArrayList<>();
+    private ArrayList<String> mDescricao = new ArrayList<>();
     private Context mContext;
 
-    public UsuarioAdapter(Context mContext, ArrayList<String> listTextViewnomes, ArrayList<String> listTextViewDescricao) {
-        this.listTextViewnomes = listTextViewnomes;
-        this.listTextViewDescricao = listTextViewDescricao;
-        this.mContext = mContext;
+    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> descricao ) {
+        this.mNome = nome;
+        this.mDescricao = descricao;
+        this.mContext = context;
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -35,25 +35,29 @@ public class UsuarioAdapter extends RecyclerView.Adapter<UsuarioAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-    holder.textViewNome.setText(listTextViewnomes.get(position));
-    holder.textViewDescricao.setText(listTextViewDescricao.get(position));
+        holder.nome.setText(mNome.get(position));
+        holder.descricao.setText(mDescricao.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return listTextViewnomes.size();
+        return mNome.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-
-        TextView textViewNome;
-        TextView textViewDescricao;
+        TextView nome;
+        TextView descricao;
         RelativeLayout parentLayout;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewNome = itemView.findViewById(R.id.nome);
-            textViewDescricao = itemView.findViewById(R.id.descricao);
+            nome = itemView.findViewById(R.id.nome);
+            descricao = itemView.findViewById(R.id.descricao);
             parentLayout = itemView.findViewById(R.id.parent_layout);
+
+
+
         }
     }
 }
+
