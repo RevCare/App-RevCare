@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".infra.gui.CadastroProfissional1Activity">
+    tools:context=".infra.gui.CadastroProfissionalActivity">
 
     <ScrollView
         android:id="@+id/scrollView"

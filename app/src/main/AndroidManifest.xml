@@ -12,8 +12,8 @@
         <activity android:name=".servico.gui.CadastroServico"></activity>
         <activity android:name=".usuario.gui.HomeUsuario" />
         <activity android:name=".infra.gui.HomeProfissional" />
-        <activity android:name=".infra.gui.CadastroProfissional1Activity" />
-        <activity android:name=".usuario.gui.CadastroUsuario1Activity" />
+        <activity android:name=".infra.gui.CadastroProfissionalActivity" />
+        <activity android:name=".usuario.gui.CadastroUsuarioActivity" />
         <activity android:name=".infra.gui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

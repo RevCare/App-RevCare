@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
-import br.ufrpe.revcare.usuario.gui.CadastroUsuario1Activity;
+import br.ufrpe.revcare.usuario.gui.CadastroUsuarioActivity;
 import br.ufrpe.revcare.usuario.gui.HomeUsuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 
@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (switchUsuarioProfissional.isChecked()) {
-                    startActivity(new Intent(MainActivity.this, CadastroProfissional1Activity.class));
+                    startActivity(new Intent(MainActivity.this, CadastroProfissionalActivity.class));
                 } else {
-                    startActivity(new Intent(MainActivity.this, CadastroUsuario1Activity.class));
+                    startActivity(new Intent(MainActivity.this, CadastroUsuarioActivity.class));
                 }
             }
 

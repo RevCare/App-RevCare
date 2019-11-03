@@ -2,7 +2,6 @@ package br.ufrpe.revcare.infra.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,9 +12,8 @@ import android.widget.Toast;
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
-import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
-public class CadastroProfissional1Activity extends AppCompatActivity {
+public class CadastroProfissionalActivity extends AppCompatActivity {
     private EditText nNome;
     private EditText nDataNascimento;
     private EditText nEndereco;
@@ -30,7 +28,7 @@ public class CadastroProfissional1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_cadastro_profissional1);
+        setContentView(R.layout.activity_cadastro_profissional);
         Button btnFinalizarCadastro = findViewById(R.id.botaoFinalizarCadastro);
         btnFinalizarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +50,7 @@ public class CadastroProfissional1Activity extends AppCompatActivity {
             ProfissionalServices services = new ProfissionalServices(getBaseContext());
             services.cadastrar(profissional);
             Toast.makeText(getApplicationContext(),"Profissional cadastrado com sucesso.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(CadastroProfissional1Activity.this, MainActivity.class));
+            startActivity(new Intent(CadastroProfissionalActivity.this, MainActivity.class));
         }
     }
 
