@@ -15,7 +15,7 @@ import br.ufrpe.revcare.infra.gui.Validacao;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 
-public class CadastroUsuario1Activity extends AppCompatActivity {
+public class CadastroUsuarioActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,7 @@ public class CadastroUsuario1Activity extends AppCompatActivity {
             UsuarioServices services = new UsuarioServices(getBaseContext());
             services.cadastrar(usuario);
             Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(CadastroUsuario1Activity.this, MainActivity.class));
+            startActivity(new Intent(CadastroUsuarioActivity.this, MainActivity.class));
         }
     }
 

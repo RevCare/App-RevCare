@@ -15,7 +15,7 @@ import br.ufrpe.revcare.infra.gui.Validacao;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
 
-public class CadastroProfissional1Activity extends AppCompatActivity {
+public class CadastroProfissionalActivity extends AppCompatActivity {
     private EditText nNome;
     private EditText nDataNascimento;
     private EditText nEndereco;
@@ -52,7 +52,7 @@ public class CadastroProfissional1Activity extends AppCompatActivity {
             ProfissionalServices services = new ProfissionalServices(getBaseContext());
             services.cadastrar(profissional);
             Toast.makeText(getApplicationContext(),"Profissional cadastrado com sucesso.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(CadastroProfissional1Activity.this, MainActivity.class));
+            startActivity(new Intent(CadastroProfissionalActivity.this, MainActivity.class));
         }
     }
 
