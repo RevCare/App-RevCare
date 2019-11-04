@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,11 +11,12 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
-import br.ufrpe.revcare.infra.Sessao;
+import br.ufrpe.revcare.usuario.gui.RecyclerViewUsuario;
+import br.ufrpe.revcare.profissional.gui.CadastroProfissionalActivity;
+import br.ufrpe.revcare.profissional.gui.HomeProfissional;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
-import br.ufrpe.revcare.usuario.dominio.Usuario;
+import br.ufrpe.revcare.usuario.gui.CadastroUsuarioActivity;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
-import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -36,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (switchUsuarioProfissional.isChecked()) {
-                    startActivity(new Intent(MainActivity.this, CadastroProfissional1Activity.class));
+                    startActivity(new Intent(MainActivity.this, CadastroProfissionalActivity.class));
                 } else {
-                    startActivity(new Intent(MainActivity.this, CadastroUsuario1Activity.class));
+                    startActivity(new Intent(MainActivity.this, CadastroUsuarioActivity.class));
                 }
             }
 
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             String senha = campoSenha.getText().toString().trim();
             try {
                 services.logar(email,senha);
-                startActivity(new Intent(MainActivity.this, HomeUsuario.class));
+                startActivity(new Intent(MainActivity.this, RecyclerViewUsuario.class));
 
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Email/senha incorretos.", Toast.LENGTH_LONG).show();
