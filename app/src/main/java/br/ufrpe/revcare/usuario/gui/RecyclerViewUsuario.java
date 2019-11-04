@@ -1,4 +1,4 @@
-package br.ufrpe.revcare;
+package br.ufrpe.revcare.usuario.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,14 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
 
 import br.ufrpe.revcare.R;
-import br.ufrpe.revcare.infra.gui.MainActivity;
 import br.ufrpe.revcare.servico.gui.CadastroServicoActivity;
 
 public class RecyclerViewUsuario extends AppCompatActivity {

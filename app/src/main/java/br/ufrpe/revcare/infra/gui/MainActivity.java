@@ -11,7 +11,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
-import br.ufrpe.revcare.RecyclerViewUsuario;
+import br.ufrpe.revcare.usuario.gui.RecyclerViewUsuario;
 import br.ufrpe.revcare.profissional.gui.CadastroProfissional1Activity;
 import br.ufrpe.revcare.profissional.gui.HomeProfissional;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;

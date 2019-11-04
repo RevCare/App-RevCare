@@ -1,4 +1,4 @@
 package br.ufrpe.revcare.infra.negocio;
 
-public class teste {
+public class Negocio {
 }
