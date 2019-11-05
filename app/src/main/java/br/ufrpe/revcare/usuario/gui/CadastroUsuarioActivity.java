@@ -20,7 +20,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_cadastro_usuario1);
+        setContentView(R.layout.activity_cadastro_usuario);
 
         Button btnFinalizarCadastro = findViewById(R.id.botaoFinalizarCadastro);
         btnFinalizarCadastro.setOnClickListener(new View.OnClickListener() {

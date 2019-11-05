@@ -30,7 +30,7 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_cadastro_profissional1);
+        setContentView(R.layout.activity_cadastro_profissional);
         Button btnFinalizarCadastro = findViewById(R.id.botaoFinalizarCadastro);
         btnFinalizarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
