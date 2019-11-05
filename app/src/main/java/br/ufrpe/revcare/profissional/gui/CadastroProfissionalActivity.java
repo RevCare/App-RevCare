@@ -14,6 +14,7 @@ import br.ufrpe.revcare.infra.gui.MainActivity;
 import br.ufrpe.revcare.infra.gui.Validacao;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
+import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class CadastroProfissionalActivity extends AppCompatActivity {
     private EditText nNome;
@@ -47,7 +48,7 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
 
     }
     private void cadastrar() throws Exception {
-        if (validarCampos()) {
+        if (validarCampos() && confirmaEmail()) {
             Profissional profissional = criarProfissional();
             ProfissionalServices services = new ProfissionalServices(getBaseContext());
             services.cadastrar(profissional);
@@ -80,6 +81,20 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"Senhas diferentes", Toast.LENGTH_LONG).show();
         }
         return result;
+    }
+    private  boolean confirmaEmail(){
+        Profissional result = null;
+        ProfissionalDAO dao = new ProfissionalDAO(this);
+        EditText nEmail = findViewById(R.id.emailTextField);
+        String email = nEmail.getText().toString().trim();
+        result = dao.consultar(email);
+        if (result != null){
+            nEmail.requestFocus();
+            nEmail.setError("Preencha novamente o campo.");
+            Toast.makeText(getApplicationContext(), "Não foi possível realizar o cadastro.", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
     private Profissional criarProfissional() {

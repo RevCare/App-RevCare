@@ -81,7 +81,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         result = dao.consultar(email);
         if (result != null){
             nEmail.requestFocus();
-            nEmail.setError("Preencha novamente o Campo.");
+            nEmail.setError("Preencha novamente o campo.");
             Toast.makeText(getApplicationContext(), "Não foi possível realizar o cadastro.", Toast.LENGTH_LONG).show();
             return false;
         }
