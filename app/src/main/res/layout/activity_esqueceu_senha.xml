@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".infra.gui.EsqueceuSenha">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/barra_superior"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#AF0D25"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+    <TextView
+        android:id="@+id/txtServicosAgendados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Esqueceu a senha"
+        android:textColor="#FEF7F7F7"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintEnd_toEndOf="@+id/barra_superior"
+        app:layout_constraintStart_toStartOf="@+id/barra_superior"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/esqueciasenha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:text="Que pena, né?"
+        android:textSize="44sp"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintEnd_toEndOf="@+id/barra_superior"
+        app:layout_constraintStart_toStartOf="@+id/barra_superior"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

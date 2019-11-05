@@ -37,4 +37,5 @@ public class UsuarioServices {
         Sessao.usuarioLogado = usuario;
         Sessao.horaLogin = new Date();
     }
+
 }

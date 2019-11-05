@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.ufrpe.revcare">
-
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".infra.gui.EsqueceuSenha"></activity>
         <activity android:name=".profissional.gui.HomeProfissional" />
         <activity android:name=".profissional.gui.CadastroProfissionalActivity" />
         <activity android:name=".usuario.gui.CadastroUsuarioActivity" />
-        <activity android:name=".usuario.gui.RecyclerViewUsuario"/>
+        <activity android:name=".usuario.gui.RecyclerViewUsuario" />
         <activity android:name=".infra.gui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
