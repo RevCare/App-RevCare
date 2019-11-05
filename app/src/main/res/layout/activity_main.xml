@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#fff"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".infra.gui.MainActivity">
@@ -99,16 +100,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="280dp"
-        android:text="Profissonal"
+        android:text="Profissional"
         android:textColor="#0A0404"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-
-
-
-
         app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/esqueceuSenha"
+        android:layout_width="215dp"
+        android:layout_height="43dp"
+        android:background="#fff"
+        android:layout_marginTop="496dp"
+        android:text="Esqueceu sua senha?"
+        style="?android:attr/borderlessButtonStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
