@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "revcare.bd";
-    private static final int DB_VERSION = 7;
+    private static final int DB_VERSION = 14;
 
 
     public static final String TABELA_USUARIO = "Tabela_Usuario";
@@ -19,8 +19,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_CPF_USUARIO = "cpf";
     public static final String COL_SENHA_USUARIO = "senha";
     public static final String COL_ENDERECO_USUARIO = "endereco";
-    public static final boolean COL_EXCLUIDO_USUARIO = false;
-
 
     public static final String TABELA_PROFISSIONAL = "Tabela_Profissional";
     public static final String COL_ID_PROFISSIONAL = "id";
@@ -32,25 +30,19 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_CERTIFICADO = "certificado";
     public static final String COL_SENHA_PROFISSIONAL = "senha";
     public static final String COL_ENDERECO_PROFISSIONAL = "endereco";
-    public static final boolean COL_EXCLUIDO_PROFISSIONAL = false;
 
 
-    public static final String TABELA_SERVICO = "Tabela_Servico";
-    public static final String COL_ID_SERVICO = "id";
-    public static final String COL_NOME_SERVICO = "nome";
-    public static final String COL_SOLICITANTE = "id_solicitante";
-    public static final String COL_PROFISSIONAL = "id_profissional";
-    public static final String COL_HORARIO_INICIAL = "horario_inicial";
-    public static final String COL_HORARIO_FINAL = "horario_final";
-    public static final String COL_DATA = "data";
-    public static final Integer COL_ESTADO = 0;
-
+    public static final String TABELA_RELACAO = "Tabela_Relacao";
+    public static final String COL_ID_RELACAO = "id_relacao";
+    public static final String COL_ID_USUARIO_RELACAO = "id_user_relacao";
+    public static final String COL_ID_PROFISSIONAL_RELACAO = "id_prof_relacao";
+    public static final String COL_NOTA = "nota";
 
     private static final String SQL_CREATE_TABLE = "CREATE TABLE %1$s ";
     private static final String SQL_INTEGER_AUTOINCREMENT = "  %2$s INTEGER PRIMARY KEY AUTOINCREMENT, ";
     private static final String[] TABELAS = {
             TABELA_PROFISSIONAL, TABELA_USUARIO,
-            TABELA_SERVICO
+            TABELA_RELACAO
     };
 
 
@@ -62,7 +54,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         createTableUsuario(db);
         createTableProfissional(db);
-        createTableServicos(db);
+        createTableRelacao(db);
     }
 
     private void createTableUsuario(SQLiteDatabase db) {
@@ -103,23 +95,17 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(sqlTbProfissional);
     }
 
-    private void createTableServicos(SQLiteDatabase db){
-        String sqlTbServicos = SQL_CREATE_TABLE + "( " +
+    private void createTableRelacao(SQLiteDatabase db){
+        String sqlTbRelacao = SQL_CREATE_TABLE + "( " +
                 SQL_INTEGER_AUTOINCREMENT +
                 " %3$s TEXT NOT NULL, " +
                 " %4$s TEXT NOT NULL, " +
-                " %5$s TEXT NOT NULL, " +
-                " %6$s TEXT NOT NULL, " +
-                " %7$s TEXT NOT NULL, " +
-                " %8$s TEXT NOT NULL, " +
-                " %9$s TEXT NOT NULL " +
-                " %10$s INTEGER NOT NULL " +
+                " %5$s TEXT NOT NULL " +
                 ");";
-        sqlTbServicos = String.format(sqlTbServicos,
-                TABELA_SERVICO, COL_ID_SERVICO, COL_NOME_SERVICO, COL_SOLICITANTE,
-                COL_PROFISSIONAL, COL_HORARIO_INICIAL,
-                COL_HORARIO_FINAL, COL_DATA);
-        db.execSQL(sqlTbServicos);
+        sqlTbRelacao = String.format(sqlTbRelacao,
+                TABELA_RELACAO, COL_ID_RELACAO, COL_ID_USUARIO_RELACAO, COL_ID_PROFISSIONAL_RELACAO,
+                COL_NOTA);
+        db.execSQL(sqlTbRelacao);
 
     }
 

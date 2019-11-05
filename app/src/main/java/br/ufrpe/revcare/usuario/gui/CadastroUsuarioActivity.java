@@ -77,7 +77,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         Usuario result = null;
         UsuarioDAO dao = new UsuarioDAO(this);
         EditText nEmail = findViewById(R.id.emailTextField);
-        String email=nEmail.getText().toString().trim();
+        String email = nEmail.getText().toString().trim();
         result = dao.consultar(email);
         if (result != null){
             nEmail.requestFocus();
