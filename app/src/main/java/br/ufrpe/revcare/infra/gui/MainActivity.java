@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
         Button btnEntrar = findViewById(R.id.botaoEntrar);
+        Button btnEsqueceuSenha = findViewById(R.id.esqueceuSenha);
         Button btnCadastrar = findViewById(R.id.botaoCadastro);
         final Switch switchUsuarioProfissional = findViewById(R.id.switchUsuarioProfissional);
         final EditText campoEmail = findViewById(R.id.caixatxtEmailLogin);
@@ -42,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+        btnEsqueceuSenha.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, EsqueceuSenha.class));
+            }
+
+        });
+
 
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override

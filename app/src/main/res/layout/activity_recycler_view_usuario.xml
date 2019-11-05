@@ -44,7 +44,7 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
     <Button
         android:id="@+id/botaoMais"
         android:layout_width="61dp"
-        android:layout_height="50dp"
+        android:layout_height="61dp"
         android:layout_marginLeft="270dp"
         android:layout_marginTop="480dp"
         android:background="@drawable/button"

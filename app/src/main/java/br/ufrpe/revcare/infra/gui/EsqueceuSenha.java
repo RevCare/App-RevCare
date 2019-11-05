@@ -1,4 +1,4 @@
-package br.ufrpe.revcare.servico.gui;
+package br.ufrpe.revcare.infra.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,13 +6,12 @@ import android.os.Bundle;
 
 import br.ufrpe.revcare.R;
 
-public class CadastroServicoActivity extends AppCompatActivity {
+public class EsqueceuSenha extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastro_servico);
         getSupportActionBar().hide();
-
+        setContentView(R.layout.activity_esqueceu_senha);
     }
 }
