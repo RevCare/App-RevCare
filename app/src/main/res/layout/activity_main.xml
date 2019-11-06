@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
         android:ems="10"
-        android:hint="Digite seu e-mail"
+        android:hint="Digite seu E-mail"
         android:inputType="textEmailAddress"
         android:textColor="#0E0606"
         app:layout_constraintEnd_toEndOf="@+id/caixatxtSenhaLogin"
@@ -81,7 +81,17 @@
         android:text="Cliente"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.31"
+        app:layout_constraintHorizontal_bias="0.344"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lableEsqueceuSenha"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="396dp"
+        android:text="Ainda não tem uma conta?"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -94,7 +104,7 @@
         android:textColor="#0A0404"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintHorizontal_bias="0.769"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -111,6 +121,3 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
