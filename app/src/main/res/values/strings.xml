@@ -27,4 +27,18 @@
     <string name="servi_os_agendados">Serviços agendados</string>
     <string name="lupa">Lupa</string>
     <string name="mais_button">+</string>
+    <string name="nome_do_profissional">Nome do profissional</string>
+
+    <string-array name="estados">
+        <item>Pernambuco</item>
+        <item>Paraíba</item>
+        <item>Ceará</item>
+    </string-array>
+
+    <string-array name="cidadesPE">
+        <item>Recife</item>
+        <item>Olinda</item>
+        <item>Paulista</item>
+        <item>Abreu e Lima</item>
+    </string-array>
 </resources>

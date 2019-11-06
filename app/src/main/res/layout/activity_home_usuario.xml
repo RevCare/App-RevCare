@@ -4,67 +4,212 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".infra.gui.HomeUsuario">
+    tools:context=".profissional.gui.HomeProfissional">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/barra_superior"
-        android:layout_width="match_parent"
+        android:id="@+id/barra_superior2"
+        android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:background="#AF0D25"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        tools:ignore="MissingConstraints" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image"
+        android:layout_width="101dp"
+        android:layout_height="74dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        />
 
     <TextView
-        android:id="@+id/txtServicosAgendados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/servi_os_agendados"
-        android:textColor="#FEF7F7F7"
+        android:id="@+id/nomeprofissional"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="156dp"
+        android:layout_toEndOf="@+id/image"
+        android:text="Shawn Mendes"
+        android:textAlignment="center"
+        android:textColor="#000"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/barra_superior"
-        app:layout_constraintStart_toStartOf="@+id/barra_superior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/lupa"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="#008F8497"
-        app:layout_constraintEnd_toEndOf="@+id/barra_superior"
-        app:layout_constraintHorizontal_bias="1.0"
+    <TextView
+        android:id="@+id/decricaoprofissional"
+        android:layout_width="398dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="212dp"
+        android:background="#80CACACA"
+        android:text="Descrição do cliente"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_search_category_default"
-        android:contentDescription="@string/lupa" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="672dp"
-        android:background="#cecece"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barra_superior"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="36dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/botaoMais"
-        android:layout_width="76dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="460dp"
-        android:background="@drawable/button"
-        android:text="@string/mais_button"
-        android:textColor="#fff"
-        android:textSize="35sp"
+        android:id="@+id/botao_procurar_profissional"
+        android:layout_width="341dp"
+        android:layout_height="43dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="552dp"
+        android:background="#AF0D25"
+        android:text="Procurar Profissional"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.929"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cpf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="484dp"
+        android:text="000.000.000-00"
+        android:textColor="#DD000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/telefone_profissional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="428dp"
+        android:text="Telefone:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.017"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/qtt_visitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:text="0"
+        android:textColor="#DD000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/endereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="456dp"
+        android:text="Rua exemplo"
+        android:textColor="#DD000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblCPF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="484dp"
+        android:text="CPF:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.018"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="512dp"
+        android:text="email@emal.com"
+        android:textColor="#DD000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/botao_att_perfil"
+        android:layout_width="341dp"
+        android:layout_height="43dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="604dp"
+        android:background="#AF0D25"
+        android:text="Atualizar Perfil"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="512dp"
+        android:text="Email:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="428dp"
+        android:text="(00) 90000-0000"
+        android:textColor="#DD000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblVisitas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:text="Idade:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblEndereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="456dp"
+        android:text="Endereço:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.02"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
