@@ -11,6 +11,7 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.usuario.gui.HomeUsuario;
 import br.ufrpe.revcare.usuario.gui.RecyclerViewUsuario;
 import br.ufrpe.revcare.profissional.gui.CadastroProfissionalActivity;
 import br.ufrpe.revcare.profissional.gui.HomeProfissional;
@@ -78,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
             String senha = campoSenha.getText().toString().trim();
             try {
                 services.logar(email,senha);
-                startActivity(new Intent(MainActivity.this, RecyclerViewUsuario.class));
+                startActivity(new Intent(MainActivity.this, HomeUsuario.class));
 
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Email/senha incorretos.", Toast.LENGTH_LONG).show();

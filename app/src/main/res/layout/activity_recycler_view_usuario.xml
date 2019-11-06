@@ -19,43 +19,62 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
 
 
 <TextView
-    android:id="@+id/txtServicosAgendados"
+    android:id="@+id/txtProcurarProfissionais"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
-    android:text="Serviços agendados"
+    android:text="Procurar Profissionais"
     android:textColor="#FEF7F7F7"
     android:textSize="24sp"
     android:layout_centerHorizontal="true"
     app:layout_constraintEnd_toEndOf="@+id/barra_superior"
     app:layout_constraintStart_toStartOf="@+id/barra_superior"
     app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="160dp"
+        android:layout_height="20dp"
+        android:text="Escolha uma cidade"
+        android:textSize="18dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_toRightOf="@+id/escolha_estado" />
+    <TextView
+        android:id="@+id/escolha_estado"
+        android:layout_width="160dp"
+        android:layout_height="20dp"
+        android:text="Escolha um estado"
+        android:textSize="18dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="70dp"/>
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="90dp" />
 
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/usuariorecylcer"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="55dp"
-    android:layout_centerHorizontal="true"
-    >
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="125dp"
+        android:background="@android:color/darker_gray"
+        android:focusable="false" />
 
-</androidx.recyclerview.widget.RecyclerView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/usuariorecylcer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp">
 
-    <Button
-        android:id="@+id/botaoMais"
-        android:layout_width="61dp"
-        android:layout_height="61dp"
-        android:layout_marginLeft="270dp"
-        android:layout_marginTop="480dp"
-        android:background="@drawable/button"
-        android:text="+"
-        android:textColor="#fff"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.929"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="90dp"
+        android:layout_toRightOf="@+id/spinner" />
 
 
 </RelativeLayout>
