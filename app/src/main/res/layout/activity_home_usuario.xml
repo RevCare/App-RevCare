@@ -28,7 +28,7 @@
         />
 
     <TextView
-        android:id="@+id/nomeUsuario"
+        android:id="@+id/nomeUsuarioHome"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_centerVertical="true"
@@ -44,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/decricaoUsuario"
+        android:id="@+id/decricaoUsuarioHome"
         android:layout_width="398dp"
         android:layout_height="180dp"
         android:background="#80CACACA"
@@ -69,7 +69,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/cpf"
+        android:id="@+id/cpfUsuarioHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="484dp"
@@ -82,7 +82,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/telefone_profissional"
+        android:id="@+id/lblTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="428dp"
@@ -108,7 +108,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/endereco"
+        android:id="@+id/enderecoUsuarioHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="456dp"
@@ -134,10 +134,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/emailUsuarioHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="512dp"
-        android:text="email@emal.com"
+        android:text="email@email.com"
         android:textColor="#DD000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -172,7 +173,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/telefone"
+        android:id="@+id/telefoneUsuarioHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="428dp"

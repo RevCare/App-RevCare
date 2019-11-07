@@ -4,7 +4,6 @@ import android.content.Context;
 
 import java.util.Date;
 
-import br.ufrpe.revcare.infra.SessaoProfissional;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
@@ -25,17 +24,17 @@ public class UsuarioServices {
     }
 
     public void logout() {
-        SessaoProfissional.reset();
+        SessaoUsuario.reset();
     }
 
     public void logar(String email, String senha) throws Exception {
         Usuario usuario = dao.consultar(email,senha);
         if (usuario == null) {
-            SessaoProfissional.profissionalLogado = null;
+            SessaoUsuario.usuarioLogado = null;
             throw new Exception("Usuário/senha inválidos.");
         }
-        SessaoProfissional.profissionalLogado = usuario;
-        SessaoProfissional.horaLogin = new Date();
+        SessaoUsuario.usuarioLogado = usuario;
+        SessaoUsuario.horaLogin = new Date();
     }
 
 }

@@ -1,4 +1,4 @@
-package br.ufrpe.revcare.infra;
+package br.ufrpe.revcare.profissional.negocio;
 
 import java.util.Date;
 
@@ -8,7 +8,7 @@ public class SessaoProfissional {
     public static Profissional profissionalLogado;
     public static Date horaLogin;
 
-    public static Profissional getUsuario() {
+    public static Profissional getProfissional() {
         return profissionalLogado;
     }
 
