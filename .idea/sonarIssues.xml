@@ -73,6 +73,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/br/ufrpe/revcare/usuario/gui/HomeUsuario.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/br/ufrpe/revcare/usuario/negocio/SessaoUsuario.java">
           <value>
             <set />

@@ -32,9 +32,10 @@ public class UsuarioServices {
         if (usuario == null) {
             SessaoUsuario.usuarioLogado = null;
             throw new Exception("Usuário/senha inválidos.");
+        }else {
+            SessaoUsuario.usuarioLogado = usuario;
+            SessaoUsuario.horaLogin = new Date();
         }
-        SessaoUsuario.usuarioLogado = usuario;
-        SessaoUsuario.horaLogin = new Date();
     }
 
 }

@@ -2,6 +2,8 @@ package br.ufrpe.revcare.profissional.negocio;
 
 import android.content.Context;
 
+import java.util.Date;
+
 import br.ufrpe.revcare.usuario.negocio.SessaoUsuario;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
@@ -33,6 +35,7 @@ public class ProfissionalServices {
             throw new Exception("Usuário/senha inválidos.");
         }else{
             SessaoProfissional.profissionalLogado = profissional;
+            SessaoProfissional.horaLogin = new Date();
             }
     }
     }
