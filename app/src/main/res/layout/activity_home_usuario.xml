@@ -47,16 +47,13 @@
         android:id="@+id/decricaoUsuario"
         android:layout_width="398dp"
         android:layout_height="180dp"
-        android:layout_marginTop="212dp"
         android:background="#80CACACA"
         android:text="Descrição do cliente"
         android:layout_centerHorizontal="true"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="7dp"
+        tools:layout_editor_absoluteY="213dp"  />
 
     <Button
         android:id="@+id/botao_procurar_usuario"
