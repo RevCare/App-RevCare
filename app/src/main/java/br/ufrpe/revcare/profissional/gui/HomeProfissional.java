@@ -2,7 +2,10 @@ package br.ufrpe.revcare.profissional.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import br.ufrpe.revcare.R;
@@ -17,6 +20,17 @@ public class HomeProfissional extends AppCompatActivity {
         setContentView(R.layout.activity_home_profissional);
         getSupportActionBar().hide();
         preencheTela(SessaoProfissional.getProfissional());
+        Button buttonAtulualizarperfil = findViewById(R.id.botao_att_perfil);
+
+        buttonAtulualizarperfil.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(HomeProfissional.this, AtualizarCadastroProfissional.class));
+            }
+        });
+
 
     }
     public void preencheTela(Profissional profissional){
@@ -30,6 +44,6 @@ public class HomeProfissional extends AppCompatActivity {
         cpf.setText(profissional.getCpf());
         telefone.setText(profissional.getTelefone());
         email.setText(profissional.getEmail());
-        descricao.setText(profissional.getEndereco());
+        descricao.setText(profissional.getDescricao());
     }
 }

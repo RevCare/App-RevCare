@@ -16,7 +16,7 @@ import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.negocio.UsuarioServices;
 import br.ufrpe.revcare.usuario.persistencia.UsuarioDAO;
 
-public class CadastroUsuarioActivity extends AppCompatActivity {
+public class CadastroUsuario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +42,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             UsuarioServices services = new UsuarioServices(getBaseContext());
             services.cadastrar(usuario);
             Toast.makeText(getApplicationContext(), "Usuário cadastrado com sucesso.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(CadastroUsuarioActivity.this, MainActivity.class));
+            startActivity(new Intent(CadastroUsuario.this, MainActivity.class));
         }
 
     }
@@ -59,20 +59,11 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
         Validacao valido = new Validacao();
         boolean camposValidos =
                 valido.isValido(nNome, nDataNascimento, nCpf, nEndereco, nTelefone, nEmail, nSenha, nConfirmarSenha);
-        return camposValidos && confirmarSenha();
+        boolean senhasValidas =
+                valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString());
+        return camposValidos && senhasValidas;
     }
 
-    private boolean confirmarSenha() {
-        boolean result = true;
-        EditText nSenha = findViewById(R.id.senhaTextField);
-        EditText nConfirmarSenha = findViewById(R.id.confirmarSenhaTextField);
-        if (!nSenha.getText().toString().equals(nConfirmarSenha.getText().toString())) {
-            result = false;
-            Toast.makeText(getApplicationContext(), "Senhas diferentes", Toast.LENGTH_LONG).show();
-        }
-        return result;
-
-    }
     private  boolean confirmaEmail(){
         Usuario result = null;
         UsuarioDAO dao = new UsuarioDAO(this);

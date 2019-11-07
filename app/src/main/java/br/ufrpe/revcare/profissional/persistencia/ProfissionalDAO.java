@@ -26,7 +26,7 @@ public class ProfissionalDAO {
         values.put(DBHelper.COL_NOME_PROFISSIONAL, profissional.getNome());
         values.put(DBHelper.COL_CPF_PROFISSIONAL, profissional.getCpf());
         values.put(DBHelper.COL_NASCIMENTO_PROFISSIONAL, profissional.getDataNascimento());
-        values.put(DBHelper.COL_ENDERECO_PROFISSIONAL, profissional.getEndereco());
+        values.put(DBHelper.COL_ENDERECO_PROFISSIONAL, profissional.getDescricao());
         values.put(COL_EMAIL_PROFISSIONAL, profissional.getEmail());
         values.put(DBHelper.COL_TELEFONE_PROFISSIONAL, profissional.getTelefone());
         values.put(DBHelper.COL_CERTIFICADO, profissional.getCertificado());
@@ -73,7 +73,7 @@ public class ProfissionalDAO {
         result.setNome(cursor.getString(1));
         result.setTelefone(cursor.getString(3));
         result.setDataNascimento(cursor.getString(2));
-        result.setEndereco(cursor.getString(6));
+        result.setDescricao(cursor.getString(6));
         result.setCpf(cursor.getString(5));
         result.setEmail(cursor.getString(4));
         result.setCertificado(cursor.getString(7));
