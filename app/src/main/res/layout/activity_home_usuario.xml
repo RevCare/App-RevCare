@@ -7,7 +7,7 @@
     tools:context=".profissional.gui.HomeProfissional">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/barra_superior2"
+        android:id="@+id/barra_superior"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:background="#AF0D25"
@@ -28,7 +28,7 @@
         />
 
     <TextView
-        android:id="@+id/nomeprofissional"
+        android:id="@+id/nomeUsuario"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_centerVertical="true"
@@ -44,12 +44,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/decricaoprofissional"
+        android:id="@+id/decricaoUsuario"
         android:layout_width="398dp"
         android:layout_height="180dp"
         android:layout_marginTop="212dp"
         android:background="#80CACACA"
         android:text="Descrição do cliente"
+        android:layout_centerHorizontal="true"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +59,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/botao_procurar_profissional"
+        android:id="@+id/botao_procurar_usuario"
         android:layout_width="341dp"
         android:layout_height="43dp"
         android:layout_centerHorizontal="true"

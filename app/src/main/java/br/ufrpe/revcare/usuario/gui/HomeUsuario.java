@@ -17,7 +17,7 @@ public class HomeUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_home_usuario);
         getSupportActionBar().hide();
 
-        Button btnProcurarProfissional = findViewById(R.id.botao_procurar_profissional);
+        Button btnProcurarProfissional = findViewById(R.id.botao_procurar_usuario);
         btnProcurarProfissional.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
