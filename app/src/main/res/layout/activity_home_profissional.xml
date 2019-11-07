@@ -6,48 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".profissional.gui.HomeProfissional">
 
-    <TextView
-        android:id="@+id/emailProfissionalHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="9dp"
-        android:text="email@email.com"
-        android:textColor="#DD000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/cpfProfissionalHome"
-        app:layout_constraintTop_toBottomOf="@+id/cpfProfissionalHome" />
-
-    <TextView
-        android:id="@+id/lblCPF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:text="CPF:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cpfProfissionalHome"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/lblEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:text="Email:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/emailProfissionalHome"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/botao_att_perfil"
         android:layout_width="0dp"
-        android:layout_height="53dp"
+        android:layout_height="52dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="35dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="30dp"
         android:background="#AF0D25"
         android:text="Atualizar Perfil"
         android:textColor="#FFFFFF"
@@ -99,35 +65,22 @@
 
     <TextView
         android:id="@+id/decricaoprofissional"
-        android:layout_width="0dp"
+        android:layout_width="399dp"
         android:layout_height="226dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
         android:background="#80CACACA"
         android:text="Descrição do profissional"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/telefoneProfissionalHome"
+        app:layout_constraintStart_toEndOf="@+id/telefoneProfissionalHome"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/lblVisitas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:text="Visitas:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/qtt_visitas"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/lblTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="11dp"
         android:text="Telefone:"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -135,36 +88,38 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/lblEndereco"
+        android:id="@+id/emailProfissionalHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:text="Endereço:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/enderecoProfissional"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/qtt_visitas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="0"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="9dp"
+        android:text="email@email.com"
         android:textColor="#DD000000"
         android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/telefoneProfissionalHome"
-        app:layout_constraintTop_toBottomOf="@+id/decricaoprofissional" />
+        app:layout_constraintStart_toStartOf="@+id/cpfProfissionalHome"
+        app:layout_constraintTop_toBottomOf="@+id/cpfProfissionalHome" />
+
+    <TextView
+        android:id="@+id/lblCPF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="CPF:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cpfProfissionalHome"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/cpfProfissionalHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="13dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="16dp"
         android:text="000.000.000-00"
         android:textColor="#DD000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/lblEmail"
+        app:layout_constraintStart_toEndOf="@+id/lblCPF"
         app:layout_constraintTop_toBottomOf="@+id/lblEndereco" />
 
     <TextView
@@ -184,11 +139,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="19dp"
         android:text="(00) 90000-0000"
         android:textColor="#DD000000"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/lblTelefone"
-        app:layout_constraintTop_toBottomOf="@+id/qtt_visitas" />
+        app:layout_constraintTop_toBottomOf="@+id/decricaoprofissional" />
+
+    <TextView
+        android:id="@+id/lblEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/emailProfissionalHome"
+        app:layout_constraintEnd_toStartOf="@+id/botao_att_perfil"
+        app:layout_constraintStart_toStartOf="@+id/botao_att_perfil" />
+
+    <TextView
+        android:id="@+id/lblEndereco"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="Endereço:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/enderecoProfissional"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
