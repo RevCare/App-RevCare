@@ -1,15 +1,15 @@
-package br.ufrpe.revcare.usuario.negocio;
+package br.ufrpe.revcare.infra;
 
 import java.util.Date;
 
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 
-public class SessaoUsuario {
+public class Sessao {
     public static Usuario usuarioLogado;
     public static Date horaLogin;
 
-    public static Usuario getUsuario() {
-        return usuarioLogado;
+    public static String getNomeUsuario() {
+        return usuarioLogado.getNome();
     }
 
     public static void reset() {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".usuario.gui.CadastroUsuarioActivity">
+    tools:context=".infra.gui.CadastroUsuario1Activity">
 
 
     <ScrollView
@@ -281,6 +281,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="Autofill" />
+
+
+
+
+
+
+
+
         </RelativeLayout>
     </ScrollView>
 

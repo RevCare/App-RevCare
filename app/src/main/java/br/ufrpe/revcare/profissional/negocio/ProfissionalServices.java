@@ -1,10 +1,8 @@
 package br.ufrpe.revcare.profissional.negocio;
 
 import android.content.Context;
-
 import java.util.Date;
-
-import br.ufrpe.revcare.usuario.negocio.SessaoUsuario;
+import br.ufrpe.revcare.infra.Sessao;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
@@ -25,17 +23,14 @@ public class ProfissionalServices {
     }
 
     public void logout() {
-        SessaoUsuario.reset();
+        Sessao.reset();
     }
 
     public void logar(String email, String senha) throws Exception {
         Profissional profissional = dao.consultar(email,senha);
         if (profissional == null) {
-            SessaoUsuario.usuarioLogado = null;
+            Sessao.usuarioLogado = null;
             throw new Exception("Usuário/senha inválidos.");
-        }else{
-            SessaoProfissional.profissionalLogado = profissional;
-            SessaoProfissional.horaLogin = new Date();
-            }
+        }
     }
     }
