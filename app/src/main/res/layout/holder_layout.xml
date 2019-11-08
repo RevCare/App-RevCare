@@ -56,18 +56,5 @@
         android:background="@android:color/darker_gray"
         android:focusable="false" />
 
-    <Button
-        android:id="@+id/buttonVerMais"
-        android:layout_width="112dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="23dp"
-        android:background="#AF0D25"
-        android:text="Ver mais"
-        android:textColor="#FFFFFF" />
-
 
 </RelativeLayout>
