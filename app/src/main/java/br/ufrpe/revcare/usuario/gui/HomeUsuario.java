@@ -28,13 +28,6 @@ public class HomeUsuario extends AppCompatActivity {
                 startActivity(new Intent(HomeUsuario.this, RecyclerViewUsuario.class));
             }
         });
-        Button btnEditar = findViewById(R.id.botao_att_perfil);
-        btnEditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(HomeUsuario.this, UpdateUsuario.class));
-            }
-        });
 
         };
     public void preencheTela(Usuario usuario){

@@ -20,16 +20,7 @@ public class HomeProfissional extends AppCompatActivity {
         setContentView(R.layout.activity_home_profissional);
         getSupportActionBar().hide();
         preencheTela(SessaoProfissional.getProfissional());
-        Button buttonAtulualizarperfil = findViewById(R.id.botao_att_perfil);
 
-        buttonAtulualizarperfil.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                startActivity(new Intent(HomeProfissional.this, AtualizarCadastroProfissional.class));
-            }
-        });
 
 
     }
@@ -44,6 +35,6 @@ public class HomeProfissional extends AppCompatActivity {
         cpf.setText(profissional.getCpf());
         telefone.setText(profissional.getTelefone());
         email.setText(profissional.getEmail());
-        descricao.setText(profissional.getDescricao());
+        descricao.setHint(profissional.getDescricao());
     }
 }
