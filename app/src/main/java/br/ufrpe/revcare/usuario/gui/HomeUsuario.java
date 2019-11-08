@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.infra.gui.MainActivity;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.negocio.SessaoUsuario;
 
@@ -29,7 +30,16 @@ public class HomeUsuario extends AppCompatActivity {
             }
         });
 
-        };
+        Button buttonSair = findViewById(R.id.buttonSairUsuario);
+        buttonSair.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                SessaoUsuario.reset();
+                startActivity(new Intent(HomeUsuario.this, MainActivity.class));
+            }
+        });
+        }
     public void preencheTela(Usuario usuario){
         TextView nome = findViewById(R.id.nomeUsuarioHome);
         TextView cpf = findViewById(R.id.cpfUsuarioHome);

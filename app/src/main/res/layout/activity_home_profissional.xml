@@ -169,4 +169,15 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/enderecoProfissional"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/buttonSairProfissional"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:background="#00FFFFFF"
+        android:text="Sair"
+        style="?android:attr/borderlessButtonStyle"
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="1dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

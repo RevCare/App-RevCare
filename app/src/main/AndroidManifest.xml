@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".usuario.gui.UpdateUsuario" />
+        <activity android:name=".usuario.gui.AvaliacaoProfissional"></activity>
         <activity android:name=".infra.gui.EsqueceuSenha" />
         <activity android:name=".profissional.gui.HomeProfissional" />
         <activity android:name=".usuario.gui.HomeUsuario" />
