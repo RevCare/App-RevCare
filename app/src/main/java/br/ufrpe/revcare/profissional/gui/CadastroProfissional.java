@@ -16,7 +16,7 @@ import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
-public class CadastroProfissionalActivity extends AppCompatActivity {
+public class CadastroProfissional extends AppCompatActivity {
     private EditText nNome;
     private EditText nDataNascimento;
     private EditText nEndereco;
@@ -53,7 +53,7 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
             ProfissionalServices services = new ProfissionalServices(getBaseContext());
             services.cadastrar(profissional);
             Toast.makeText(getApplicationContext(),"Profissional cadastrado com sucesso.", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(CadastroProfissionalActivity.this, MainActivity.class));
+            startActivity(new Intent(CadastroProfissional.this, MainActivity.class));
         }
     }
 
@@ -69,18 +69,9 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
         Validacao valido = new Validacao();
         boolean camposValidos =
                 valido.isValido(nNome, nDataNascimento, nCpf, nEndereco, nTelefone, nEmail, nSenha, nConfirmarSenha);
-        return camposValidos && confirmarSenha();
-    }
-
-    private boolean confirmarSenha() {
-        boolean result = true;
-        nSenha = findViewById(R.id.caixaTxtSenhaLogin);
-        nConfirmarSenha = findViewById(R.id.caixaConfirmaSenha);
-        if (!nSenha.getText().toString().equals(nConfirmarSenha.getText().toString())) {
-            result = false;
-            Toast.makeText(getApplicationContext(),"Senhas diferentes", Toast.LENGTH_LONG).show();
-        }
-        return result;
+        boolean senhasValidas =
+                valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString());
+        return camposValidos && senhasValidas;
     }
     private  boolean confirmaEmail(){
         Profissional result = null;
@@ -111,7 +102,7 @@ public class CadastroProfissionalActivity extends AppCompatActivity {
         Profissional result = new Profissional();
         result.setNome(nNome.getText().toString().trim());
         result.setCpf(nCpf.getText().toString().trim());
-        result.setEndereco(nEndereco.getText().toString().trim());
+        result.setDescricao(nEndereco.getText().toString().trim());
         result.setTelefone(nTelefone.getText().toString().trim());
         result.setEmail(nEmail.getText().toString().trim());
         result.setCertificado(nCertificado.getText().toString().trim());

@@ -7,10 +7,10 @@
     <string name="cadastro_de_usu_rio">Cadastro de usuário</string>
     <string name="e_mail">E-mail</string>
     <string name="endere_o">Endereço</string>
-    <string name="digite_seu_endereco">Digite seu endereco</string>
+    <string name="digite_seu_endereco">Digite seu descricao</string>
     <string name="digite_seu_cpf">Digite seu cpf</string>
     <string name="nome">Nome</string>
-    <string name="endereco">Endereco</string>
+    <string name="descricao">Endereco</string>
     <string name="telefone">Telefone</string>
     <string name="cpf">CPF</string>
     <string name="data_de_nascimento">Data de Nascimento</string>
@@ -28,6 +28,7 @@
     <string name="lupa">Lupa</string>
     <string name="mais_button">+</string>
     <string name="nome_do_profissional">Nome do profissional</string>
+    <string name="atualizar_perfil">Atualizar perfil</string>
 
     <string-array name="estados">
         <item>Pernambuco</item>

@@ -4,9 +4,14 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.Cursor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ID_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_SENHA_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_PROFISSIONAL;
 
@@ -19,14 +24,14 @@ public class ProfissionalDAO {
         dbHelper = new DBHelper(context);
     }
 
-    public long cadastrar(Profissional profissional){
+    public long cadastrar(Profissional profissional) {
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBHelper.COL_NOME_PROFISSIONAL, profissional.getNome());
         values.put(DBHelper.COL_CPF_PROFISSIONAL, profissional.getCpf());
         values.put(DBHelper.COL_NASCIMENTO_PROFISSIONAL, profissional.getDataNascimento());
-        values.put(DBHelper.COL_ENDERECO_PROFISSIONAL, profissional.getEndereco());
+        values.put(DBHelper.COL_ENDERECO_PROFISSIONAL, profissional.getDescricao());
         values.put(COL_EMAIL_PROFISSIONAL, profissional.getEmail());
         values.put(DBHelper.COL_TELEFONE_PROFISSIONAL, profissional.getTelefone());
         values.put(DBHelper.COL_CERTIFICADO, profissional.getCertificado());
@@ -37,7 +42,8 @@ public class ProfissionalDAO {
         return id;
 
     }
-    public Profissional consultar(String email, String senha){
+
+    public Profissional consultar(String email, String senha) {
         Profissional result = null;
         String query =
                 " SELECT * " +
@@ -45,8 +51,8 @@ public class ProfissionalDAO {
                         " WHERE " + COL_EMAIL_PROFISSIONAL + " = ? " +
                         " AND " + COL_SENHA_PROFISSIONAL + " = ? ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query, new String[]{email,senha});
-        if (cursor.moveToFirst()){
+        Cursor cursor = db.rawQuery(query, new String[]{email, senha});
+        if (cursor.moveToFirst()) {
             result = criarProfissional(cursor);
         }
         return result;
@@ -61,7 +67,7 @@ public class ProfissionalDAO {
                         " WHERE " + COL_EMAIL_PROFISSIONAL + " = ? ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, new String[]{email});
-        if (cursor.moveToFirst()){
+        if (cursor.moveToFirst()) {
             result = criarProfissional(cursor);
         }
         return result;
@@ -73,12 +79,35 @@ public class ProfissionalDAO {
         result.setNome(cursor.getString(1));
         result.setTelefone(cursor.getString(3));
         result.setDataNascimento(cursor.getString(2));
-        result.setEndereco(cursor.getString(6));
+        result.setDescricao(cursor.getString(6));
         result.setCpf(cursor.getString(5));
         result.setEmail(cursor.getString(4));
         result.setCertificado(cursor.getString(7));
         result.setSenha(cursor.getString(8));
 
         return result;
+    }
+
+    public List<Profissional> getAllProfissionalById() {
+        List<Profissional> profissionalArrayList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String query = " SELECT * " +
+                " FROM " + TABELA_PROFISSIONAL;
+        String[] args = {};
+        Cursor cursor = db.rawQuery(query, args);
+        Profissional profissional = null;
+        if (cursor.moveToFirst()) {
+            do {
+                profissional = criarProfissional(cursor);
+                profissionalArrayList.add(profissional);
+            } while (cursor.moveToNext());
+
+            cursor.close();
+            db.close();
+            return profissionalArrayList;
+        }
+        cursor.close();
+        db.close();
+        return profissionalArrayList;
     }
 }
