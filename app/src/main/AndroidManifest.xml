@@ -11,12 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".usuario.gui.EditarInformacoesUsuario"></activity>
+        <activity android:name=".usuario.gui.AvaliacaoProfissional"></activity>
         <activity android:name=".infra.gui.EsqueceuSenha" />
         <activity android:name=".profissional.gui.HomeProfissional" />
         <activity android:name=".usuario.gui.HomeUsuario" />
-        <activity android:name=".profissional.gui.CadastroProfissionalActivity" />
-        <activity android:name=".usuario.gui.CadastroUsuarioActivity" />
+        <activity android:name=".profissional.gui.CadastroProfissional" />
+        <activity android:name=".usuario.gui.CadastroUsuario" />
         <activity android:name=".usuario.gui.RecyclerViewUsuario" />
         <activity android:name=".infra.gui.MainActivity">
             <intent-filter>

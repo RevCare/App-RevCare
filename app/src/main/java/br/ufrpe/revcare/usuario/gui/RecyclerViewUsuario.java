@@ -13,13 +13,17 @@ import android.widget.Spinner;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.profissional.dominio.Profissional;
+import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class RecyclerViewUsuario extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private ArrayList<String> mNomes = new ArrayList<>();
     private ArrayList<String> mlocalizacao = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
+    private List<Profissional> profissionais = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +57,12 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
 
     private void initServicos(){
-        mNomes.add("Pedro");
-        mlocalizacao.add("Recife, Pernambuco");
-        mNomes.add("Pedro");
-        mlocalizacao.add("Recife, Pernambuco");
-        mNomes.add("Pedro");
-        mlocalizacao.add("Recife, Pernambuco");
-        mNomes.add("Pedro");
-        mlocalizacao.add("Recife, Pernambuco");
-
+        ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
+        profissionais = dao.getAllProfissionalById();
+        for (int i = 0; i < profissionais.size(); i++) {
+             mNomes.add(profissionais.get(i).getNome());
+             mlocalizacao.add(profissionais.get(i).getDescricao());
+        }
         initRecyclerView();
 
     }

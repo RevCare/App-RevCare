@@ -1,6 +1,10 @@
 package br.ufrpe.revcare.infra.gui;
 
+import android.content.Context;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import br.ufrpe.revcare.R;
 
 public class Validacao {
 
@@ -25,4 +29,12 @@ public class Validacao {
         return result;
     }
 
+    public boolean confirmarSenha(Context context,String nSenha, String nConfirmarSenha) {
+        boolean result = true;
+        if (!nSenha.equals(nConfirmarSenha)) {
+            result = false;
+            Toast.makeText(context,"Senhas diferentes", Toast.LENGTH_LONG).show();
+        }
+        return result;
+    }
 }

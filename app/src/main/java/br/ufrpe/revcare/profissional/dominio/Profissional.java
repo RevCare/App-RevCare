@@ -7,7 +7,7 @@ public class Profissional {
     private String cpf;
     private String telefone;
     private String email;
-    private String endereco;
+    private String descricao;
     private String certificado;
     private String senha;
     private String confirmarSenha;
@@ -60,12 +60,12 @@ public class Profissional {
         this.email = email;
     }
 
-    public String getEndereco() {
-        return endereco;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
     public String getCertificado() {
         return certificado;
