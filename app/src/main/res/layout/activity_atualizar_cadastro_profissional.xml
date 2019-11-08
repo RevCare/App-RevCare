@@ -173,20 +173,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <EditText
-                android:id="@+id/certificadoAtualizarProfissional"
-                android:layout_width="381dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="650dp"
-                android:ems="10"
-                android:hint="Digite seu Certificado"
-                android:inputType="textPersonName"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.233"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+
 
             <EditText
                 android:id="@+id/senhaAtualizarProfissional"
@@ -256,20 +243,6 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.075"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/labelCertificado"
-                android:layout_width="match_parent"
-                android:layout_height="23dp"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="620dp"
-                android:text="@string/Certificado"
-                android:textColor="#090101"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.077"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
