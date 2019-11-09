@@ -35,7 +35,7 @@
         android:layout_height="173dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="35dp"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/ic_action_name"
         app:layout_constraintBottom_toTopOf="@+id/nomeUsuarioHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

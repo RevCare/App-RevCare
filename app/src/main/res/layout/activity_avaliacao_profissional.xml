@@ -9,12 +9,15 @@
 
     <Button
         android:id="@+id/buttonNaoGostei"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/btn_unlike"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="271dp"
-        tools:layout_editor_absoluteY="437dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/buttonGostei"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonGostei"
+        app:layout_constraintTop_toTopOf="@+id/buttonGostei" />
 
     <TextView
         android:id="@+id/labelDataNascimento2"
@@ -22,81 +25,103 @@
         android:layout_height="wrap_content"
 
         android:layout_marginHorizontal="15dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="327dp"
         android:text="Já utilizou os serviços deste profissional?"
         android:textColor="#050101"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="327dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/labelDataNascimento3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="2dp"
         android:text="Conte-nos como foi sua experiência"
         android:textColor="#050101"
         android:textSize="18sp"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="353dp" />
+        app:layout_constraintStart_toStartOf="@+id/labelDataNascimento2"
+        app:layout_constraintTop_toBottomOf="@+id/labelDataNascimento2" />
 
     <TextView
         android:id="@+id/nomeprofissional2"
-        android:layout_width="303dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
         android:layout_centerVertical="true"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="23dp"
         android:layout_toEndOf="@+id/image"
         android:text="@string/nome_do_profissional"
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="239dp" />
+        app:layout_constraintBottom_toTopOf="@+id/labelDataNascimento2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image2" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image2"
         android:layout_width="140dp"
         android:layout_height="140dp"
+        android:layout_marginTop="11dp"
         android:src="@mipmap/ic_launcher"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="68dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barra_superior3" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/barra_superior3"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
         android:background="#AF0D25"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="1dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/buttonGostei"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="100dp"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="117dp"
         android:background="@drawable/btnlike"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="54dp"
-        tools:layout_editor_absoluteY="437dp" />
+        app:layout_constraintEnd_toStartOf="@+id/buttonNaoGostei"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelDataNascimento3" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="14dp"
         android:text="Gostei"
         android:textSize="14dp"
-        tools:layout_editor_absoluteX="77dp"
-        tools:layout_editor_absoluteY="551dp" />
+        app:layout_constraintStart_toStartOf="@+id/buttonGostei"
+        app:layout_constraintTop_toBottomOf="@+id/buttonGostei" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="14dp"
         android:text="Não gostei"
         android:textSize="14dp"
-        tools:layout_editor_absoluteX="288dp"
-        tools:layout_editor_absoluteY="551dp" />
+        app:layout_constraintEnd_toEndOf="@+id/buttonNaoGostei"
+        app:layout_constraintTop_toBottomOf="@+id/buttonNaoGostei" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
