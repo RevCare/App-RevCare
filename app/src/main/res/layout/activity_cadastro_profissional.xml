@@ -281,7 +281,6 @@
                 android:layout_marginTop="730dp"
                 android:ems="10"
                 android:hint="Digite aqui seu email"
-
                 android:inputType="textPersonName"
                 android:textSize="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
