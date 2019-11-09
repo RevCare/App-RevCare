@@ -76,7 +76,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         nNome = findViewById(R.id.nomeTextField);
         nDataNascimento = findViewById(R.id.dataNascimentoTextField);
         nCpf = findViewById(R.id.cpfTextField);
-        nEndereco = findViewById(R.id.enderecoTextField);
+        nEndereco = findViewById(R.id.descricaoTextField);
         nTelefone = findViewById(R.id.telefoneTextField);
         nEmail = findViewById(R.id.emailTextField);
         nSenha = findViewById(R.id.caixaTxtSenhaLogin);
@@ -113,7 +113,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         nNome = findViewById(R.id.nomeTextField);
         nDataNascimento = findViewById(R.id.dataNascimentoTextField);
         nCpf = findViewById(R.id.cpfTextField);
-        nEndereco = findViewById(R.id.enderecoTextField);
+        nEndereco = findViewById(R.id.descricaoTextField);
         nTelefone = findViewById(R.id.telefoneTextField);
         nEmail = findViewById(R.id.emailTextField);
         nCertificado = findViewById(R.id.certificadoTextField);
@@ -134,7 +134,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        
+
     }
 
     @Override
