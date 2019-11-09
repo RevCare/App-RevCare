@@ -90,8 +90,16 @@ public class Validacao {
             return(false);
         }
     }
+    public boolean senhaCorreta(EditText senha){
+        String senhaText = senha.getText().toString();
+        if (senhaText.length() >8){
+            senha.requestFocus();
+            senha.setError("Digita uma senha de até 8 caracteres");
+            return false;
+        }
+        return true;
 
-
+    }
     public boolean confirmarSenha(Context context,String nSenha, String nConfirmarSenha) {
         boolean result = true;
         if (!nSenha.equals(nConfirmarSenha)) {
