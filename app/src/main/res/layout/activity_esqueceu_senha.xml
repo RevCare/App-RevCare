@@ -30,17 +30,60 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/esqueciasenha"
+        android:id="@+id/perguntaSeguranca"
+        android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="260dp"
-        android:text="Que pena, né?"
-        android:textSize="44sp"
-        android:layout_centerHorizontal="true"
-        app:layout_constraintEnd_toEndOf="@+id/barra_superior"
-        app:layout_constraintStart_toStartOf="@+id/barra_superior"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Pergunta de segurança"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="131dp" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:text="Nova senha"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="238dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="315dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Digite a resposta"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="160dp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Digite sua senha"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="273dp" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="358dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
