@@ -34,7 +34,7 @@ public class Validacao {
     }
     //Validação de CPF tirada do aplicativo Trainee, feita por Henrique Cesar.
     // Link : https://github.com/TraineeUFRPE
-    public static boolean isCPF(EditText CPF) {
+    public boolean isCPF(EditText CPF) {
         String cpf = CPF.getText().toString();
         if (cpf.equals("00000000000") ||
                 cpf.equals("11111111111") ||
