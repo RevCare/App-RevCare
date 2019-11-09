@@ -26,7 +26,7 @@ public class CadastroProfissional extends AppCompatActivity {
     private EditText nCertificado;
     private EditText nSenha;
     private EditText nConfirmarSenha;
-//TESTE2
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,15 +68,14 @@ public class CadastroProfissional extends AppCompatActivity {
         nConfirmarSenha = findViewById(R.id.caixaConfirmaSenha);
         Validacao valido = new Validacao();
         boolean emailValido =
-                valido.validarEmail(nEmail.getText().toString().trim());
+                valido.validarEmail(nEmail);
         boolean camposValidos =
                 valido.isValido(nNome, nDataNascimento, nEndereco, nTelefone, nEmail, nSenha, nConfirmarSenha);
         boolean senhasValidas =
                 valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString());
-      
         boolean cpfValido=
                 valido.isCPF(nCpf);
-        return camposValidos && senhasValidas && cpfValido;
+        return emailValido && camposValidos && senhasValidas && cpfValido;
     }
     private  boolean confirmaEmail(){
         Profissional result = null;

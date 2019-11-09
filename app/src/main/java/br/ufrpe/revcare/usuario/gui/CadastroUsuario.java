@@ -57,13 +57,15 @@ public class CadastroUsuario extends AppCompatActivity {
         EditText nSenha = findViewById(R.id.senhaTextField);
         EditText nConfirmarSenha = findViewById(R.id.confirmarSenhaTextField);
         Validacao valido = new Validacao();
+        boolean emailValido =
+                valido.validarEmail(nEmail);
         boolean camposValidos =
                 valido.isValido(nNome, nDataNascimento, nEndereco, nTelefone, nEmail, nSenha, nConfirmarSenha);
         boolean senhasValidas =
                 valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString());
         boolean cpfValido=
                 valido.isCPF(nCpf);
-        return camposValidos && senhasValidas && cpfValido;
+        return emailValido && camposValidos && senhasValidas && cpfValido;
     }
 
     private  boolean confirmaEmail(){
