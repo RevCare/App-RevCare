@@ -26,7 +26,7 @@ public class CadastroProfissional extends AppCompatActivity {
     private EditText nCertificado;
     private EditText nSenha;
     private EditText nConfirmarSenha;
-
+//TESTE2
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
