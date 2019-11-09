@@ -67,11 +67,13 @@ public class CadastroProfissional extends AppCompatActivity {
         nSenha = findViewById(R.id.caixaTxtSenhaLogin);
         nConfirmarSenha = findViewById(R.id.caixaConfirmaSenha);
         Validacao valido = new Validacao();
+        boolean emailValido =
+                valido.validarEmail(nEmail.getText().toString().trim());
         boolean camposValidos =
                 valido.isValido(nNome, nDataNascimento, nCpf, nEndereco, nTelefone, nEmail, nSenha, nConfirmarSenha);
         boolean senhasValidas =
                 valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString());
-        return camposValidos && senhasValidas;
+        return  emailValido && camposValidos && senhasValidas;
     }
     private  boolean confirmaEmail(){
         Profissional result = null;
