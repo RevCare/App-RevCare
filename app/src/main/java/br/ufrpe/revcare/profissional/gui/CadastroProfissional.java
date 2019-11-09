@@ -70,10 +70,13 @@ public class CadastroProfissional extends AppCompatActivity {
         boolean emailValido =
                 valido.validarEmail(nEmail.getText().toString().trim());
         boolean camposValidos =
-                valido.isValido(nNome, nDataNascimento, nCpf, nEndereco, nTelefone, nEmail, nSenha, nConfirmarSenha);
+                valido.isValido(nNome, nDataNascimento, nEndereco, nTelefone, nEmail, nSenha, nConfirmarSenha);
         boolean senhasValidas =
                 valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString());
-        return  emailValido && camposValidos && senhasValidas;
+      
+        boolean cpfValido=
+                valido.isCPF(nCpf);
+        return camposValidos && senhasValidas && cpfValido;
     }
     private  boolean confirmaEmail(){
         Profissional result = null;

@@ -55,6 +55,7 @@
         android:focusable="false" />
 
     <Button
+        android:id="@+id/btnVerMais"
         android:layout_width="100dp"
         android:layout_marginLeft="300dp"
         android:text="Ver mais"
