@@ -5,8 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
@@ -16,7 +19,7 @@ import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
-public class CadastroProfissional extends AppCompatActivity {
+public class CadastroProfissional extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private EditText nNome;
     private EditText nDataNascimento;
     private EditText nEndereco;
@@ -45,6 +48,18 @@ public class CadastroProfissional extends AppCompatActivity {
             }
 
         });
+        Spinner spinner = findViewById(R.id.spinner);
+        Spinner spinner2 = findViewById(R.id.spinner2);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.estados, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                R.array.cidadesPE, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner2.setAdapter(adapter2);
+        spinner.setOnItemSelectedListener(this);
+        spinner2.setOnItemSelectedListener(this);
 
     }
     private void cadastrar() throws Exception {
@@ -115,5 +130,15 @@ public class CadastroProfissional extends AppCompatActivity {
         result.setDataNascimento(nDataNascimento.getText().toString().trim());
         result.setSenha(nSenha.getText().toString().trim());
         return result;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
