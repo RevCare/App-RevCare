@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".usuario.gui.AvaliacaoProfissional">
 
+
     <Button
         android:id="@+id/buttonNaoGostei"
-        android:layout_width="103dp"
-        android:layout_height="48dp"
-        android:background="#AF0D25"
-        android:text="Não gostei"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/btn_unlike"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="282dp"
+        tools:layout_editor_absoluteX="271dp"
         tools:layout_editor_absoluteY="437dp" />
 
     <TextView
@@ -32,7 +32,6 @@
         android:id="@+id/labelDataNascimento3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginHorizontal="15dp"
         android:text="Conte-nos como foi sua experiência"
         android:textColor="#050101"
@@ -74,30 +73,30 @@
 
     <Button
         android:id="@+id/buttonGostei"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#AF0D25"
-        android:text="Gostei"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/btnlike"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteX="54dp"
         tools:layout_editor_absoluteY="437dp" />
 
     <TextView
-        android:id="@+id/lblGostei"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gostei"
-        android:textColor="#000000"
-        tools:layout_editor_absoluteX="64dp"
-        tools:layout_editor_absoluteY="493dp" />
+        android:textSize="14dp"
+        tools:layout_editor_absoluteX="77dp"
+        tools:layout_editor_absoluteY="551dp" />
 
     <TextView
-        android:id="@+id/lblNaoGostei"
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Não Gostei"
-        android:textColor="#000000"
-        tools:layout_editor_absoluteX="294dp"
-        tools:layout_editor_absoluteY="493dp" />
+        android:text="Não gostei"
+        android:textSize="14dp"
+        tools:layout_editor_absoluteX="288dp"
+        tools:layout_editor_absoluteY="551dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
