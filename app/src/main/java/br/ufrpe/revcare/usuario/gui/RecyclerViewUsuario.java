@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 
@@ -17,6 +18,7 @@ import java.util.List;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
+import br.ufrpe.revcare.profissional.gui.PerfilProfissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class RecyclerViewUsuario extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -24,6 +26,8 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     private ArrayList<String> mlocalizacao = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
     private List<Profissional> profissionais = null;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,9 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         spinner2.setAdapter(adapter2);
         spinner.setOnItemSelectedListener(this);
         spinner2.setOnItemSelectedListener(this);
+
+
+
     }
 
     @Override
@@ -73,4 +80,6 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+
+
 }

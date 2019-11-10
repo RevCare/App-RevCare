@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".profissional.gui.PerfilProfissional"></activity>
         <activity android:name=".usuario.gui.AvaliacaoProfissional" />
         <activity android:name=".infra.gui.EsqueceuSenha" />
         <activity android:name=".profissional.gui.HomeProfissional" />
