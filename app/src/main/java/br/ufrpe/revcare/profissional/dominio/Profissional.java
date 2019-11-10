@@ -11,6 +11,24 @@ public class Profissional {
     private String certificado;
     private String senha;
     private String confirmarSenha;
+    private String estado;
+    private String cidade;
+
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    public String getCidade() {
+        return cidade;
+    }
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public Profissional() {
+    }
 
     public String getTelefone() {
         return telefone;
@@ -67,6 +85,7 @@ public class Profissional {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     public String getCertificado() {
         return certificado;
     }

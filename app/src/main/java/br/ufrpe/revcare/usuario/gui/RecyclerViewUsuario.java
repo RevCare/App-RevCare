@@ -61,7 +61,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         profissionais = dao.getAllProfissionalById();
         for (int i = 0; i < profissionais.size(); i++) {
              mNomes.add(profissionais.get(i).getNome());
-             mlocalizacao.add(profissionais.get(i).getTelefone());
+             mlocalizacao.add(profissionais.get(i).getCidade());
         }
         initRecyclerView();
 

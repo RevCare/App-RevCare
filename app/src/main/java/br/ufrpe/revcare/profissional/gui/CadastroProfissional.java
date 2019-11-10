@@ -29,6 +29,8 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
     private EditText nCertificado;
     private EditText nSenha;
     private EditText nConfirmarSenha;
+    private Spinner nCidade;
+    private Spinner nEstado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +50,8 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
             }
 
         });
-        Spinner spinner = findViewById(R.id.spinner);
-        Spinner spinner2 = findViewById(R.id.spinner2);
+        Spinner spinner = findViewById(R.id.spinnerEstado);
+        Spinner spinner2 = findViewById(R.id.spinnerCidade);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.estados, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
@@ -81,6 +83,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         nEmail = findViewById(R.id.emailTextField);
         nSenha = findViewById(R.id.caixaTxtSenhaLogin);
         nConfirmarSenha = findViewById(R.id.caixaConfirmaSenha);
+
         Validacao valido = new Validacao();
         boolean emailValido =
                 valido.validarEmail(nEmail);
@@ -118,7 +121,11 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         nEmail = findViewById(R.id.emailTextField);
         nCertificado = findViewById(R.id.certificadoTextField);
         nSenha = findViewById(R.id.caixaTxtSenhaLogin);
-        nConfirmarSenha = findViewById(R.id.caixaConfirmaSenha);;
+        nConfirmarSenha = findViewById(R.id.caixaConfirmaSenha);
+        nEstado = findViewById(R.id.spinnerEstado);
+        nCidade = findViewById(R.id.spinnerCidade);
+
+
 
         Profissional result = new Profissional();
         result.setNome(nNome.getText().toString().trim());
@@ -129,6 +136,8 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         result.setCertificado(nCertificado.getText().toString().trim());
         result.setDataNascimento(nDataNascimento.getText().toString().trim());
         result.setSenha(nSenha.getText().toString().trim());
+        result.setEstado(nEstado.getSelectedItem().toString().trim());
+        result.setCidade(nCidade.getSelectedItem().toString().trim());
         return result;
     }
 

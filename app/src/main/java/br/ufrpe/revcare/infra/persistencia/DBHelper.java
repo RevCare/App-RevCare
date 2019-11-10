@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "revcare.bd";
-    private static final int DB_VERSION = 15;
+    private static final int DB_VERSION = 16;
 
 
     public static final String TABELA_USUARIO = "Tabela_Usuario";
@@ -30,6 +30,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_CERTIFICADO = "certificado";
     public static final String COL_SENHA_PROFISSIONAL = "senha";
     public static final String COL_DESCRICAO_PROFISSIONAL = "descricao";
+    public static final String COL_ESTADO_PROFISSIONAL = "estado";
+    public static final String COL_CIDADE_PROFISSIONAL = "cidade";
 
 
     public static final String TABELA_RELACAO = "Tabela_Relacao";
@@ -84,14 +86,16 @@ public class DBHelper extends SQLiteOpenHelper {
                 " %6$s TEXT NOT NULL, " +
                 " %7$s TEXT NOT NULL, " +
                 " %8$s TEXT NOT NULL, " +
-                " %9$s TEXT, " +
-                " %10$s TEXT NOT NULL " +
+                " %9$s TEXT NOT NULL, " +
+                " %10$s TEXT NOT NULL, " +
+                " %11$s TEXT NOT NULL, " +
+                " %12$s TEXT NOT NULL " +
                 ");";
         sqlTbProfissional= String.format(sqlTbProfissional,
                 TABELA_PROFISSIONAL, COL_ID_PROFISSIONAL, COL_NOME_PROFISSIONAL,
                 COL_NASCIMENTO_PROFISSIONAL, COL_TELEFONE_PROFISSIONAL,
                 COL_EMAIL_PROFISSIONAL, COL_CPF_PROFISSIONAL,COL_DESCRICAO_PROFISSIONAL ,
-                COL_CERTIFICADO,COL_SENHA_PROFISSIONAL);
+                COL_CERTIFICADO,COL_SENHA_PROFISSIONAL, COL_ESTADO_PROFISSIONAL,COL_CIDADE_PROFISSIONAL);
         db.execSQL(sqlTbProfissional);
     }
 

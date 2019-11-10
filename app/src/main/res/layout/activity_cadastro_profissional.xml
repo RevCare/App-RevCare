@@ -44,18 +44,18 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="340dp"/>
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spinnerEstado"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="370dp" />
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/spinnerCidade"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginTop="370dp"
-                android:layout_toRightOf="@+id/spinner" />
+                android:layout_toRightOf="@+id/spinnerEstado" />
 
 
             <Button

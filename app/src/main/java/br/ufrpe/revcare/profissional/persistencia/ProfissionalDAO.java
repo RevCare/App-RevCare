@@ -11,6 +11,7 @@ import java.util.List;
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ESTADO_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ID_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_SENHA_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_PROFISSIONAL;
@@ -32,10 +33,12 @@ public class ProfissionalDAO {
         values.put(DBHelper.COL_CPF_PROFISSIONAL, profissional.getCpf());
         values.put(DBHelper.COL_NASCIMENTO_PROFISSIONAL, profissional.getDataNascimento());
         values.put(DBHelper.COL_DESCRICAO_PROFISSIONAL, profissional.getDescricao());
-        values.put(COL_EMAIL_PROFISSIONAL, profissional.getEmail());
+        values.put(DBHelper.COL_EMAIL_PROFISSIONAL, profissional.getEmail());
         values.put(DBHelper.COL_TELEFONE_PROFISSIONAL, profissional.getTelefone());
         values.put(DBHelper.COL_CERTIFICADO, profissional.getCertificado());
-        values.put(COL_SENHA_PROFISSIONAL, profissional.getSenha());
+        values.put(DBHelper.COL_SENHA_PROFISSIONAL, profissional.getSenha());
+        values.put(DBHelper.COL_ESTADO_PROFISSIONAL, profissional.getEstado());
+        values.put(DBHelper.COL_CIDADE_PROFISSIONAL, profissional.getCidade());
 
         long id = db.insert(TABELA_PROFISSIONAL, null, values);
         db.close();
@@ -84,6 +87,8 @@ public class ProfissionalDAO {
         result.setEmail(cursor.getString(4));
         result.setCertificado(cursor.getString(7));
         result.setSenha(cursor.getString(8));
+        result.setEstado(cursor.getString(9));
+        result.setCidade(cursor.getString(10));
 
         return result;
     }
