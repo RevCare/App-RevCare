@@ -39,6 +39,8 @@
         android:layout_marginTop="131dp"
         android:text="Diite o e-mail cadastrado"
         android:textSize="18dp"
+        android:textColor="#050101"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,6 +51,7 @@
         android:layout_marginBottom="8dp"
         android:text="Código de segurança"
         android:textSize="18dp"
+        android:textColor="#050101"
         app:layout_constraintBottom_toTopOf="@+id/editText2"
         app:layout_constraintStart_toStartOf="@+id/editText2" />
 
@@ -95,6 +98,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginBottom="22dp"
         android:ems="15"
+        android:textColor="#050101"
         android:textSize="14dp"
         android:text="Dentro de instantes será enviado um código para email cadastrado"
         app:layout_constraintBottom_toTopOf="@+id/textView2"

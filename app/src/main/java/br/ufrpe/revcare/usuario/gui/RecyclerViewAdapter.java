@@ -1,6 +1,7 @@
 package br.ufrpe.revcare.usuario.gui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 import br.ufrpe.revcare.R;
 
-public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>  {
     private ArrayList<String> mNome = new ArrayList<>();
     private ArrayList<String> mDescricao = new ArrayList<>();
     private Context mContext;
@@ -32,11 +33,11 @@ public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapt
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.nome.setText(mNome.get(position));
         holder.descricao.setText(mDescricao.get(position));
+
     }
 
     @Override
@@ -48,16 +49,19 @@ public class RecyclerViewAdapter  extends RecyclerView.Adapter<RecyclerViewAdapt
         TextView nome;
         TextView descricao;
         RelativeLayout parentLayout;
+        Button btnInfo;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             nome = itemView.findViewById(R.id.nome);
             descricao = itemView.findViewById(R.id.localizacao);
             parentLayout = itemView.findViewById(R.id.parent_layout);
-
-
-
+            btnInfo = itemView.findViewById(R.id.btnVerMais);
         }
     }
+    public interface OnNoteListener{
+        void onNoteClick(int position);
+    }
+
 }
 

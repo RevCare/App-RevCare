@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/buttonNaoGostei"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="93dp"
+        android:layout_height="88dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/btn_unlike"
         android:textColor="#FFFFFF"
@@ -90,8 +90,8 @@
 
     <Button
         android:id="@+id/buttonGostei"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_width="86dp"
+        android:layout_height="83dp"
         android:layout_marginStart="54dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="117dp"
