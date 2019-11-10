@@ -22,7 +22,7 @@ import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 public class CadastroProfissional extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private EditText nNome;
     private EditText nDataNascimento;
-    private EditText nEndereco;
+    private EditText nDescricao;
     private EditText nCpf;
     private EditText nEmail;
     private EditText nTelefone;
@@ -76,7 +76,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         nNome = findViewById(R.id.nomeTextField);
         nDataNascimento = findViewById(R.id.dataNascimentoTextField);
         nCpf = findViewById(R.id.cpfTextField);
-        nEndereco = findViewById(R.id.descricaoTextField);
+        nDescricao = findViewById(R.id.descricaoTextField);
         nTelefone = findViewById(R.id.telefoneTextField);
         nEmail = findViewById(R.id.emailTextField);
         nSenha = findViewById(R.id.caixaTxtSenhaLogin);
@@ -85,7 +85,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         boolean emailValido =
                 valido.validarEmail(nEmail);
         boolean camposValidos =
-                valido.isValido(nNome, nDataNascimento, nEndereco, nTelefone, nEmail, nSenha, nConfirmarSenha);
+                valido.isValido(nNome, nDataNascimento, nDescricao, nTelefone, nEmail, nSenha, nConfirmarSenha);
         boolean senhasValidas =
                 valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString());
         boolean cpfValido=
@@ -113,7 +113,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         nNome = findViewById(R.id.nomeTextField);
         nDataNascimento = findViewById(R.id.dataNascimentoTextField);
         nCpf = findViewById(R.id.cpfTextField);
-        nEndereco = findViewById(R.id.descricaoTextField);
+        nDescricao = findViewById(R.id.descricaoTextField);
         nTelefone = findViewById(R.id.telefoneTextField);
         nEmail = findViewById(R.id.emailTextField);
         nCertificado = findViewById(R.id.certificadoTextField);
@@ -123,7 +123,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         Profissional result = new Profissional();
         result.setNome(nNome.getText().toString().trim());
         result.setCpf(nCpf.getText().toString().trim());
-        result.setDescricao(nEndereco.getText().toString().trim());
+        result.setDescricao(nDescricao.getText().toString().trim());
         result.setTelefone(nTelefone.getText().toString().trim());
         result.setEmail(nEmail.getText().toString().trim());
         result.setCertificado(nCertificado.getText().toString().trim());

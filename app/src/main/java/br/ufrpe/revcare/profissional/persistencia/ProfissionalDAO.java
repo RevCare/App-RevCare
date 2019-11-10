@@ -31,7 +31,7 @@ public class ProfissionalDAO {
         values.put(DBHelper.COL_NOME_PROFISSIONAL, profissional.getNome());
         values.put(DBHelper.COL_CPF_PROFISSIONAL, profissional.getCpf());
         values.put(DBHelper.COL_NASCIMENTO_PROFISSIONAL, profissional.getDataNascimento());
-        values.put(DBHelper.COL_ENDERECO_PROFISSIONAL, profissional.getDescricao());
+        values.put(DBHelper.COL_DESCRICAO_PROFISSIONAL, profissional.getDescricao());
         values.put(COL_EMAIL_PROFISSIONAL, profissional.getEmail());
         values.put(DBHelper.COL_TELEFONE_PROFISSIONAL, profissional.getTelefone());
         values.put(DBHelper.COL_CERTIFICADO, profissional.getCertificado());

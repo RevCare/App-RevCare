@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "revcare.bd";
-    private static final int DB_VERSION = 14;
+    private static final int DB_VERSION = 15;
 
 
     public static final String TABELA_USUARIO = "Tabela_Usuario";
@@ -29,7 +29,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_CPF_PROFISSIONAL = "cpf";
     public static final String COL_CERTIFICADO = "certificado";
     public static final String COL_SENHA_PROFISSIONAL = "senha";
-    public static final String COL_ENDERECO_PROFISSIONAL = "endereco";
+    public static final String COL_DESCRICAO_PROFISSIONAL = "descricao";
 
 
     public static final String TABELA_RELACAO = "Tabela_Relacao";
@@ -90,7 +90,7 @@ public class DBHelper extends SQLiteOpenHelper {
         sqlTbProfissional= String.format(sqlTbProfissional,
                 TABELA_PROFISSIONAL, COL_ID_PROFISSIONAL, COL_NOME_PROFISSIONAL,
                 COL_NASCIMENTO_PROFISSIONAL, COL_TELEFONE_PROFISSIONAL,
-                COL_EMAIL_PROFISSIONAL, COL_CPF_PROFISSIONAL,COL_ENDERECO_PROFISSIONAL ,
+                COL_EMAIL_PROFISSIONAL, COL_CPF_PROFISSIONAL,COL_DESCRICAO_PROFISSIONAL ,
                 COL_CERTIFICADO,COL_SENHA_PROFISSIONAL);
         db.execSQL(sqlTbProfissional);
     }
