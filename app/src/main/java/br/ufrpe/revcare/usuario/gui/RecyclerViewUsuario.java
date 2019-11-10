@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 
 
@@ -18,7 +16,6 @@ import java.util.List;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
-import br.ufrpe.revcare.profissional.gui.PerfilProfissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class RecyclerViewUsuario extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -26,6 +23,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     private ArrayList<String> mlocalizacao = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
     private List<Profissional> profissionais = null;
+    private ArrayList<Long> nIds = new ArrayList<>();
 
 
 
@@ -65,10 +63,11 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
     private void initServicos(){
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
-        profissionais = dao.getAllProfissionalById();
+        profissionais = dao.getAllProfissional();
         for (int i = 0; i < profissionais.size(); i++) {
              mNomes.add(profissionais.get(i).getNome());
              mlocalizacao.add(profissionais.get(i).getCidade());
+             nIds.add(profissionais.get(i).getId());
         }
         initRecyclerView();
 
@@ -76,7 +75,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.usuariorecylcer);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mlocalizacao);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mlocalizacao, nIds);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

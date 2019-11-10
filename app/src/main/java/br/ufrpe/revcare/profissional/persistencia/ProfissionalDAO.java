@@ -93,7 +93,7 @@ public class ProfissionalDAO {
         return result;
     }
 
-    public List<Profissional> getAllProfissionalById() {
+    public List<Profissional> getAllProfissional() {
         List<Profissional> profissionalArrayList = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String query = " SELECT * " +

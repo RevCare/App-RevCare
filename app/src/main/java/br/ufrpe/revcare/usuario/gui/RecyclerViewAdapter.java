@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -13,24 +12,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.ArrayList;
 
 import br.ufrpe.revcare.R;
-import br.ufrpe.revcare.infra.gui.MainActivity;
-import br.ufrpe.revcare.profissional.gui.CadastroProfissional;
 import br.ufrpe.revcare.profissional.gui.PerfilProfissional;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>  {
     private ArrayList<String> mNome = new ArrayList<>();
-    private ArrayList<String> mDescricao = new ArrayList<>();
+    private ArrayList<String> mEndereco = new ArrayList<>();
     private Context mContext;
+    private ArrayList<Long> mIds = new ArrayList<>();
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> descricao ) {
+    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> descricao, ArrayList<Long> ids ) {
         this.mNome = nome;
-        this.mDescricao = descricao;
+        this.mEndereco = descricao;
         this.mContext = context;
+        this.mIds = ids;
     }
     @NonNull
     @Override
@@ -42,12 +39,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.nome.setText(mNome.get(position));
-        holder.descricao.setText(mDescricao.get(position));
+        holder.descricao.setText(mEndereco.get(position));
         holder.btnVerMais.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, PerfilProfissional.class);
+                intent.putExtra("nome", mNome.get(position));
+                intent.putExtra("endereco", mEndereco.get(position));
+                intent.putExtra("id", mIds.get(position));
                 mContext.startActivity(intent);
             }
 
@@ -76,3 +76,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         }
     }
 }
+

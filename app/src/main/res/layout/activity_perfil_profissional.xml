@@ -37,7 +37,7 @@
 
 
     <EditText
-        android:id="@+id/decricaoprofissionalPerfil"
+        android:id="@+id/descricaoprofissionalPerfil"
         android:layout_width="352dp"
         android:layout_height="162dp"
         android:background="#80CACACA"
