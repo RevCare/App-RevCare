@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.infra.gui.MainActivity;
+import br.ufrpe.revcare.profissional.gui.PerfilProfissional;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 import br.ufrpe.revcare.usuario.negocio.SessaoUsuario;
 
