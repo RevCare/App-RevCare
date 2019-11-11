@@ -12,7 +12,6 @@ import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.infra.gui.MainActivity;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
-import br.ufrpe.revcare.usuario.gui.CadastroUsuario;
 
 public class HomeProfissional extends AppCompatActivity {
 

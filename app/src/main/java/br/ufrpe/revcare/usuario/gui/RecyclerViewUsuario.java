@@ -20,7 +20,7 @@ import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class RecyclerViewUsuario extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private ArrayList<String> mNomes = new ArrayList<>();
-    private ArrayList<String> mlocalizacao = new ArrayList<>();
+    private ArrayList<String> mLocalizacao = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
     private List<Profissional> profissionais = null;
     private ArrayList<String> mTelefone = new ArrayList<>();
@@ -69,7 +69,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         profissionais = dao.getAllProfissional();
         for (int i = 0; i < profissionais.size(); i++) {
              mNomes.add(profissionais.get(i).getNome());
-             mlocalizacao.add(profissionais.get(i).getCidade());
+             mLocalizacao.add(profissionais.get(i).getCidade());
              mTelefone.add(profissionais.get(i).getTelefone());
              mEmail.add(profissionais.get(i).getEmail());
              mDescricao.add(profissionais.get(i).getDescricao());
@@ -81,7 +81,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.usuariorecylcer);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mlocalizacao, mTelefone, mEmail, mDescricao);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mLocalizacao, mTelefone, mEmail, mDescricao);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

@@ -25,8 +25,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mEmail = new ArrayList<>();
     private Context mContext;
 
-
-
     public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> endereco, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao) {
         this.mNome = nome;
         this.mEndereco = endereco;
@@ -34,7 +32,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mEmail = email;
         this.mDescricao = descricao;
         this.mContext = context;
-
     }
     @NonNull
     @Override
@@ -61,8 +58,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
 
         });
-
-
     }
 
     @Override
