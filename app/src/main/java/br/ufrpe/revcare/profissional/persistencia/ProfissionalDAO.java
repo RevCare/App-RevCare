@@ -10,6 +10,8 @@ import java.util.List;
 
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
+
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_CPF_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ESTADO_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ID_PROFISSIONAL;
@@ -30,7 +32,7 @@ public class ProfissionalDAO {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBHelper.COL_NOME_PROFISSIONAL, profissional.getNome());
-        values.put(DBHelper.COL_CPF_PROFISSIONAL, profissional.getCpf());
+        values.put(COL_CPF_PROFISSIONAL, profissional.getCpf());
         values.put(DBHelper.COL_NASCIMENTO_PROFISSIONAL, profissional.getDataNascimento());
         values.put(DBHelper.COL_DESCRICAO_PROFISSIONAL, profissional.getDescricao());
         values.put(DBHelper.COL_EMAIL_PROFISSIONAL, profissional.getEmail());
@@ -46,7 +48,7 @@ public class ProfissionalDAO {
 
     }
 
-    public Profissional consultar(String email, String senha) {
+    public Profissional consultarEmail(String email, String senha) {
         Profissional result = null;
         String query =
                 " SELECT * " +
@@ -62,12 +64,26 @@ public class ProfissionalDAO {
     }
 
 
-    public Profissional consultar(String email) {
+    public Profissional consultarEmail(String email) {
         Profissional result = null;
         String query =
                 " SELECT * " +
                         " FROM " + TABELA_PROFISSIONAL +
                         " WHERE " + COL_EMAIL_PROFISSIONAL + " = ? ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{email});
+        if (cursor.moveToFirst()) {
+            result = criarProfissional(cursor);
+        }
+        return result;
+    }
+
+    public Profissional consultarCpf(String email) {
+        Profissional result = null;
+        String query =
+                " SELECT * " +
+                        " FROM " + TABELA_PROFISSIONAL +
+                        " WHERE " + COL_CPF_PROFISSIONAL + " = ? ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, new String[]{email});
         if (cursor.moveToFirst()) {

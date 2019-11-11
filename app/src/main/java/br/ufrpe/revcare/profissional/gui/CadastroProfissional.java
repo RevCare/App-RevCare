@@ -90,22 +90,35 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         boolean camposValidos =
                 valido.isValido(nNome, nDataNascimento, nDescricao, nTelefone, nEmail, nSenha, nConfirmarSenha);
         boolean senhasValidas =
-                valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString());
+                valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString()) &&
+                        valido.senhaCorreta(nSenha);
         boolean cpfValido=
-                valido.isCPF(nCpf);
-        boolean senhaCorreta=
-                valido.senhaCorreta(nSenha);
-        return emailValido && camposValidos && senhasValidas && cpfValido && senhaCorreta;
+                valido.isCPF(nCpf) && confirmaCpf();
+        return emailValido && camposValidos && senhasValidas && cpfValido;
     }
     private  boolean confirmaEmail(){
         Profissional result = null;
         ProfissionalDAO dao = new ProfissionalDAO(this);
         EditText nEmail = findViewById(R.id.emailTextField);
         String email = nEmail.getText().toString().trim();
-        result = dao.consultar(email);
+        result = dao.consultarEmail(email);
         if (result != null){
             nEmail.requestFocus();
             nEmail.setError("Preencha novamente o campo.");
+            Toast.makeText(getApplicationContext(), "Não foi possível realizar o cadastro.", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
+    private  boolean confirmaCpf(){
+        Profissional result = null;
+        ProfissionalDAO dao = new ProfissionalDAO(this);
+        EditText nCpf = findViewById(R.id.cpfTextField);
+        String cpf = nCpf.getText().toString().trim();
+        result = dao.consultarCpf(cpf);
+        if (result != null){
+            nCpf.requestFocus();
+            nCpf.setError("Preencha novamente o campo.");
             Toast.makeText(getApplicationContext(), "Não foi possível realizar o cadastro.", Toast.LENGTH_LONG).show();
             return false;
         }

@@ -17,7 +17,7 @@ public class ProfissionalServices {
     }
 
     public long cadastrar(Profissional profissional) throws Exception {
-        Profissional profissionalBD = dao.consultar(profissional.getEmail());
+        Profissional profissionalBD = dao.consultarEmail(profissional.getEmail());
         if (profissionalBD != null) {
             throw new Exception("Email já cadastrado.");
         }
@@ -29,7 +29,7 @@ public class ProfissionalServices {
     }
 
     public void logar(String email, String senha) throws Exception {
-        Profissional profissional = dao.consultar(email,senha);
+        Profissional profissional = dao.consultarEmail(email,senha);
         if (profissional == null) {
             SessaoUsuario.usuarioLogado = null;
             throw new Exception("Usuário/senha inválidos.");
