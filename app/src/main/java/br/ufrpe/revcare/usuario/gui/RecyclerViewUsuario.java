@@ -23,7 +23,10 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     private ArrayList<String> mlocalizacao = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
     private List<Profissional> profissionais = null;
-    private ArrayList<Long> nIds = new ArrayList<>();
+    private ArrayList<String> mTelefone = new ArrayList<>();
+    private ArrayList<String> mDescricao = new ArrayList<>();
+    private ArrayList<String> mEmail = new ArrayList<>();
+
 
 
 
@@ -67,7 +70,10 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         for (int i = 0; i < profissionais.size(); i++) {
              mNomes.add(profissionais.get(i).getNome());
              mlocalizacao.add(profissionais.get(i).getCidade());
-             nIds.add(profissionais.get(i).getId());
+             mTelefone.add(profissionais.get(i).getTelefone());
+             mEmail.add(profissionais.get(i).getEmail());
+             mDescricao.add(profissionais.get(i).getDescricao());
+
         }
         initRecyclerView();
 
@@ -75,7 +81,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.usuariorecylcer);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mlocalizacao, nIds);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mlocalizacao, mTelefone, mEmail, mDescricao);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

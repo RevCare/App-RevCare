@@ -20,14 +20,21 @@ import br.ufrpe.revcare.profissional.gui.PerfilProfissional;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>  {
     private ArrayList<String> mNome = new ArrayList<>();
     private ArrayList<String> mEndereco = new ArrayList<>();
+    private ArrayList<String> mDescricao = new ArrayList<>();
+    private ArrayList<String> mTelefone = new ArrayList<>();
+    private ArrayList<String> mEmail = new ArrayList<>();
     private Context mContext;
-    private ArrayList<Long> mIds = new ArrayList<>();
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> descricao, ArrayList<Long> ids ) {
+
+
+    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> endereco, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao) {
         this.mNome = nome;
-        this.mEndereco = descricao;
+        this.mEndereco = endereco;
+        this.mTelefone = telefone;
+        this.mEmail = email;
+        this.mDescricao = descricao;
         this.mContext = context;
-        this.mIds = ids;
+
     }
     @NonNull
     @Override
@@ -47,7 +54,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent intent = new Intent(mContext, PerfilProfissional.class);
                 intent.putExtra("nome", mNome.get(position));
                 intent.putExtra("endereco", mEndereco.get(position));
-                intent.putExtra("id", mIds.get(position));
+                intent.putExtra("telefone", mTelefone.get(position));
+                intent.putExtra("email", mEmail.get(position));
+                intent.putExtra("descricao", mDescricao.get(position));
                 mContext.startActivity(intent);
             }
 
