@@ -8,8 +8,6 @@ import java.util.InputMismatchException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import br.ufrpe.revcare.R;
-
 public class Validacao {
 
     public boolean isCampoValido(EditText editText) {
@@ -92,7 +90,7 @@ public class Validacao {
     }
     public boolean senhaCorreta(EditText senha){
         String senhaText = senha.getText().toString();
-        if (senhaText.length() >8 || senhaText.length() <8){
+        if (senhaText.length() <8){
             senha.requestFocus();
             senha.setError("Digita uma senha de 8 caracteres");
             return false;
@@ -109,21 +107,21 @@ public class Validacao {
         return result;
 
     }
-    public boolean validarEmail(EditText EMAIL) {
-        String email = EMAIL.getText().toString().trim();
+    public boolean validarEmail(EditText email) {
+        String stringEmail = email.getText().toString().trim();
         boolean isEmailIdValid = false;
-        if (email != null && email.length() > 0) {
+        if (stringEmail.length() > 0) {
             String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(email);
+            Matcher matcher = pattern.matcher(stringEmail);
             if (matcher.matches()) {
                 isEmailIdValid = true;
                 return isEmailIdValid;
 
             }
         }
-        EMAIL.requestFocus();
-        EMAIL.setError("Email Invalido");
+        email.requestFocus();
+        email.setError("Email Invalido");
         return isEmailIdValid;
 
 
