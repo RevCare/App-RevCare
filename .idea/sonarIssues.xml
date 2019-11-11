@@ -8,6 +8,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/br/ufrpe/revcare/profissional/gui/CadastroProfissional.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/br/ufrpe/revcare/profissional/negocio/ProfissionalServices.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/br/ufrpe/revcare/usuario/gui/CadastroUsuario.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/br/ufrpe/revcare/usuario/persistencia/UsuarioDAO.java">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>

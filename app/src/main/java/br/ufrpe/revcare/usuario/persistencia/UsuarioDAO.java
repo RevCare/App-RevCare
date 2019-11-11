@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_CPF_USUARIO;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_USUARIO;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_SENHA_USUARIO;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_USUARIO;
@@ -63,6 +64,19 @@ public class UsuarioDAO  {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, new String[]{email});
         if (cursor.moveToFirst()){
+            result = criarUsuario(cursor);
+        }
+        return result;
+    }
+    public Usuario consultarCpf(String email) {
+        Usuario result = null;
+        String query =
+                " SELECT * " +
+                        " FROM " + TABELA_USUARIO +
+                        " WHERE " + COL_CPF_USUARIO + " = ? ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{email});
+        if (cursor.moveToFirst()) {
             result = criarUsuario(cursor);
         }
         return result;
