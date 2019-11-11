@@ -92,7 +92,7 @@ public class Validacao {
     }
     public boolean senhaCorreta(EditText senha){
         String senhaText = senha.getText().toString();
-        if (senhaText.length() >8 || senhaText.length() <8){
+        if (senhaText.length() <8){
             senha.requestFocus();
             senha.setError("Digita uma senha de 8 caracteres");
             return false;
