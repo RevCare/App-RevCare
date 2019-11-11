@@ -32,7 +32,7 @@ public class ProfissionalDAO {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBHelper.COL_NOME_PROFISSIONAL, profissional.getNome());
-        values.put(COL_CPF_PROFISSIONAL, profissional.getCpf());
+        values.put(DBHelper.COL_CPF_PROFISSIONAL, profissional.getCpf());
         values.put(DBHelper.COL_NASCIMENTO_PROFISSIONAL, profissional.getDataNascimento());
         values.put(DBHelper.COL_DESCRICAO_PROFISSIONAL, profissional.getDescricao());
         values.put(DBHelper.COL_EMAIL_PROFISSIONAL, profissional.getEmail());
