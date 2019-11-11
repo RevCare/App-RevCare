@@ -36,18 +36,6 @@
         android:textColor="#000"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/nota"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="30dp"
-        android:layout_toRightOf="@id/image"
-        android:layout_marginTop="60dp"
-        android:text="Nota"
-        android:textColor="#000"
-        android:textSize="18sp" />
     <View
         android:layout_width="fill_parent"
         android:layout_height="10dp"
@@ -64,5 +52,30 @@
         android:layout_marginTop="20dp"
         android:textColor="#ffffff"
         android:layout_height="50dp" />
+
+    <ImageView
+        android:id="@+id/imagelike"
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="59dp"
+        android:layout_toRightOf="@id/image"
+        app:srcCompat="@drawable/btnlike"
+        tools:ignore="VectorDrawableCompat" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="59dp"
+        android:layout_toRightOf="@id/imagelike"
+        app:srcCompat="@drawable/btn_unlike"
+        tools:ignore="VectorDrawableCompat" />
 
 </RelativeLayout>
