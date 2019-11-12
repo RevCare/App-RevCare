@@ -1,6 +1,6 @@
 package br.ufrpe.revcare.relacao.dominio;
 
-public class Relacao {
+public class Avaliacao {
     private long id;
     private long idUsuarioRelacao;
     private long idProfissionalRelacao;

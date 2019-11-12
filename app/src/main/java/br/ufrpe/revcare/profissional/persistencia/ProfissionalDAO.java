@@ -10,6 +10,7 @@ import java.util.List;
 
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
+import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
 
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_CERTIFICADO;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_CIDADE_PROFISSIONAL;
@@ -134,18 +135,12 @@ public class ProfissionalDAO {
         db.close();
         return profissionalArrayList;
     }
-    public ContentValues getContentValues(Profissional profissional){
-        ContentValues values = new ContentValues();
-        values.put(DBHelper.COL_ID_PROFISSIONAL,profissional.getId());
-        values.put(DBHelper.COL_EMAIL_PROFISSIONAL,profissional.getEmail());
-        values.put(DBHelper.COL_CPF_PROFISSIONAL,profissional.getCpf());
-        values.put(DBHelper.COL_SENHA_PROFISSIONAL,profissional.getSenha());
-        values.put(DBHelper.COL_CERTIFICADO,profissional.getCertificado());
-        values.put(DBHelper.COL_ESTADO_PROFISSIONAL,profissional.getEstado());
-        values.put(DBHelper.COL_CIDADE_PROFISSIONAL,profissional.getCidade());
-        values.put(DBHelper.COL_DESCRICAO_PROFISSIONAL,profissional.getDescricao());
-        values.put(DBHelper.COL_NASCIMENTO_PROFISSIONAL, profissional.getDataNascimento());
-        values.put(DBHelper.COL_TELEFONE_PROFISSIONAL,profissional.getTelefone());
-        return values;
+
+    public void updateDescricaoProfissional(Profissional profissional) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("descricao", profissional.getDescricao());
+        db.update("Tabela_Profissional", valores, "id = ?", new String[]{String.valueOf(profissional.getId())});
+        db.close();
     }
 }

@@ -14,6 +14,7 @@ import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.infra.gui.MainActivity;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
+import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class HomeProfissional extends AppCompatActivity {
 
@@ -32,8 +33,15 @@ public class HomeProfissional extends AppCompatActivity {
               startActivity(new Intent(HomeProfissional.this, MainActivity.class));
           }
       });
+        Button btnAtualizarPerfil = findViewById(R.id.botaoAtualizarPerfilProfissional);
+        btnAtualizarPerfil.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                atualizarPerfil();
 
+            }
+            });
     }
     public void preencheTela(Profissional profissional){
         TextView nome = findViewById(R.id.nomeprofissional);
@@ -54,7 +62,13 @@ public class HomeProfissional extends AppCompatActivity {
         if (descricao.getText().toString().trim().equals("")){
             Toast.makeText(getApplicationContext(), "A descrição não foi atualizada.", Toast.LENGTH_LONG).show();
         }else{
-            
+            profissional.setDescricao(descricao.getText().toString().trim());
+            ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
+            dao.updateDescricaoProfissional(profissional);
+            Toast.makeText(getApplicationContext(), "A descrição foi atualizada.", Toast.LENGTH_LONG).show();
+            finish();
+            startActivity(getIntent());
+
         }
     }
 }
