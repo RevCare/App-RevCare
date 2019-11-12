@@ -6,13 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import br.ufrpe.revcare.R;
-import br.ufrpe.revcare.usuario.gui.AvaliacaoProfissional;
+import br.ufrpe.revcare.avaliacao.gui.AvaliacaoProfissional;
 
 public class PerfilProfissional extends AppCompatActivity {
 

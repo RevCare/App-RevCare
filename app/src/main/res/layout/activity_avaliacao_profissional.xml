@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".usuario.gui.AvaliacaoProfissional">
+    tools:context=".avaliacao.gui.AvaliacaoProfissional">
 
 
     <Button
         android:id="@+id/buttonNaoGostei"
-        android:layout_width="93dp"
-        android:layout_height="88dp"
-        android:layout_marginEnd="40dp"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
         android:background="@drawable/btn_unlike"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/buttonGostei"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonGostei"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="@+id/buttonGostei" />
 
     <TextView
@@ -25,11 +24,11 @@
         android:layout_height="wrap_content"
 
         android:layout_marginHorizontal="15dp"
-        android:layout_marginStart="40dp"
         android:layout_marginTop="327dp"
         android:text="Já utilizou os serviços deste profissional?"
         android:textColor="#050101"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,12 +37,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="15dp"
-        android:layout_marginStart="24dp"
         android:layout_marginTop="2dp"
         android:text="Conte-nos como foi sua experiência"
         android:textColor="#050101"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/labelDataNascimento2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelDataNascimento2" />
 
     <TextView
@@ -90,37 +89,35 @@
 
     <Button
         android:id="@+id/buttonGostei"
-        android:layout_width="86dp"
-        android:layout_height="83dp"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="117dp"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="11dp"
         android:background="@drawable/btnlike"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toStartOf="@+id/buttonNaoGostei"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelDataNascimento3" />
+        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintStart_toStartOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginBottom="178dp"
         android:text="Gostei"
         android:textSize="14dp"
-        app:layout_constraintStart_toStartOf="@+id/buttonGostei"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGostei" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="14dp"
+        android:layout_marginEnd="61dp"
         android:text="Não gostei"
         android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="@+id/buttonNaoGostei"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonNaoGostei" />
 
 
