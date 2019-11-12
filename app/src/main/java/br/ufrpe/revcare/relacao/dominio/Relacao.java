@@ -5,6 +5,7 @@ public class Relacao {
     private long idUsuarioRelacao;
     private long idProfissionalRelacao;
     private int like;
+    private int deslike;
 
     public long getId() {
         return id;
@@ -36,5 +37,13 @@ public class Relacao {
 
     public void setLike(int like) {
         this.like = like;
+    }
+
+    public int getDeslike() {
+        return deslike;
+    }
+
+    public void setDeslike(int deslike) {
+        this.deslike = deslike;
     }
 }

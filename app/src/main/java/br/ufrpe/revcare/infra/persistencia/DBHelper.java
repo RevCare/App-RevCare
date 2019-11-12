@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "revcare.bd";
-    private static final int DB_VERSION = 16;
+    private static final int DB_VERSION = 18;
 
 
     public static final String TABELA_USUARIO = "Tabela_Usuario";
@@ -34,17 +34,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_CIDADE_PROFISSIONAL = "cidade";
 
 
-    public static final String TABELA_RELACAO = "Tabela_Relacao";
-    public static final String COL_ID_RELACAO = "id_relacao";
-    public static final String COL_ID_USUARIO_RELACAO = "id_user_relacao";
-    public static final String COL_ID_PROFISSIONAL_RELACAO = "id_prof_relacao";
-    public static final String COL_NOTA = "nota";
+    public static final String TABELA_AVALIACAO = "Tabela_Avaliacao";
+    public static final String COL_ID_AVALIACAO = "id_avaliacao";
+    public static final String COL_FK_ID_USUARIO = "fk_id_usuario";
+    public static final String COL_FK_ID_PROFISSIONAL = "fk_id_profissional";
+    public static final String COL_LIKE = "like";
+    public static final String COL_DESLIKE = "deslike";
 
     private static final String SQL_CREATE_TABLE = "CREATE TABLE %1$s ";
     private static final String SQL_INTEGER_AUTOINCREMENT = "  %2$s INTEGER PRIMARY KEY AUTOINCREMENT, ";
     private static final String[] TABELAS = {
             TABELA_PROFISSIONAL, TABELA_USUARIO,
-            TABELA_RELACAO
+            TABELA_AVALIACAO
     };
 
 
@@ -104,11 +105,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 SQL_INTEGER_AUTOINCREMENT +
                 " %3$s TEXT NOT NULL, " +
                 " %4$s TEXT NOT NULL, " +
-                " %5$s TEXT NOT NULL " +
+                " %5$s TEXT NOT NULL, " +
+                " %6$s TEXT NOT NULL " +
                 ");";
         sqlTbRelacao = String.format(sqlTbRelacao,
-                TABELA_RELACAO, COL_ID_RELACAO, COL_ID_USUARIO_RELACAO, COL_ID_PROFISSIONAL_RELACAO,
-                COL_NOTA);
+                TABELA_AVALIACAO, COL_ID_AVALIACAO, COL_FK_ID_USUARIO, COL_FK_ID_PROFISSIONAL,
+                COL_LIKE,COL_DESLIKE);
         db.execSQL(sqlTbRelacao);
 
     }

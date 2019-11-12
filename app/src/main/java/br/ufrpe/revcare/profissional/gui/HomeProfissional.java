@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.infra.gui.MainActivity;
@@ -45,5 +47,14 @@ public class HomeProfissional extends AppCompatActivity {
         telefone.setText(profissional.getTelefone());
         email.setText(profissional.getEmail());
         descricao.setHint(profissional.getDescricao());
+    }
+    public void atualizarPerfil(){
+        Profissional profissional = SessaoProfissional.getProfissional();
+        EditText descricao = findViewById(R.id.decricaoprofissional);
+        if (descricao.getText().toString().trim().equals("")){
+            Toast.makeText(getApplicationContext(), "A descrição não foi atualizada.", Toast.LENGTH_LONG).show();
+        }else{
+            
+        }
     }
 }
