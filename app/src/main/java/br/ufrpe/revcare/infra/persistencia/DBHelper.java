@@ -112,7 +112,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL(sqlTbAvaliacao);
     }
-    
+
     public void dropTables(SQLiteDatabase db) {
         String dropSql = "DROP TABLE IF EXISTS %1$s;";
         for (String tabela : TABELAS) {
