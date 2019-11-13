@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "revcareapp.bd";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
 
     public static final String TABELA_USUARIO = "Tabela_Usuario";
@@ -57,7 +57,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         createTableUsuario(db);
         createTableProfissional(db);
-        createTableRelacao(db);
+        createTableAvaliacao(db);
     }
 
     private void createTableUsuario(SQLiteDatabase db) {
@@ -100,21 +100,19 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(sqlTbProfissional);
     }
 
-    private void createTableRelacao(SQLiteDatabase db){
-        String sqlTbRelacao = SQL_CREATE_TABLE + "( " +
-                SQL_INTEGER_AUTOINCREMENT +
-                " %3$s TEXT NOT NULL, " +
-                " %4$s TEXT NOT NULL, " +
-                " %5$s TEXT NOT NULL, " +
-                " %6$s TEXT NOT NULL " +
-                ");";
-        sqlTbRelacao = String.format(sqlTbRelacao,
-                TABELA_AVALIACAO, COL_ID_AVALIACAO, COL_FK_ID_USUARIO, COL_FK_ID_PROFISSIONAL,
-                COL_LIKE,COL_DESLIKE);
-        db.execSQL(sqlTbRelacao);
+    private void createTableAvaliacao(SQLiteDatabase db){
+        String sqlTbAvaliacao = "CREATE TABLE " + TABELA_AVALIACAO + " ("
+                + COL_ID_AVALIACAO  + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COL_LIKE + "INTEGER, "
+                + COL_DESLIKE + "INTEGER, "
+                + COL_FK_ID_USUARIO + " INTEGER, "
+                + COL_FK_ID_PROFISSIONAL +  " INTEGER, "
+                + " FOREIGN KEY("+COL_FK_ID_USUARIO+") REFERENCES "+TABELA_USUARIO+"("+COL_ID_USUARIO+"), "
+                + " FOREIGN KEY("+COL_FK_ID_PROFISSIONAL+") REFERENCES "+TABELA_PROFISSIONAL+"("+COL_ID_PROFISSIONAL+"));";
 
+        db.execSQL(sqlTbAvaliacao);
     }
-
+    
     public void dropTables(SQLiteDatabase db) {
         String dropSql = "DROP TABLE IF EXISTS %1$s;";
         for (String tabela : TABELAS) {
