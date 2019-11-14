@@ -24,7 +24,7 @@ import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_PROFISSIONAL;
 
 public class ProfissionalDAO {
 
-    private DBHelper dbHelper;
+    private static DBHelper dbHelper;
 
     public ProfissionalDAO(Context context) {
 
@@ -141,6 +141,15 @@ public class ProfissionalDAO {
         ContentValues valores = new ContentValues();
         valores.put("descricao", profissional.getDescricao());
         db.update("Tabela_Profissional", valores, "id = ?", new String[]{String.valueOf(profissional.getId())});
+        db.close();
+    }
+
+    public static void alteraFotoProfissional(Profissional profissional){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DBHelper.COL_FOTO_PROFISSIONAL,profissional.getFoto());
+        db.update(TABELA_PROFISSIONAL,values, COL_ID_PROFISSIONAL + " = ?",
+                new String[]{String.valueOf(profissional.getId())});
         db.close();
     }
 }
