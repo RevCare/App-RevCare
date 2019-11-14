@@ -8,8 +8,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "rev.bd";
     private static final int DB_VERSION = 2;
-
-
+    
     public static final String TABELA_USUARIO = "Tabela_Usuario";
     public static final String COL_ID_USUARIO = "id";
     public static final String COL_NOME_USUARIO = "nome";
@@ -98,19 +97,23 @@ public class DBHelper extends SQLiteOpenHelper {
                 COL_NASCIMENTO_PROFISSIONAL, COL_TELEFONE_PROFISSIONAL,
                 COL_EMAIL_PROFISSIONAL, COL_CPF_PROFISSIONAL,COL_DESCRICAO_PROFISSIONAL ,
                 COL_CERTIFICADO,COL_SENHA_PROFISSIONAL, COL_ESTADO_PROFISSIONAL,COL_CIDADE_PROFISSIONAL,COL_FOTO_PROFISSIONAL);
+
         db.execSQL(sqlTbProfissional);
     }
 
-    private void createTableAvaliacao(SQLiteDatabase db){
-        String sqlTbAvaliacao = "CREATE TABLE " + TABELA_AVALIACAO + " ("
-                + COL_ID_AVALIACAO  + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + COL_LIKE + "INTEGER, "
-                + COL_DESLIKE + "INTEGER, "
-                + COL_FK_ID_USUARIO + " INTEGER, "
-                + COL_FK_ID_PROFISSIONAL +  " INTEGER, "
-                + " FOREIGN KEY("+COL_FK_ID_USUARIO+") REFERENCES "+TABELA_USUARIO+"("+COL_ID_USUARIO+"), "
-                + " FOREIGN KEY("+COL_FK_ID_PROFISSIONAL+") REFERENCES "+TABELA_PROFISSIONAL+"("+COL_ID_PROFISSIONAL+"));";
-
+    private void createTableAvaliacao(SQLiteDatabase db) {
+        String sqlTbAvaliacao = SQL_CREATE_TABLE + "( " +
+                SQL_INTEGER_AUTOINCREMENT +
+                " %3$s INTEGER NOT NULL, " +
+                " %4$s INTEGER NOT NULL, " +
+                " %9$s INTEGER NOT NULL, " +
+                " %10$s INTEGER NOT NULL, " +
+                " FOREIGN KEY(%3$s) REFERENCES %5$s(%6$s), " +
+                " FOREIGN KEY(%4$s) REFERENCES %7$s(%8$s) " +
+                ");";
+        sqlTbAvaliacao = String.format(sqlTbAvaliacao,
+                TABELA_AVALIACAO, COL_ID_AVALIACAO, COL_FK_ID_USUARIO, COL_FK_ID_PROFISSIONAL,
+                TABELA_USUARIO, COL_ID_USUARIO, TABELA_PROFISSIONAL, COL_ID_PROFISSIONAL, COL_LIKE, COL_DESLIKE);
         db.execSQL(sqlTbAvaliacao);
     }
 
