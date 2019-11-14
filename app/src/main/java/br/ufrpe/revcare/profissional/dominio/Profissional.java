@@ -12,6 +12,16 @@ public class Profissional {
     private String senha;
     private String estado;
     private String cidade;
+    private byte[] foto;
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
 
     public String getEstado() {
         return estado;
