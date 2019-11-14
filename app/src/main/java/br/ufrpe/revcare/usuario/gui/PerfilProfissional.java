@@ -1,4 +1,4 @@
-package br.ufrpe.revcare.profissional.gui;
+package br.ufrpe.revcare.usuario.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,16 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.avaliacao.gui.AvaliacaoProfissional;
+import br.ufrpe.revcare.avaliacao.negocio.GuardaProfissional;
 
 public class PerfilProfissional extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +23,14 @@ public class PerfilProfissional extends AppCompatActivity {
         btnAvaliarProfissional.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                TextView emailTela = findViewById(R.id.emailProfissionalPerfil);
+                String txtEmail = emailTela.getText().toString().trim();
+                GuardaProfissional.setProfissionalGuardado(txtEmail, getApplicationContext());
                 startActivity(new Intent(PerfilProfissional.this, AvaliacaoProfissional.class));
             }
         });
     }
-    //Esse método pega os dados que a gente passou no Intent lá no adapter
+
     private void getIncomingIntent(){
         if (getIntent().hasExtra("nome") && getIntent().hasExtra("endereco") && getIntent().hasExtra("telefone") && getIntent().hasExtra("email") && getIntent().hasExtra("descricao")){
             String nome = getIntent().getStringExtra("nome");
@@ -39,10 +39,10 @@ public class PerfilProfissional extends AppCompatActivity {
             String email = getIntent().getStringExtra("email");
             String descricao = getIntent().getStringExtra("descricao");
 
-            mudar_dados(nome, endereco,telefone, email, descricao);
+            setDadosTela(nome, endereco,telefone, email, descricao);
         }
     }
-    private void mudar_dados(String nome, String endereco, String telefone, String email, String descricao){
+    private void setDadosTela(String nome, String endereco, String telefone, String email, String descricao){
         TextView nomeTela = findViewById(R.id.nomeProfissionalPerfil);
         TextView enderecoTela = findViewById(R.id.enderecoProfissional);
         TextView telefoneTela = findViewById(R.id.telefoneProfissionalHome);
@@ -54,5 +54,6 @@ public class PerfilProfissional extends AppCompatActivity {
         descricaoTela.setText(descricao);
         emailTela.setText(email);
     }
+
 
 }
