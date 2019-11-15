@@ -9,6 +9,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginTop="7.5dp"
         android:id="@+id/image"
         android:src="@drawable/ic_action_name"
         />
@@ -62,21 +63,16 @@
 
     <View
         android:layout_width="fill_parent"
-        android:layout_height="10dp"
+        android:layout_height="3dp"
         android:layout_marginTop="95dp"
         android:background="@android:color/darker_gray"
         android:focusable="false" />
 
     <Button
         android:id="@+id/btnVerMais"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="10dp"
-        android:layout_toEndOf="@+id/image"
-        android:background="#AF0D25"
-        android:text="Ver mais"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="#00AF0D25"
         android:textColor="#ffffff" />
 
 </RelativeLayout>
