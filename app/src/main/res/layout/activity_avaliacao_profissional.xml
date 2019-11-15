@@ -9,6 +9,7 @@
 
     <Button
         android:id="@+id/buttonNaoGostei"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="46dp"
         android:layout_height="35dp"
         android:layout_marginTop="452dp"
@@ -23,7 +24,6 @@
         android:id="@+id/labelDataNascimento2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="327dp"
         android:text="Já utilizou os serviços deste profissional?"
@@ -90,6 +90,7 @@
 
     <Button
         android:id="@+id/buttonGostei"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="48dp"
         android:layout_height="37dp"
         android:layout_marginTop="452dp"
@@ -122,6 +123,18 @@
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonNaoGostei" />
+
+    <Button
+        android:id="@+id/buttonVoltar"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="2dp"
+        android:text="Voltar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/barra_superior3"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

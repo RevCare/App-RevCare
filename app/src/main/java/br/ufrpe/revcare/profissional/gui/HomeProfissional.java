@@ -61,7 +61,7 @@ public class HomeProfissional extends AppCompatActivity {
         preencheTela(SessaoProfissional.getProfissional());
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
         likes = dao.contarLikes(profissional.getId());
-        Toast.makeText(getApplicationContext(),likes.toString() + "Likes", Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(),likes.toString() + " Like(s)", Toast.LENGTH_LONG).show();
         ImageButton mudarFoto = findViewById(R.id.imagemProfissional);
         Button buttonSair = findViewById(R.id.buttonSairProfissional);
         ActivityCompat.requestPermissions(this, PERMISSIONS, 112);
