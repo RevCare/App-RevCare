@@ -22,15 +22,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mDescricao = new ArrayList<>();
     private ArrayList<String> mTelefone = new ArrayList<>();
     private ArrayList<String> mEmail = new ArrayList<>();
+    private ArrayList<Integer> mLikes = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> endereco, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao) {
+    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> endereco, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao, ArrayList<Integer> likes) {
         this.mNome = nome;
         this.mEndereco = endereco;
         this.mTelefone = telefone;
         this.mEmail = email;
         this.mDescricao = descricao;
         this.mContext = context;
+        this.mLikes = likes;
     }
     @NonNull
     @Override
@@ -43,6 +45,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.nome.setText(mNome.get(position));
         holder.descricao.setText(mEndereco.get(position));
+        holder.likes.setText(mLikes.get(position).toString());
+
         holder.btnVerMais.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -69,6 +73,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView descricao;
         RelativeLayout parentLayout;
         Button btnVerMais;
+        TextView likes;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +81,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             descricao = itemView.findViewById(R.id.localizacao);
             parentLayout = itemView.findViewById(R.id.parent_layout);
             btnVerMais = itemView.findViewById(R.id.btnVerMais);
+            likes = itemView.findViewById(R.id.Avaliacao);
         }
     }
 }

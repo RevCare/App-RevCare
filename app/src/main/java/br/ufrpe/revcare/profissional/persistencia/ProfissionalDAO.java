@@ -11,17 +11,12 @@ import java.util.List;
 
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
-import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
 
-import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_CERTIFICADO;
-import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_CIDADE_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_CPF_PROFISSIONAL;
-import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_DESCRICAO_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_DESLIKE;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_PROFISSIONAL;
-import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ESTADO_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_FK_ID_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ID_PROFISSIONAL;
-import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_LIKE;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_SENHA_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_AVALIACAO;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_PROFISSIONAL;
@@ -182,9 +177,9 @@ public class ProfissionalDAO {
     //Essas funções não estão sendo usadas poque deu No such colum no COL_LIKE, n lembro como ajeita
     public int contarDelikes(long idProfissonal){
         int result = 0;
-        String query = " SELECT * " +
-                " FROM " + TABELA_AVALIACAO +
-                " WHERE " + COL_FK_ID_PROFISSIONAL + " = ?" + " AND COL_DESLIKE = 1";
+        String query = " SELECT * FROM " + TABELA_AVALIACAO +
+                " WHERE " + COL_FK_ID_PROFISSIONAL + " = " + idProfissonal +
+                "  AND " + COL_DESLIKE + " = 0 ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String[] args = {};
         Cursor cursor = db.rawQuery(query, args);
