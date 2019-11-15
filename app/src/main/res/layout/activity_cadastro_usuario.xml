@@ -129,7 +129,7 @@
                 android:layout_marginTop="350dp"
                 android:layout_marginRight="5dp"
                 android:ems="10"
-                android:hint="@string/digite_seu_endereco"
+                android:hint="@string/digite_seu_endere_o"
                 android:inputType="textPersonName"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"

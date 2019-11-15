@@ -9,14 +9,13 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_perfil"
-        android:layout_width="151dp"
-        android:layout_height="0dp"
+        android:layout_width="183dp"
+        android:layout_height="91dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/ic_action_name"
-        app:layout_constraintBottom_toTopOf="@+id/nomeProfissionalPerfil"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barra_superior" />
 
@@ -87,40 +86,35 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/telefoneProfissionalHome"
         app:layout_constraintStart_toStartOf="@+id/lblEmail" />
 
+
     <TextView
         android:id="@+id/nomeProfissionalPerfil"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginTop="261dp"
-        android:layout_marginBottom="261dp"
+        android:layout_marginTop="164dp"
         android:layout_toEndOf="@+id/image"
         android:text="Shawn Mendes"
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/lblEmail"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/descricaoprofissionalPerfil"
-        android:layout_width="0dp"
-        android:layout_height="178dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="89dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="88dp"
+        android:layout_width="328dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="224dp"
         android:background="#80CACACA"
         android:textColor="#000000"
         android:textColorHint="#000000"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/lblTelefone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_perfil" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/barra_superior"
