@@ -52,6 +52,7 @@ public class HomeProfissional extends AppCompatActivity {
 
     private Profissional profissional = SessaoProfissional.getProfissional();
     private ImageView mImagemCliente;
+    private Integer likes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +60,8 @@ public class HomeProfissional extends AppCompatActivity {
         getSupportActionBar().hide();
         preencheTela(SessaoProfissional.getProfissional());
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
-        Toast.makeText(getApplicationContext(),dao.contarDeslikes(profissional.getId()) , Toast.LENGTH_LONG).show();
+        likes = dao.contarLikes(profissional.getId());
+        Toast.makeText(getApplicationContext(),likes.toString() + "Likes", Toast.LENGTH_LONG).show();
         ImageButton mudarFoto = findViewById(R.id.imagemProfissional);
         Button buttonSair = findViewById(R.id.buttonSairProfissional);
         ActivityCompat.requestPermissions(this, PERMISSIONS, 112);
