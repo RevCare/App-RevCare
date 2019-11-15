@@ -28,7 +28,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private Float qtdDeslikes;
     private Float porcentagemLikes;
     private Float votosTotais;
-    private Float porcentagemDeslikes;
     private Context mContext;
 
     public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> endereco, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao, ArrayList<Integer> likes, ArrayList<Integer> deslikes) {
@@ -54,11 +53,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         qtdDeslikes = mDeslikes.get(position).floatValue();
         votosTotais = qtdDeslikes + qtdLikes;
         porcentagemLikes = (qtdLikes * 100)/votosTotais;
-        porcentagemDeslikes = (qtdDeslikes *100)/votosTotais;
+        if (qtdLikes == 0){
+            holder.likes.setText("Nenhuma");
+        }else{
+            holder.likes.setText(porcentagemLikes.toString() + "% positivas");}
         holder.nome.setText(mNome.get(position));
         holder.descricao.setText(mEndereco.get(position));
-        holder.likes.setText(porcentagemLikes.toString() + "%");
-        holder.deslikes.setText(porcentagemDeslikes.toString() + "%");
+
 
         holder.btnVerMais.setOnClickListener(new View.OnClickListener() {
 
@@ -87,7 +88,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         RelativeLayout parentLayout;
         Button btnVerMais;
         TextView likes;
-        TextView deslikes;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -96,7 +96,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             parentLayout = itemView.findViewById(R.id.parent_layout);
             btnVerMais = itemView.findViewById(R.id.btnVerMais);
             likes = itemView.findViewById(R.id.qtdLikes);
-            deslikes = itemView.findViewById(R.id.qtdDeslikes);
         }
     }
 }
