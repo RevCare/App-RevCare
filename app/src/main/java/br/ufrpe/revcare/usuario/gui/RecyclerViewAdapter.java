@@ -24,7 +24,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mEmail = new ArrayList<>();
     private ArrayList<Integer> mLikes = new ArrayList<>();
     private ArrayList<Integer> mDeslikes = new ArrayList<>();
-
+    private Float qtdLikes;
+    private Float qtdDeslikes;
+    private Float porcentagemLikes;
+    private Float votosTotais;
+    private Float porcentagemDeslikes;
     private Context mContext;
 
     public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> endereco, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao, ArrayList<Integer> likes, ArrayList<Integer> deslikes) {
@@ -46,10 +50,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        qtdLikes = mLikes.get(position).floatValue();
+        qtdDeslikes = mDeslikes.get(position).floatValue();
+        votosTotais = qtdDeslikes + qtdLikes;
+        porcentagemLikes = (qtdLikes * 100)/votosTotais;
+        porcentagemDeslikes = (qtdDeslikes *100)/votosTotais;
         holder.nome.setText(mNome.get(position));
         holder.descricao.setText(mEndereco.get(position));
-        holder.likes.setText(mLikes.get(position).toString());
-        holder.deslikes.setText(mDeslikes.get(position).toString());
+        holder.likes.setText(porcentagemLikes.toString() + "%");
+        holder.deslikes.setText(porcentagemDeslikes.toString() + "%");
 
         holder.btnVerMais.setOnClickListener(new View.OnClickListener() {
 
