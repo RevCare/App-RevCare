@@ -60,6 +60,8 @@ public class HomeProfissional extends AppCompatActivity {
         setContentView(R.layout.activity_home_profissional);
         getSupportActionBar().hide();
         preencheTela(SessaoProfissional.getProfissional());
+        ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
+        Toast.makeText(getApplicationContext(),dao.contarLikes(profissional.getId()) , Toast.LENGTH_LONG).show();
         ImageButton mudarFoto = findViewById(R.id.imagemProfissional);
         Button buttonSair = findViewById(R.id.buttonSairProfissional);
         ActivityCompat.requestPermissions(this, PERMISSIONS, 112);
@@ -137,7 +139,7 @@ public class HomeProfissional extends AppCompatActivity {
             File photoFile = null;
             photoFile = createPhotoFile();
             if (photoFile != null) {
-                Uri photoUri = FileProvider.getUriForFile(getApplicationContext(), "br.ufrpe.bsi.mpoo.petSpeed", photoFile);
+                Uri photoUri = FileProvider.getUriForFile(getApplicationContext(), "br.ufrpe.revcare", photoFile);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(intent, REQUEST_CAPTURE);
             }

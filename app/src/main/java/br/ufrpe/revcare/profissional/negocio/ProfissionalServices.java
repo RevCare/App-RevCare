@@ -41,4 +41,13 @@ public class ProfissionalServices {
     public static void alteraFotoProfissional(Profissional profissional){
         ProfissionalDAO.alteraFotoProfissional(profissional);
     }
+    public int porcentagemDeAprovacao(long idProfissional){
+        int result = 0;
+        int qttLikes = dao.contarLikes(idProfissional);
+        int qttDeslikes = dao.contarDelikes(idProfissional);
+        result = (qttLikes * 100)/(qttDeslikes+qttLikes);
+        return result;
+
+
+    }
 }

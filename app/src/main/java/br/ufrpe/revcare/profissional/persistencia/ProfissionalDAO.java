@@ -1,5 +1,6 @@
 package br.ufrpe.revcare.profissional.persistencia;
 
+import android.app.DownloadManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,8 +19,11 @@ import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_CPF_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_DESCRICAO_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ESTADO_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_FK_ID_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ID_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_LIKE;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_SENHA_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_AVALIACAO;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_PROFISSIONAL;
 
 public class ProfissionalDAO {
@@ -151,5 +155,50 @@ public class ProfissionalDAO {
         db.update(TABELA_PROFISSIONAL,values, COL_ID_PROFISSIONAL + " = ?",
                 new String[]{String.valueOf(profissional.getId())});
         db.close();
+
+    }
+
+    public int contarLikes(long idProfissonal){
+        int result = 0;
+        String query = " SELECT * " +
+                " FROM " + TABELA_AVALIACAO +
+                " WHERE " + COL_FK_ID_PROFISSIONAL + " = ?" + " AND COL_LIKE = 1";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] args = {};
+        Cursor cursor = db.rawQuery(query, args);
+        if (cursor.moveToFirst()) {
+            do {
+                result+=1;
+            } while (cursor.moveToNext());
+
+            cursor.close();
+            db.close();
+            return result;
+        }
+        cursor.close();
+        db.close();
+        return result;
+    }
+    //Essas funções não estão sendo usadas poque deu No such colum no COL_LIKE, n lembro como ajeita
+    public int contarDelikes(long idProfissonal){
+        int result = 0;
+        String query = " SELECT * " +
+                " FROM " + TABELA_AVALIACAO +
+                " WHERE " + COL_FK_ID_PROFISSIONAL + " = ?" + " AND COL_DESLIKE = 1";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] args = {};
+        Cursor cursor = db.rawQuery(query, args);
+        if (cursor.moveToFirst()) {
+            do {
+                result+=1;
+            } while (cursor.moveToNext());
+
+            cursor.close();
+            db.close();
+            return result;
+        }
+        cursor.close();
+        db.close();
+        return result;
     }
 }
