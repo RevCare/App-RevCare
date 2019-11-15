@@ -15,6 +15,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.Image;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
@@ -47,8 +48,14 @@ import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 import static android.os.Environment.getExternalStoragePublicDirectory;
-// Funçoes de capturar foto e etc tiradas do aplicativo Trainee 
+// Funçoes de capturar foto e etc tiradas do aplicativo Trainee
 public class HomeProfissional extends AppCompatActivity {
+    private TextView nome;
+    private TextView cpf ;
+    private TextView telefone;
+    private TextView descricao;
+    private TextView email;
+    private ImageView mImagemCliente;
     private static String mCurrentPhotoPath;
     private static final int PERMISSION_REQUEST = 0;
     private static final int REQUEST_TAKE_PHOTO = 1;
@@ -59,22 +66,18 @@ public class HomeProfissional extends AppCompatActivity {
             android.Manifest.permission.INTERNET};
 
     private Profissional profissional = SessaoProfissional.getProfissional();
-    private ImageView mImagemCliente;
     private Integer likes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mImagemCliente = findViewById(R.id.image4);
         setContentView(R.layout.activity_home_profissional);
         getSupportActionBar().hide();
         preencheTela(SessaoProfissional.getProfissional());
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
         likes = dao.contarLikes(profissional.getId());
-        Toast.makeText(getApplicationContext(), likes.toString() + " Like(s)", Toast.LENGTH_LONG).show();
-        ImageButton mudarFoto = findViewById(R.id.imagemProfissional);
+        Button mudarFoto = findViewById(R.id.imagemProfissional);
         Button buttonSair = findViewById(R.id.buttonSairProfissional);
-
         buttonSair.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -116,11 +119,12 @@ public class HomeProfissional extends AppCompatActivity {
     }
 
     public void preencheTela(Profissional profissional) {
-        TextView nome = findViewById(R.id.nomeprofissional);
-        TextView cpf = findViewById(R.id.cpfProfissionalHome);
-        TextView telefone = findViewById(R.id.telefoneProfissionalHome);
-        TextView descricao = findViewById(R.id.decricaoprofissional);
-        TextView email = findViewById(R.id.emailProfissionalHome);
+        nome = findViewById(R.id.nomeprofissional);
+        cpf = findViewById(R.id.cpfProfissionalHome);
+        telefone = findViewById(R.id.telefoneProfissionalHome);
+        descricao = findViewById(R.id.decricaoprofissional);
+        email = findViewById(R.id.emailProfissionalHome);
+        mImagemCliente = findViewById(R.id.image4);
 
         nome.setText(profissional.getNome());
         cpf.setText(profissional.getCpf());
@@ -129,7 +133,6 @@ public class HomeProfissional extends AppCompatActivity {
         descricao.setHint(profissional.getDescricao());
 
     }
-
     public void atualizarPerfil() {
         Profissional profissional = SessaoProfissional.getProfissional();
         EditText descricao = findViewById(R.id.decricaoprofissional);
