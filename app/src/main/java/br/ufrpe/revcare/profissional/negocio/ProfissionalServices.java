@@ -43,8 +43,8 @@ public class ProfissionalServices {
     }
     public int porcentagemDeAprovacao(long idProfissional){
         int result = 0;
-        int qttLikes = dao.contarLikes(idProfissional);
-        int qttDeslikes = dao.contarDelikes(idProfissional);
+        int qttLikes = dao.contarDeslikes(idProfissional);
+        int qttDeslikes = dao.contarLikes(idProfissional);
         result = (qttLikes * 100)/(qttDeslikes+qttLikes);
         return result;
 

@@ -27,6 +27,9 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     private ArrayList<String> mDescricao = new ArrayList<>();
     private ArrayList<String> mEmail = new ArrayList<>();
     private ArrayList<Integer> mLikes = new ArrayList<Integer>();
+    private ArrayList<Integer> mDeslikes = new ArrayList<Integer>();
+
+
 
 
 
@@ -75,7 +78,8 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
              mTelefone.add(profissionais.get(i).getTelefone());
              mEmail.add(profissionais.get(i).getEmail());
              mDescricao.add(profissionais.get(i).getDescricao());
-             mLikes.add(dao.contarDelikes(profissionais.get(i).getId()));
+             mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
+             mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
 
         }
         initRecyclerView();
@@ -84,7 +88,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.usuariorecylcer);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mLocalizacao, mTelefone, mEmail, mDescricao, mLikes);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mLocalizacao, mTelefone, mEmail, mDescricao, mLikes, mDeslikes);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

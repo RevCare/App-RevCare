@@ -36,7 +36,7 @@
         android:textColor="#000"
         android:textSize="18sp" />
     <TextView
-        android:id="@+id/Avaliacao"
+        android:id="@+id/Likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -44,10 +44,45 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="60dp"
         android:layout_toRightOf="@id/image"
-        android:text="Avaliação:"
+        android:text="Likes:"
         android:textColor="#000"
         android:textSize="18sp" />
-
+    <TextView
+        android:id="@+id/qtdLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/Likes"
+        android:text="0"
+        android:textColor="#000"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/deslikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/qtdLikes"
+        android:text="Deslikes:"
+        android:textColor="#000"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/qtdDeslikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/deslikes"
+        android:text="0"
+        android:textColor="#000"
+        android:textSize="18sp" />
     <View
         android:layout_width="fill_parent"
         android:layout_height="10dp"

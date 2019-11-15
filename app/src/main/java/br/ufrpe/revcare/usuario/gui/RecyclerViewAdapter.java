@@ -23,9 +23,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mTelefone = new ArrayList<>();
     private ArrayList<String> mEmail = new ArrayList<>();
     private ArrayList<Integer> mLikes = new ArrayList<>();
+    private ArrayList<Integer> mDeslikes = new ArrayList<>();
+
     private Context mContext;
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> endereco, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao, ArrayList<Integer> likes) {
+    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> endereco, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao, ArrayList<Integer> likes, ArrayList<Integer> deslikes) {
         this.mNome = nome;
         this.mEndereco = endereco;
         this.mTelefone = telefone;
@@ -33,6 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mDescricao = descricao;
         this.mContext = context;
         this.mLikes = likes;
+        this.mDeslikes = deslikes;
     }
     @NonNull
     @Override
@@ -46,6 +49,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.nome.setText(mNome.get(position));
         holder.descricao.setText(mEndereco.get(position));
         holder.likes.setText(mLikes.get(position).toString());
+        holder.deslikes.setText(mDeslikes.get(position).toString());
 
         holder.btnVerMais.setOnClickListener(new View.OnClickListener() {
 
@@ -74,6 +78,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         RelativeLayout parentLayout;
         Button btnVerMais;
         TextView likes;
+        TextView deslikes;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -81,7 +86,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             descricao = itemView.findViewById(R.id.localizacao);
             parentLayout = itemView.findViewById(R.id.parent_layout);
             btnVerMais = itemView.findViewById(R.id.btnVerMais);
-            likes = itemView.findViewById(R.id.Avaliacao);
+            likes = itemView.findViewById(R.id.qtdLikes);
+            deslikes = itemView.findViewById(R.id.qtdDeslikes);
         }
     }
 }
