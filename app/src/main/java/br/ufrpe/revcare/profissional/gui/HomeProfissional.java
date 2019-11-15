@@ -139,9 +139,9 @@ public class HomeProfissional extends AppCompatActivity {
             File photoFile = null;
             photoFile = createPhotoFile();
             if (photoFile != null) {
-                Uri photoUri = FileProvider.getUriForFile(getApplicationContext(), "br.ufrpe.revcare", photoFile);
+                Uri photoUri = FileProvider.getUriForFile(getApplicationContext(), "br.ufrpe.revcare.provider", photoFile);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                startActivityForResult(intent, REQUEST_CAPTURE);
+                startActivityForResult(intent, REQUEST_GALLERY);
             }
         }
     }
