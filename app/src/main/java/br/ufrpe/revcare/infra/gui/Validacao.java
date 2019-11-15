@@ -5,8 +5,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.InputMismatchException;
-
-import br.ufrpe.revcare.R;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Validacao {
 
@@ -32,7 +32,7 @@ public class Validacao {
     }
     //Validação de CPF tirada do aplicativo Trainee, feita por Henrique Cesar.
     // Link : https://github.com/TraineeUFRPE
-    public static boolean isCPF(EditText CPF) {
+    public boolean isCPF(EditText CPF) {
         String cpf = CPF.getText().toString();
         if (cpf.equals("00000000000") ||
                 cpf.equals("11111111111") ||
@@ -88,8 +88,16 @@ public class Validacao {
             return(false);
         }
     }
+    public boolean senhaCorreta(EditText senha){
+        String senhaText = senha.getText().toString();
+        if (senhaText.length() <8){
+            senha.requestFocus();
+            senha.setError("Digita uma senha de 8 caracteres");
+            return false;
+        }
+        return true;
 
-
+    }
     public boolean confirmarSenha(Context context,String nSenha, String nConfirmarSenha) {
         boolean result = true;
         if (!nSenha.equals(nConfirmarSenha)) {
@@ -99,15 +107,23 @@ public class Validacao {
         return result;
 
     }
-    public boolean validarEmail(String email) {
+    public boolean validarEmail(EditText email) {
+        String stringEmail = email.getText().toString().trim();
         boolean isEmailIdValid = false;
-        if (email != null && email.length() > 0) {
+        if (stringEmail.length() > 0) {
             String expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$";
             Pattern pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE);
-            Matcher matcher = pattern.matcher(email);
+            Matcher matcher = pattern.matcher(stringEmail);
             if (matcher.matches()) {
-                isEmailIdValid = true; }
+                isEmailIdValid = true;
+                return isEmailIdValid;
+
+            }
         }
+        email.requestFocus();
+        email.setError("Email Invalido");
         return isEmailIdValid;
+
+
     }
 }

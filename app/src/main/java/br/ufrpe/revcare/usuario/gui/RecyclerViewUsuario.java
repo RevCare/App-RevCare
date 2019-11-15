@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -21,9 +20,19 @@ import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class RecyclerViewUsuario extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private ArrayList<String> mNomes = new ArrayList<>();
-    private ArrayList<String> mlocalizacao = new ArrayList<>();
+    private ArrayList<String> mLocalizacao = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
     private List<Profissional> profissionais = null;
+    private ArrayList<String> mTelefone = new ArrayList<>();
+    private ArrayList<String> mDescricao = new ArrayList<>();
+    private ArrayList<String> mEmail = new ArrayList<>();
+    private ArrayList<Integer> mLikes = new ArrayList<Integer>();
+    private ArrayList<Integer> mDeslikes = new ArrayList<Integer>();
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +52,9 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         spinner2.setAdapter(adapter2);
         spinner.setOnItemSelectedListener(this);
         spinner2.setOnItemSelectedListener(this);
+
+
+
     }
 
     @Override
@@ -58,10 +70,17 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
     private void initServicos(){
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
-        profissionais = dao.getAllProfissionalById();
+        profissionais = dao.getAllProfissional();
+
         for (int i = 0; i < profissionais.size(); i++) {
              mNomes.add(profissionais.get(i).getNome());
-             mlocalizacao.add(profissionais.get(i).getTelefone());
+             mLocalizacao.add(profissionais.get(i).getCidade());
+             mTelefone.add(profissionais.get(i).getTelefone());
+             mEmail.add(profissionais.get(i).getEmail());
+             mDescricao.add(profissionais.get(i).getDescricao());
+             mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
+             mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
+
         }
         initRecyclerView();
 
@@ -69,8 +88,10 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.usuariorecylcer);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mlocalizacao);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mLocalizacao, mTelefone, mEmail, mDescricao, mLikes, mDeslikes);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
+
+
 }

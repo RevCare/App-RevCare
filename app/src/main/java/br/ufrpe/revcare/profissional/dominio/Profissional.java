@@ -10,7 +10,34 @@ public class Profissional {
     private String descricao;
     private String certificado;
     private String senha;
-    private String confirmarSenha;
+    private String estado;
+    private String cidade;
+    private byte[] foto;
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    public String getCidade() {
+        return cidade;
+    }
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public Profissional() {
+    }
 
     public String getTelefone() {
         return telefone;
@@ -67,6 +94,7 @@ public class Profissional {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     public String getCertificado() {
         return certificado;
     }
@@ -81,14 +109,6 @@ public class Profissional {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public String getConfirmarSenha() {
-        return confirmarSenha;
-    }
-
-    public void setConfirmarSenha(String confirmarSenha) {
-        this.confirmarSenha = confirmarSenha;
     }
 
 }

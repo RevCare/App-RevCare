@@ -57,13 +57,17 @@ public class CadastroUsuario extends AppCompatActivity {
         EditText nSenha = findViewById(R.id.senhaTextField);
         EditText nConfirmarSenha = findViewById(R.id.confirmarSenhaTextField);
         Validacao valido = new Validacao();
+        boolean emailValido =
+                valido.validarEmail(nEmail);
         boolean camposValidos =
                 valido.isValido(nNome, nDataNascimento, nEndereco, nTelefone, nEmail, nSenha, nConfirmarSenha);
         boolean senhasValidas =
                 valido.confirmarSenha(getApplicationContext(),nSenha.getText().toString(),nConfirmarSenha.getText().toString());
         boolean cpfValido=
-                valido.isCPF(nCpf);
-        return camposValidos && senhasValidas && cpfValido;
+                valido.isCPF(nCpf) && confirmaCpf();
+        boolean senhaCorreta=
+                valido.senhaCorreta(nSenha);
+        return emailValido && camposValidos && senhasValidas && cpfValido && senhaCorreta;
     }
 
     private  boolean confirmaEmail(){
@@ -75,6 +79,21 @@ public class CadastroUsuario extends AppCompatActivity {
         if (result != null){
             nEmail.requestFocus();
             nEmail.setError("Preencha novamente o campo.");
+            Toast.makeText(getApplicationContext(), "Não foi possível realizar o cadastro.", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
+    }
+
+    private  boolean confirmaCpf(){
+        Usuario result = null;
+        UsuarioDAO dao = new UsuarioDAO(this);
+        EditText nCpf = findViewById(R.id.cpfTextField);
+        String cpf = nCpf.getText().toString().trim();
+        result = dao.consultarCpf(cpf);
+        if (result != null){
+            nCpf.requestFocus();
+            nCpf.setError("Preencha novamente o campo.");
             Toast.makeText(getApplicationContext(), "Não foi possível realizar o cadastro.", Toast.LENGTH_LONG).show();
             return false;
         }

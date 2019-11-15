@@ -1,5 +1,6 @@
 package br.ufrpe.revcare.profissional.persistencia;
 
+import android.app.DownloadManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,14 +11,20 @@ import java.util.List;
 
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
+
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_CPF_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_DESLIKE;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_EMAIL_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_FK_ID_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_ID_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_LIKE;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_SENHA_PROFISSIONAL;
+import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_AVALIACAO;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_PROFISSIONAL;
 
 public class ProfissionalDAO {
 
-    private DBHelper dbHelper;
+    private static DBHelper dbHelper;
 
     public ProfissionalDAO(Context context) {
 
@@ -31,11 +38,13 @@ public class ProfissionalDAO {
         values.put(DBHelper.COL_NOME_PROFISSIONAL, profissional.getNome());
         values.put(DBHelper.COL_CPF_PROFISSIONAL, profissional.getCpf());
         values.put(DBHelper.COL_NASCIMENTO_PROFISSIONAL, profissional.getDataNascimento());
-        values.put(DBHelper.COL_ENDERECO_PROFISSIONAL, profissional.getDescricao());
-        values.put(COL_EMAIL_PROFISSIONAL, profissional.getEmail());
+        values.put(DBHelper.COL_DESCRICAO_PROFISSIONAL, profissional.getDescricao());
+        values.put(DBHelper.COL_EMAIL_PROFISSIONAL, profissional.getEmail());
         values.put(DBHelper.COL_TELEFONE_PROFISSIONAL, profissional.getTelefone());
         values.put(DBHelper.COL_CERTIFICADO, profissional.getCertificado());
-        values.put(COL_SENHA_PROFISSIONAL, profissional.getSenha());
+        values.put(DBHelper.COL_SENHA_PROFISSIONAL, profissional.getSenha());
+        values.put(DBHelper.COL_ESTADO_PROFISSIONAL, profissional.getEstado());
+        values.put(DBHelper.COL_CIDADE_PROFISSIONAL, profissional.getCidade());
 
         long id = db.insert(TABELA_PROFISSIONAL, null, values);
         db.close();
@@ -43,7 +52,7 @@ public class ProfissionalDAO {
 
     }
 
-    public Profissional consultar(String email, String senha) {
+    public Profissional consultarEmail(String email, String senha) {
         Profissional result = null;
         String query =
                 " SELECT * " +
@@ -59,12 +68,26 @@ public class ProfissionalDAO {
     }
 
 
-    public Profissional consultar(String email) {
+    public Profissional consultarEmail(String email) {
         Profissional result = null;
         String query =
                 " SELECT * " +
                         " FROM " + TABELA_PROFISSIONAL +
                         " WHERE " + COL_EMAIL_PROFISSIONAL + " = ? ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{email});
+        if (cursor.moveToFirst()) {
+            result = criarProfissional(cursor);
+        }
+        return result;
+    }
+
+    public Profissional consultarCpf(String email) {
+        Profissional result = null;
+        String query =
+                " SELECT * " +
+                        " FROM " + TABELA_PROFISSIONAL +
+                        " WHERE " + COL_CPF_PROFISSIONAL + " = ? ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, new String[]{email});
         if (cursor.moveToFirst()) {
@@ -84,11 +107,13 @@ public class ProfissionalDAO {
         result.setEmail(cursor.getString(4));
         result.setCertificado(cursor.getString(7));
         result.setSenha(cursor.getString(8));
+        result.setEstado(cursor.getString(9));
+        result.setCidade(cursor.getString(10));
 
         return result;
     }
 
-    public List<Profissional> getAllProfissionalById() {
+    public List<Profissional> getAllProfissional() {
         List<Profissional> profissionalArrayList = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String query = " SELECT * " +
@@ -109,5 +134,66 @@ public class ProfissionalDAO {
         cursor.close();
         db.close();
         return profissionalArrayList;
+    }
+
+    public void updateDescricaoProfissional(Profissional profissional) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("descricao", profissional.getDescricao());
+        db.update("Tabela_Profissional", valores, "id = ?", new String[]{String.valueOf(profissional.getId())});
+        db.close();
+    }
+
+    public static void alteraFotoProfissional(Profissional profissional){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(DBHelper.COL_FOTO_PROFISSIONAL,profissional.getFoto());
+        db.update(TABELA_PROFISSIONAL,values, COL_ID_PROFISSIONAL + " = ?",
+                new String[]{String.valueOf(profissional.getId())});
+        db.close();
+
+    }
+
+    public int contarDeslikes(long idProfissonal){
+        int result = 0;
+        String query = " SELECT * FROM " + TABELA_AVALIACAO +
+                " WHERE " + COL_FK_ID_PROFISSIONAL + " = " + idProfissonal +
+                "  AND " + COL_LIKE + " = 0 ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] args = {};
+        Cursor cursor = db.rawQuery(query, args);
+        if (cursor.moveToFirst()) {
+            do {
+                result+=1;
+            } while (cursor.moveToNext());
+
+            cursor.close();
+            db.close();
+            return result;
+        }
+        cursor.close();
+        db.close();
+        return result;
+    }
+    public int contarLikes(long idProfissonal){
+        int result = 0;
+        String query = " SELECT * FROM " + TABELA_AVALIACAO +
+                " WHERE " + COL_FK_ID_PROFISSIONAL + " = " + idProfissonal +
+                "  AND " + COL_DESLIKE + " = 0 ";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String[] args = {};
+        Cursor cursor = db.rawQuery(query, args);
+        if (cursor.moveToFirst()) {
+            do {
+                result+=1;
+            } while (cursor.moveToNext());
+
+            cursor.close();
+            db.close();
+            return result;
+        }
+        cursor.close();
+        db.close();
+        return result;
     }
 }

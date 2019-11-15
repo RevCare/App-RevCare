@@ -10,7 +10,8 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:id="@+id/image"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@drawable/ic_action_name"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,17 +35,52 @@
         android:text="Localização"
         android:textColor="#000"
         android:textSize="18sp" />
-
     <TextView
-        android:id="@+id/nota"
+        android:id="@+id/Likes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerVertical="true"
         android:layout_marginStart="30dp"
-        android:layout_toRightOf="@id/image"
         android:layout_marginTop="60dp"
-        android:text="Nota"
+        android:layout_toRightOf="@id/image"
+        android:text="Likes:"
+        android:textColor="#000"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/qtdLikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/Likes"
+        android:text="0"
+        android:textColor="#000"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/deslikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/qtdLikes"
+        android:text="Deslikes:"
+        android:textColor="#000"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/qtdDeslikes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/deslikes"
+        android:text="0"
         android:textColor="#000"
         android:textSize="18sp" />
     <View
@@ -57,11 +93,13 @@
     <Button
         android:id="@+id/btnVerMais"
         android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="220dp"
         android:layout_marginLeft="300dp"
-        android:text="Ver mais"
-        android:background="#AF0D25"
         android:layout_marginTop="20dp"
-        android:textColor="#ffffff"
-        android:layout_height="50dp" />
+        android:layout_toEndOf="@+id/image"
+        android:background="#AF0D25"
+        android:text="Ver mais"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>
