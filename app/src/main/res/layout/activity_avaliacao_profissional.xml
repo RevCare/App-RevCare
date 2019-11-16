@@ -9,20 +9,21 @@
 
     <Button
         android:id="@+id/buttonNaoGostei"
-        android:layout_width="40dp"
-        android:layout_height="0dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="46dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="452dp"
         android:background="@drawable/btn_unlike"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/buttonGostei"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/buttonGostei" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.726"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/labelDataNascimento2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="327dp"
         android:text="Já utilizou os serviços deste profissional?"
@@ -89,36 +90,51 @@
 
     <Button
         android:id="@+id/buttonGostei"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginBottom="11dp"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="48dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="452dp"
         android:background="@drawable/btnlike"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
-        app:layout_constraintStart_toStartOf="@+id/textView3" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.242"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginBottom="178dp"
+        android:layout_width="48dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="500dp"
         android:text="Gostei"
         android:textSize="14dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="61dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="76dp"
         android:text="Não gostei"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonNaoGostei" />
+
+    <Button
+        android:id="@+id/buttonVoltar"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:layout_marginBottom="2dp"
+        android:text="Voltar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/barra_superior3"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

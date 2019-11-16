@@ -1,23 +1,30 @@
 package br.ufrpe.revcare.profissional.gui;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.media.Image;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,18 +48,26 @@ import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 import static android.os.Environment.getExternalStoragePublicDirectory;
-
+// Funçoes de capturar foto e etc tiradas do aplicativo Trainee
 public class HomeProfissional extends AppCompatActivity {
+    private TextView nome;
+    private TextView cpf ;
+    private TextView telefone;
+    private TextView descricao;
+    private TextView email;
+    private ImageView mImagemCliente;
+    private static String mCurrentPhotoPath;
     private static final int PERMISSION_REQUEST = 0;
+    private static final int REQUEST_TAKE_PHOTO = 1;
     private static final int REQUEST_GALLERY = 2;
-    private static final int REQUEST_CAPTURE = 1;
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final String[] PERMISSIONS = {android.Manifest.permission.READ_EXTERNAL_STORAGE,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
             android.Manifest.permission.INTERNET};
 
     private Profissional profissional = SessaoProfissional.getProfissional();
-    private ImageView mImagemCliente;
     private Integer likes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,38 +76,16 @@ public class HomeProfissional extends AppCompatActivity {
         preencheTela(SessaoProfissional.getProfissional());
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
         likes = dao.contarLikes(profissional.getId());
-        Toast.makeText(getApplicationContext(),likes.toString() + "Likes", Toast.LENGTH_LONG).show();
-        ImageButton mudarFoto = findViewById(R.id.imagemProfissional);
+        Button mudarFoto = findViewById(R.id.imagemProfissional);
         Button buttonSair = findViewById(R.id.buttonSairProfissional);
-        ActivityCompat.requestPermissions(this, PERMISSIONS, 112);
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.READ_EXTERNAL_STORAGE)) {
-            } else {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                        REQUEST_GALLERY);
-            }
-        }
-        mudarFoto.setOnClickListener(new View.OnClickListener() {
+        buttonSair.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                getPermissionsGaleria();
-                takePhoto();
+                SessaoProfissional.reset();
+                startActivity(new Intent(HomeProfissional.this, MainActivity.class));
             }
         });
-
-        buttonSair.setOnClickListener(new View.OnClickListener() {
-
-          @Override
-          public void onClick(View v) {
-              SessaoProfissional.reset();
-              startActivity(new Intent(HomeProfissional.this, MainActivity.class));
-          }
-      });
         Button btnAtualizarPerfil = findViewById(R.id.botaoAtualizarPerfilProfissional);
         btnAtualizarPerfil.setOnClickListener(new View.OnClickListener() {
 
@@ -101,27 +94,54 @@ public class HomeProfissional extends AppCompatActivity {
                 atualizarPerfil();
 
             }
-            });
+        });
+
+        mudarFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String[] opcoes = {"Tirar foto", "Escolher foto"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeProfissional.this);
+                builder.setTitle("Alterar Foto");
+                builder.setItems(opcoes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if ("Tirar foto".equals(opcoes[which])){
+                            getPermissionsCamera();
+                        }
+                        else if ("Escolher foto".equals(opcoes[which])){
+                            getPermissionsGaleria();
+                        }
+                    }
+                });
+                builder.show();
+            }
+        });
     }
-    public void preencheTela(Profissional profissional){
-        TextView nome = findViewById(R.id.nomeprofissional);
-        TextView cpf = findViewById(R.id.cpfProfissionalHome);
-        TextView telefone = findViewById(R.id.telefoneProfissionalHome);
-        TextView descricao = findViewById(R.id.decricaoprofissional);
-        TextView email = findViewById(R.id.emailProfissionalHome);
+
+    public void preencheTela(Profissional profissional) {
+        nome = findViewById(R.id.nomeprofissional);
+        cpf = findViewById(R.id.cpfProfissionalHome);
+        telefone = findViewById(R.id.telefoneProfissionalHome);
+        descricao = findViewById(R.id.decricaoprofissional);
+        email = findViewById(R.id.emailProfissionalHome);
+        mImagemCliente = findViewById(R.id.image4);
 
         nome.setText(profissional.getNome());
         cpf.setText(profissional.getCpf());
         telefone.setText(profissional.getTelefone());
         email.setText(profissional.getEmail());
         descricao.setHint(profissional.getDescricao());
+        //byte[] imagemEmBits = profissional.getFoto();
+        //Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
+        //mImagemCliente.setImageBitmap(bitmap);
+
     }
-    public void atualizarPerfil(){
+    public void atualizarPerfil() {
         Profissional profissional = SessaoProfissional.getProfissional();
         EditText descricao = findViewById(R.id.decricaoprofissional);
-        if (descricao.getText().toString().trim().equals("")){
+        if (descricao.getText().toString().trim().equals("")) {
             Toast.makeText(getApplicationContext(), "A descrição não foi atualizada.", Toast.LENGTH_LONG).show();
-        }else{
+        } else {
             profissional.setDescricao(descricao.getText().toString().trim());
             ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
             dao.updateDescricaoProfissional(profissional);
@@ -132,50 +152,55 @@ public class HomeProfissional extends AppCompatActivity {
         }
     }
 
-    private void takePhoto() {
 
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            File photoFile = null;
-            photoFile = createPhotoFile();
-            if (photoFile != null) {
-                Uri photoUri = FileProvider.getUriForFile(getApplicationContext(), "br.ufrpe.revcare", photoFile);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
-                startActivityForResult(intent, REQUEST_CAPTURE);
-            }
+    private void getPermissionsCamera() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                || ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
         }
-    }
-
-    private File createPhotoFile() {
-
-        String name = new SimpleDateFormat("ddMMyyy_HHmmss").format(new Date());
-        File storageDir = getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-        File image = null;
-        try {
-            image = File.createTempFile(name, ".jpg", storageDir);
-        } catch (IOException e) {
-            Log.d("My Tag", "Error " + e.toString());
-        }
-
-        return image;
-
+        else
+            abrirCameraIntent();
     }
 
     private void getPermissionsGaleria() {
-        int permissionCheckRead = ContextCompat.checkSelfPermission(getApplicationContext(),
+        int permissionCheckRead = ContextCompat.checkSelfPermission(HomeProfissional.this,
                 Manifest.permission.READ_EXTERNAL_STORAGE);
 
         if (permissionCheckRead != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+            if (ActivityCompat.shouldShowRequestPermissionRationale(HomeProfissional.this,
                     Manifest.permission.READ_EXTERNAL_STORAGE)) {
                 ActivityCompat.requestPermissions(this, new String[]{
                         Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST);
             } else {
-                ActivityCompat.requestPermissions(this,
+                ActivityCompat.requestPermissions(HomeProfissional.this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST);
             }
         } else {
             abrirGaleriaIntent();
+        }
+    }
+
+
+    private void abrirCameraIntent() {
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            File photoFile = null;
+            try {
+                File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                photoFile = File.createTempFile("PHOTOAPP", ".jpg", storageDir);
+                mCurrentPhotoPath = "file:" + photoFile.getAbsolutePath();
+            }
+            catch(IOException ex){
+                Toast.makeText(getApplicationContext(), "Erro ao tirar a foto", Toast.LENGTH_SHORT).show();
+            }
+
+            if (photoFile != null) {
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
         }
     }
 
@@ -186,11 +211,59 @@ public class HomeProfissional extends AppCompatActivity {
         startActivityForResult(Intent.createChooser(intent, "Selecione a foto"), REQUEST_GALLERY);
     }
 
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_IMAGE_CAPTURE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    abrirCameraIntent();
+                } else {
+                    Toast.makeText(this, "Erro: Permissão é necessária", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_TAKE_PHOTO:
+                if (resultCode == RESULT_OK) {
+                    try {
+                        Bitmap bm1 = BitmapFactory.decodeStream(getContentResolver().openInputStream(Uri.parse(mCurrentPhotoPath)));
+                        bm1 = getThumbnailFromBitmap(bm1);
+                        mImagemCliente.setImageBitmap(bm1);
+                        salvarFoto();
+                        Toast.makeText(this, "Imagem alterada com sucesso", Toast.LENGTH_SHORT).show();
+                    } catch (FileNotFoundException fnex) {
+                        Toast.makeText(getApplicationContext(), "Foto não encontrada", Toast.LENGTH_LONG).show();
+                    }
+                }
+            case REQUEST_GALLERY:
+                if (resultCode == RESULT_OK) {
+                    try {
+                        Uri imageUri = data.getData();
+                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+                        bitmap = getThumbnailFromBitmap(bitmap);
+                        this.mImagemCliente.setImageBitmap(bitmap);
+                        salvarFoto();
+                        Toast.makeText(this, "Imagem alterada com sucesso", Toast.LENGTH_SHORT).show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+        }
+    }
+
     private void salvarFoto() {
         byte[] foto = conveterImageViewToByte();
         profissional.setFoto(foto);
         ProfissionalServices.alteraFotoProfissional(profissional);
     }
+
 
     private byte[] conveterImageViewToByte() {
         Bitmap bitmap = ((BitmapDrawable) mImagemCliente.getDrawable()).getBitmap();
@@ -203,50 +276,14 @@ public class HomeProfissional extends AppCompatActivity {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         int max = Math.max(width, height);
-        if (max > 512) {
-            int thumbWidth = Math.round((512f / max) * width);
-            int thumbHeight = Math.round((512f / max) * height);
-            Bitmap thumbnail = ThumbnailUtils.extractThumbnail(bitmap, thumbWidth, thumbHeight);
+        if (max>512) {
+            int thumbWidth = Math.round((512f/max)* width);
+            int thumbHeight = Math.round((512f/max)* height);
+            Bitmap thumbnail = ThumbnailUtils.extractThumbnail(bitmap, thumbWidth , thumbHeight);
             bitmap.recycle();
-            return thumbnail;
+            return thumbnail ;
         } else {
-            return bitmap;
+            return bitmap ;
         }
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case REQUEST_GALLERY:
-                Toast.makeText(this, "e ai", Toast.LENGTH_SHORT).show();
-                if (resultCode == RESULT_OK) {
-                    try {
-                        Uri img = data.getData();
-                        Bitmap bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(img));
-                        bitmap = getThumbnailFromBitmap(bitmap);
-                        mImagemCliente.setImageBitmap(bitmap);
-                        salvarFoto();
-                        Toast.makeText(this, "Foto Alterada Com sucesso", Toast.LENGTH_SHORT).show();
-                        break;
-                    } catch (FileNotFoundException e) {
-
-                        Toast.makeText(this, "Foto não encontrada", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                break;
-
-            case REQUEST_CAPTURE:
-                if (resultCode == RESULT_OK && requestCode == 1) {
-                    Uri img = data.getData();
-                    Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(img));
-                    mImagemCliente.setImageBitmap(bitmap);
-                }
-                break;
-            default:
-                break;
-        }
-
-    }
-
 }
