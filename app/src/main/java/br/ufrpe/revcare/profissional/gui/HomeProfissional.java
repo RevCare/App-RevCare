@@ -131,6 +131,9 @@ public class HomeProfissional extends AppCompatActivity {
         telefone.setText(profissional.getTelefone());
         email.setText(profissional.getEmail());
         descricao.setHint(profissional.getDescricao());
+        //byte[] imagemEmBits = profissional.getFoto();
+        //Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
+        //mImagemCliente.setImageBitmap(bitmap);
 
     }
     public void atualizarPerfil() {
