@@ -28,6 +28,7 @@ public class CadastroUsuario extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+                    finish();
                     cadastrar();
                 } catch (Exception e) {
                     e.printStackTrace();

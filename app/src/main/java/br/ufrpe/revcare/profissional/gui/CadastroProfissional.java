@@ -42,6 +42,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
             @Override
             public void onClick(View view) {
                 try {
+                    finish();
                     cadastrar();
                 } catch (Exception e) {
                     e.printStackTrace();
