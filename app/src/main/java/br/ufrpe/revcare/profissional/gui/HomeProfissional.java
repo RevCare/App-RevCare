@@ -61,9 +61,6 @@ public class HomeProfissional extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO = 1;
     private static final int REQUEST_GALLERY = 2;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final String[] PERMISSIONS = {android.Manifest.permission.READ_EXTERNAL_STORAGE,
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            android.Manifest.permission.INTERNET};
 
     private Profissional profissional = SessaoProfissional.getProfissional();
     private Integer likes;
@@ -83,6 +80,7 @@ public class HomeProfissional extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SessaoProfissional.reset();
+                finish();
                 startActivity(new Intent(HomeProfissional.this, MainActivity.class));
             }
         });

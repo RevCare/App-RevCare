@@ -36,6 +36,7 @@ public class HomeUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SessaoUsuario.reset();
+                finish();
                 startActivity(new Intent(HomeUsuario.this, MainActivity.class));
             }
         });

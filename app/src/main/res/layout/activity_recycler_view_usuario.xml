@@ -75,9 +75,16 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp">
-
     </androidx.recyclerview.widget.RecyclerView>
 
-
+    <ImageButton
+        android:id="@+id/btnAtt"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="18dp"
+        android:background="@drawable/refresh" />
 
 </RelativeLayout>

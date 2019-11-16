@@ -36,8 +36,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (switchUsuarioProfissional.isChecked()) {
+                    finish();
                     startActivity(new Intent(MainActivity.this, CadastroProfissional.class));
                 } else {
+                    finish();
                     startActivity(new Intent(MainActivity.this, CadastroUsuario.class));
                 }
             }
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                finish();
                 startActivity(new Intent(MainActivity.this, EsqueceuSenha.class));
             }
 
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             String senha = campoSenha.getText().toString().trim();
             try {
                 services.logar(email,senha);
+                finish();
                 startActivity(new Intent(MainActivity.this, HomeUsuario.class));
 
             } catch (Exception e) {
@@ -93,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             String senha = campoSenha.getText().toString().trim();
             try {
                 services.logar(email,senha);
+                finish();
                 startActivity(new Intent(MainActivity.this, HomeProfissional.class));
 
             } catch (Exception e) {

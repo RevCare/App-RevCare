@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 
@@ -52,6 +54,16 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         spinner2.setAdapter(adapter2);
         spinner.setOnItemSelectedListener(this);
         spinner2.setOnItemSelectedListener(this);
+        ImageButton atualizar = findViewById(R.id.btnAtt);
+        atualizar.setOnClickListener(new View.OnClickListener() {
+
+             @Override
+             public void onClick(View v) {
+                finish();
+                startActivity(getIntent());
+             }
+         }
+        );
 
 
 
