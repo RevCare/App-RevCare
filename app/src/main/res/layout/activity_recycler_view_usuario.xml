@@ -30,14 +30,16 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
     app:layout_constraintEnd_toEndOf="@+id/barra_superior"
     app:layout_constraintStart_toStartOf="@+id/barra_superior"
     app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:layout_width="180dp"
         android:layout_height="20dp"
-        android:text="Escolha uma cidade"
-        android:textSize="18dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="-13dp"
         android:layout_marginTop="70dp"
-        android:layout_toRightOf="@+id/escolha_estado" />
+        android:layout_toRightOf="@+id/escolha_estado"
+        android:text="Escolha uma cidade"
+        android:textSize="18dp" />
+
     <TextView
         android:id="@+id/escolha_estado"
         android:layout_width="180dp"

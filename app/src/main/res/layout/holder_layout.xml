@@ -9,6 +9,7 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_marginTop="7.5dp"
         android:id="@+id/image"
         android:src="@drawable/ic_action_name"
         />
@@ -44,7 +45,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="60dp"
         android:layout_toRightOf="@id/image"
-        android:text="Likes:"
+        android:text="Avaliações:"
         android:textColor="#000"
         android:textSize="18sp" />
     <TextView
@@ -59,47 +60,19 @@
         android:text="0"
         android:textColor="#000"
         android:textSize="18sp" />
-    <TextView
-        android:id="@+id/deslikes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="60dp"
-        android:layout_toRightOf="@id/qtdLikes"
-        android:text="Deslikes:"
-        android:textColor="#000"
-        android:textSize="18sp" />
-    <TextView
-        android:id="@+id/qtdDeslikes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="60dp"
-        android:layout_toRightOf="@id/deslikes"
-        android:text="0"
-        android:textColor="#000"
-        android:textSize="18sp" />
+
     <View
         android:layout_width="fill_parent"
-        android:layout_height="10dp"
+        android:layout_height="3dp"
         android:layout_marginTop="95dp"
         android:background="@android:color/darker_gray"
         android:focusable="false" />
 
     <Button
         android:id="@+id/btnVerMais"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="20dp"
-        android:layout_toEndOf="@+id/image"
-        android:background="#AF0D25"
-        android:text="Ver mais"
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:background="#00AF0D25"
         android:textColor="#ffffff" />
 
 </RelativeLayout>
