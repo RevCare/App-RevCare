@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
@@ -22,7 +21,7 @@ import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class RecyclerViewUsuario extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private ArrayList<String> mNomes = new ArrayList<>();
-    private ArrayList<String> mLocalizacao = new ArrayList<>();
+    private ArrayList<String> mCidade = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
     private List<Profissional> profissionais = null;
     private ArrayList<String> mTelefone = new ArrayList<>();
@@ -30,6 +29,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     private ArrayList<String> mEmail = new ArrayList<>();
     private ArrayList<Integer> mLikes = new ArrayList<Integer>();
     private ArrayList<Integer> mDeslikes = new ArrayList<Integer>();
+    private ArrayList<String> mEstado = new ArrayList<>();
 
 
 
@@ -41,19 +41,19 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view_usuario);
         getSupportActionBar().hide();
-        initServicos();
         Spinner spinner = findViewById(R.id.spinner);
         Spinner spinner2 = findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.estados, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.cidadesPE, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
         spinner2.setAdapter(adapter2);
-        spinner.setOnItemSelectedListener(this);
         spinner2.setOnItemSelectedListener(this);
+        spinner.setOnItemSelectedListener(this);
         ImageButton atualizar = findViewById(R.id.btnAtt);
         atualizar.setOnClickListener(new View.OnClickListener() {
 
@@ -64,14 +64,14 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
              }
          }
         );
-
-
-
+        initServicos();
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
+
+
     }
 
     @Override
@@ -86,12 +86,13 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
         for (int i = 0; i < profissionais.size(); i++) {
              mNomes.add(profissionais.get(i).getNome());
-             mLocalizacao.add(profissionais.get(i).getCidade());
+             mCidade.add(profissionais.get(i).getCidade());
              mTelefone.add(profissionais.get(i).getTelefone());
              mEmail.add(profissionais.get(i).getEmail());
              mDescricao.add(profissionais.get(i).getDescricao());
              mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
              mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
+             mEstado.add(profissionais.get(i).getEstado());
 
         }
         initRecyclerView();
@@ -100,7 +101,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.usuariorecylcer);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mLocalizacao, mTelefone, mEmail, mDescricao, mLikes, mDeslikes);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mCidade, mTelefone, mEmail, mDescricao, mLikes, mDeslikes, mEstado);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
