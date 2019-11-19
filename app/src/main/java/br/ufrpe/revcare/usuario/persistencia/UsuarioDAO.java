@@ -51,6 +51,7 @@ public class UsuarioDAO  {
         if (cursor.moveToFirst()){
             result = criarUsuario(cursor);
         }
+        db.close();
         return result;
     }
 
@@ -66,6 +67,7 @@ public class UsuarioDAO  {
         if (cursor.moveToFirst()){
             result = criarUsuario(cursor);
         }
+        db.close();
         return result;
     }
     public Usuario consultarCpf(String email) {
@@ -79,6 +81,7 @@ public class UsuarioDAO  {
         if (cursor.moveToFirst()) {
             result = criarUsuario(cursor);
         }
+        db.close();
         return result;
     }
 

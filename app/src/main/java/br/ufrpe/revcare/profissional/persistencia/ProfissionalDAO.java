@@ -64,6 +64,7 @@ public class ProfissionalDAO {
         if (cursor.moveToFirst()) {
             result = criarProfissional(cursor);
         }
+        db.close();
         return result;
     }
 
@@ -79,6 +80,7 @@ public class ProfissionalDAO {
         if (cursor.moveToFirst()) {
             result = criarProfissional(cursor);
         }
+        db.close();
         return result;
     }
 
@@ -93,6 +95,7 @@ public class ProfissionalDAO {
         if (cursor.moveToFirst()) {
             result = criarProfissional(cursor);
         }
+        db.close();
         return result;
     }
 
