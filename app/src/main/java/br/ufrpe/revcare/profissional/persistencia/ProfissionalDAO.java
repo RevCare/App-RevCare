@@ -155,7 +155,7 @@ public class ProfissionalDAO {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(DBHelper.COL_FOTO_PROFISSIONAL,profissional.getFoto());
-        db.update(TABELA_PROFISSIONAL,values, COL_ID_PROFISSIONAL + " = ?",
+        db.update(TABELA_PROFISSIONAL,values, "id = ?",
                 new String[]{String.valueOf(profissional.getId())});
         db.close();
 

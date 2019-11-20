@@ -36,19 +36,16 @@
         <item>Ceará</item>
     </string-array>
     <string-array name="cidadesPE">
-        <item></item>
         <item>Recife</item>
         <item>Olinda</item>
         <item>Paulista</item>
         <item>Abreu e Lima</item>
     </string-array>
     <string-array name="cidadesPB">
-        <item></item>
         <item>João Pessoa</item>
         <item>Santa Rita</item>
     </string-array>
     <string-array name="cidadesCE">
-        <item></item>
         <item>Fortaleza</item>
     </string-array>
 </resources>
