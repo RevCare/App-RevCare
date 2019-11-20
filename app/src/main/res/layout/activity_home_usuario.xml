@@ -55,23 +55,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/botaoAtualizarPerfilProfissional"
-        android:layout_width="0dp"
-        android:layout_height="43dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="59dp"
-        android:background="#AF0D25"
-        android:text="Atualizar Perfil"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/botao_procurar_usuario" />
-
     <TextView
         android:id="@+id/enderecoUsuarioHome"
         android:layout_width="wrap_content"

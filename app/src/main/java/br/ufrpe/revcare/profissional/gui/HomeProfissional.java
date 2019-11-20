@@ -71,8 +71,8 @@ public class HomeProfissional extends AppCompatActivity {
         setContentView(R.layout.activity_home_profissional);
         getSupportActionBar().hide();
         preencheTela(SessaoProfissional.getProfissional());
-        ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
-        likes = dao.contarLikes(profissional.getId());
+        ProfissionalServices services = new ProfissionalServices(getApplicationContext());
+        likes = services.contarLikes(profissional.getId());
         Button mudarFoto = findViewById(R.id.imagemProfissional);
         Button buttonSair = findViewById(R.id.buttonSairProfissional);
         buttonSair.setOnClickListener(new View.OnClickListener() {
@@ -144,8 +144,8 @@ public class HomeProfissional extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "A descrição não foi atualizada.", Toast.LENGTH_LONG).show();
         } else {
             profissional.setDescricao(descricao.getText().toString().trim());
-            ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
-            dao.updateDescricaoProfissional(profissional);
+            ProfissionalServices services = new ProfissionalServices(getApplicationContext());
+            services.updateDescricaoProfissional(profissional);
             Toast.makeText(getApplicationContext(), "A descrição foi atualizada.", Toast.LENGTH_LONG).show();
             finish();
             startActivity(getIntent());

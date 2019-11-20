@@ -50,4 +50,10 @@ public class ProfissionalServices {
 
 
     }
+    public int contarLikes(long idProfissional){
+        return dao.contarLikes(idProfissional);
+    }
+    public void updateDescricaoProfissional(Profissional profissional){
+        dao.updateDescricaoProfissional(profissional);
+    }
 }
