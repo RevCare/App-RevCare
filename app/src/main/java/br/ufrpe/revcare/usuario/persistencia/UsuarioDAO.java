@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 
@@ -85,6 +87,23 @@ public class UsuarioDAO  {
         cursor.close();
         db.close();
         return result;
+    }
+    public ArrayList<Usuario> carregarUsuarios(){
+        String query = "SELECT * FROM Tabela_Usuario";
+        return this.carregarUsuarios(query);
+
+    }
+    private ArrayList<Usuario> carregarUsuarios(String query) {
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        SQLiteDatabase leitorBanco = dbHelper.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, null);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                usuarios.add(this.criarUsuario(cursor));
+            } while (cursor.moveToNext());
+        }
+        return usuarios;
     }
 
     private Usuario criarUsuario(Cursor cursor) {

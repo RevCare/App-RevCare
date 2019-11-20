@@ -1,10 +1,10 @@
-package br.ufrpe.revcare.usuario.negocio;
+package br.ufrpe.revcare.avaliacao.negocio;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-import br.ufrpe.revcare.profissional.dominio.Profissional;
+import br.ufrpe.revcare.usuario.dominio.Usuario;
 
 /**
  * Crédito por este algoritmo:
@@ -14,12 +14,12 @@ import br.ufrpe.revcare.profissional.dominio.Profissional;
 @SuppressWarnings("ConstantConditions")
 class SlopeOne {
 
-    private Map<Profissional, Map<String, Double>> data = new HashMap<>();
-    private final Map<Profissional, Map<String, Double>> mData;
+    private Map<Usuario, Map<String, Double>> data = new HashMap<>();
+    private final Map<Usuario, Map<String, Double>> mData;
     private Map<String, HashMap<String, Double>> diffMatrix;
     private Map<String, HashMap<String, Integer>> freqMatrix;
 
-    public SlopeOne(Map<Profissional, Map<String, Double>> data) {
+    public SlopeOne(Map<Usuario, Map<String, Double>> data) {
         mData = data;
         buildDiffMatrix();
     }

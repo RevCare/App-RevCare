@@ -203,4 +203,38 @@ public class ProfissionalDAO {
         db.close();
         return result;
     }
+    public Double getNotaProfissional(long usuario, long profissional) {
+        String query = "SELECT * FROM Tabela_Avaliacao " +
+                "WHERE fk_id_profissional = ? " +
+                "AND fk_id_usuario = ? ";
+        String idUsuario = String.valueOf(usuario);
+        String idProfissional = String.valueOf(profissional);
+        String[] args = {idProfissional, idUsuario};
+        SQLiteDatabase leitorBanco = dbHelper.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Double nota = null;
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            int indexNota = cursor.getColumnIndex("notaAvaliacao");
+            nota = cursor.getDouble(indexNota);
+        }
+        return nota;
+    }
+    private Profissional carregarObjeto(String query, String[] args) {
+        SQLiteDatabase leitorBanco = dbHelper.getReadableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Profissional profis = null;
+        if (cursor.moveToNext()) {
+            profis = criarProfissional(cursor);
+        }
+        cursor.close();
+        leitorBanco.close();
+        return profis;
+    }
+    public Profissional getProfissionalById(long id) {
+        String query = "SELECT * FROM Tabela_Profissional " +
+                "WHERE id = ?";
+        String[] args = {String.valueOf(id)};
+        return this.carregarObjeto(query, args);
+    }
 }
