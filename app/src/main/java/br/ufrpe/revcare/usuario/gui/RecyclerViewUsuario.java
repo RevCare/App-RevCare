@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
@@ -42,17 +43,11 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_recycler_view_usuario);
         getSupportActionBar().hide();
         Spinner spinner = findViewById(R.id.spinner);
-        Spinner spinner2 = findViewById(R.id.spinner2);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.estados, android.R.layout.simple_spinner_item);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.cidadesPE, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter2);
-        spinner2.setOnItemSelectedListener(this);
         spinner.setOnItemSelectedListener(this);
         ImageButton atualizar = findViewById(R.id.btnAtt);
         atualizar.setOnClickListener(new View.OnClickListener() {
@@ -64,12 +59,37 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
              }
          }
         );
-        initServicos();
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String text = parent.getItemAtPosition(position).toString();
+        final String text = parent.getItemAtPosition(position).toString();
+        final Spinner spinner2 = findViewById(R.id.spinner2);
+        if (text.equals("Pernambuco")){
+            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                    R.array.cidadesPE, android.R.layout.simple_spinner_item);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner2.setAdapter(adapter2);
+            spinner2.setOnItemSelectedListener(this);
+
+        }
+        else if (text.equals("Paraíba")){
+            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                    R.array.cidadesPB, android.R.layout.simple_spinner_item);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner2.setAdapter(adapter2);
+            spinner2.setOnItemSelectedListener(this);
+        }
+        else if (text.equals("Ceará")){
+            ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                    R.array.cidadesCE, android.R.layout.simple_spinner_item);
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner2.setAdapter(adapter2);
+            spinner2.setOnItemSelectedListener(this);
+
+        }
+
+
 
 
     }
@@ -80,19 +100,22 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     }
 
 
-    private void initServicos(){
+    private void initServicos(String cidade, String estado){
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
         profissionais = dao.getAllProfissional();
 
         for (int i = 0; i < profissionais.size(); i++) {
-             mNomes.add(profissionais.get(i).getNome());
-             mCidade.add(profissionais.get(i).getCidade());
-             mTelefone.add(profissionais.get(i).getTelefone());
-             mEmail.add(profissionais.get(i).getEmail());
-             mDescricao.add(profissionais.get(i).getDescricao());
-             mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
-             mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
-             mEstado.add(profissionais.get(i).getEstado());
+            if (profissionais.get(i).getEstado().equals(estado) && profissionais.get(i).getCidade().equals(cidade)){
+                mNomes.add(profissionais.get(i).getNome());
+                mCidade.add(profissionais.get(i).getCidade());
+                mTelefone.add(profissionais.get(i).getTelefone());
+                mEmail.add(profissionais.get(i).getEmail());
+                mDescricao.add(profissionais.get(i).getDescricao());
+                mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
+                mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
+                mEstado.add(profissionais.get(i).getEstado());
+            }
+
 
         }
         initRecyclerView();
