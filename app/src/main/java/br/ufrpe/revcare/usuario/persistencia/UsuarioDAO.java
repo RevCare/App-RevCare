@@ -51,10 +51,10 @@ public class UsuarioDAO  {
         if (cursor.moveToFirst()){
             result = criarUsuario(cursor);
         }
+        cursor.close();
         db.close();
         return result;
     }
-
 
     public Usuario consultar(String email) {
         Usuario result = null;
@@ -67,6 +67,7 @@ public class UsuarioDAO  {
         if (cursor.moveToFirst()){
             result = criarUsuario(cursor);
         }
+        cursor.close();
         db.close();
         return result;
     }
@@ -81,6 +82,7 @@ public class UsuarioDAO  {
         if (cursor.moveToFirst()) {
             result = criarUsuario(cursor);
         }
+        cursor.close();
         db.close();
         return result;
     }
