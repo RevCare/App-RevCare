@@ -8,12 +8,14 @@ import android.os.Handler;
 import android.view.WindowManager;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.infra.persistencia.PopularBanco;
 
 public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        PopularBanco popularBanco = new PopularBanco(this);
         setContentView(R.layout.activity_splash_screen);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
