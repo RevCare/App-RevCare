@@ -25,6 +25,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     private ArrayList<String> mCidade = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
     private List<Profissional> profissionaisRecomendados = null;
+    private List<Profissional> profissionais = null;
     private ArrayList<String> mTelefone = new ArrayList<>();
     private ArrayList<String> mDescricao = new ArrayList<>();
     private ArrayList<String> mEmail = new ArrayList<>();
@@ -80,21 +81,37 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     }
 
 
-    private void initProfissionais(){
+    private void initProfissionais() {
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
         AvaliacaoServices services = new AvaliacaoServices(getApplicationContext());
         profissionaisRecomendados = services.getRecomendacao(getApplicationContext());
         //um if aqui resolve o possivel arrazylist vazio, so preciso saber se é null ou um arraylist vazio
-        for (int i = 0; i < profissionaisRecomendados.size(); i++) {
-            mNomes.add(profissionaisRecomendados.get(i).getNome());
-            mCidade.add(profissionaisRecomendados.get(i).getCidade());
-            mTelefone.add(profissionaisRecomendados.get(i).getTelefone());
-            mEmail.add(profissionaisRecomendados.get(i).getEmail());
-            mDescricao.add(profissionaisRecomendados.get(i).getDescricao());
-            mLikes.add(dao.contarLikes(profissionaisRecomendados.get(i).getId()));
-            mDeslikes.add(dao.contarDeslikes(profissionaisRecomendados.get(i).getId()));
-            mEstado.add(profissionaisRecomendados.get(i).getEstado());
+        if (profissionaisRecomendados == null) {
+            for (int i = 0; i < profissionaisRecomendados.size(); i++) {
+                mNomes.add(profissionaisRecomendados.get(i).getNome());
+                mCidade.add(profissionaisRecomendados.get(i).getCidade());
+                mTelefone.add(profissionaisRecomendados.get(i).getTelefone());
+                mEmail.add(profissionaisRecomendados.get(i).getEmail());
+                mDescricao.add(profissionaisRecomendados.get(i).getDescricao());
+                mLikes.add(dao.contarLikes(profissionaisRecomendados.get(i).getId()));
+                mDeslikes.add(dao.contarDeslikes(profissionaisRecomendados.get(i).getId()));
+                mEstado.add(profissionaisRecomendados.get(i).getEstado());
+            }
 
+        }
+        else{
+            profissionais = dao.getAllProfissional();
+            for (int i = 0; i < profissionais.size(); i++) {
+                mNomes.add(profissionais.get(i).getNome());
+                mCidade.add(profissionais.get(i).getCidade());
+                mTelefone.add(profissionais.get(i).getTelefone());
+                mEmail.add(profissionais.get(i).getEmail());
+                mDescricao.add(profissionais.get(i).getDescricao());
+                mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
+                mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
+                mEstado.add(profissionais.get(i).getEstado());
+
+            }
         }
         initRecyclerView();
 

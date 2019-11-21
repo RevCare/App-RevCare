@@ -30,7 +30,6 @@
     <string name="nome_do_profissional">Nome do profissional</string>
     <string name="atualizar_perfil">Atualizar perfil</string>
     <string-array name="estados">
-        <item></item>
         <item>Pernambuco</item>
         <item>Paraíba</item>
         <item>Ceará</item>
