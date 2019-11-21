@@ -32,9 +32,10 @@ public class AvaliacaoProfissional extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Avaliacao avaliacao = new Avaliacao();
+                long idUsuario = SessaoUsuario.getUsuario().getId();
+                long idProfissional = GuardaProfissional.getProfissionalGuardado().getId();
                 AvaliacaoServices services = new AvaliacaoServices(getApplicationContext());
-                if (services.like(avaliacao)){
+                if (services.like(idUsuario, idProfissional)){
                     Toast.makeText(getApplicationContext(), "Você votou neste profissional.", Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(getApplicationContext(), "Este profissional já foi votado por você .", Toast.LENGTH_SHORT).show();
@@ -45,10 +46,11 @@ public class AvaliacaoProfissional extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Avaliacao avaliacao = new Avaliacao();
+                long idUsuario = SessaoUsuario.getUsuario().getId();
+                long idProfissional = GuardaProfissional.getProfissionalGuardado().getId();
 
                 AvaliacaoServices services = new AvaliacaoServices(getApplicationContext());
-                if (services.deslike(avaliacao)){
+                if (services.deslike(idUsuario, idProfissional)){
                     Toast.makeText(getApplicationContext(), "Você votou neste profissional.", Toast.LENGTH_LONG).show();
                 }else{
                     Toast.makeText(getApplicationContext(), "Este profissional já foi votado por você .", Toast.LENGTH_SHORT).show();

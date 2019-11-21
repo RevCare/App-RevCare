@@ -26,18 +26,18 @@ public class AvaliacaoServices {
         dao = new AvaliacaoDAO(context);
     }
 
-    public boolean like(Avaliacao avaliacao){
+    public boolean like(Long idUsuario, Long idProfissional){
         boolean result = false;
-        if(!dao.votado(avaliacao.getIdUsuario(), avaliacao.getIdProfissional())){
-            dao.like(avaliacao);
+        if(!dao.votado(idUsuario,idProfissional)){
+            dao.like(idUsuario,idProfissional);
             result = true;
         }
         return result;
     }
-    public boolean deslike(Avaliacao avaliacao){
+    public boolean deslike(Long idUsuario, Long idProfissional){
         boolean result = false;
-        if(!dao.votado(avaliacao.getIdUsuario(), avaliacao.getIdProfissional())){
-            dao.deslike(avaliacao);
+        if(!dao.votado(idUsuario,idProfissional)){
+            dao.deslike(idUsuario,idProfissional);
             result = true;
         }
         return result;
