@@ -78,10 +78,7 @@ public class AvaliacaoDAO {
         String query =  "SELECT * FROM Tabela_Avaliacao " +
                 "WHERE fk_id_usuario = ?";
         String[] args = {String.valueOf(usuario.getId())};
-        return this.loadIdProfissionalAvaliado(query, args);
-    }
-    private  HashMap<String, Double> loadIdProfissionalAvaliado(String query, String[] args) {
-        HashMap<java.lang.String, java.lang.Double> avaliacaoUsuario = new HashMap<>();
+        HashMap<String, Double> avaliacaoUsuario = new HashMap<>();
         SQLiteDatabase leitorBanco = dbHelper.getWritableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, args);
         if (cursor.getCount() > 0) {

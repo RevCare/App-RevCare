@@ -90,10 +90,6 @@ public class UsuarioDAO  {
     }
     public ArrayList<Usuario> carregarUsuarios(){
         String query = "SELECT * FROM Tabela_Usuario";
-        return this.carregarUsuarios(query);
-
-    }
-    private ArrayList<Usuario> carregarUsuarios(String query) {
         ArrayList<Usuario> usuarios = new ArrayList<>();
         SQLiteDatabase leitorBanco = dbHelper.getWritableDatabase();
         Cursor cursor = leitorBanco.rawQuery(query, null);
