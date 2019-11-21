@@ -58,42 +58,42 @@ public class PopularBanco {
 
     private void popularUsuario(){
         criarUsuario("Usuario 1", "09807339448", "17/09/1995/","Rua 1",
-                "user1@gmail.com","81818181","123123123");
+                "user1@gmail.com","81818181","1");
         criarUsuario("Usuario 2", "44311063083", "10/09/1995/","Rua 2",
-                "user2@gmail.com","81818182","123123123");
+                "user2@gmail.com","81818182","1");
         criarUsuario("Usuario 3", "79558097004", "11/09/1995/","Rua 3",
-                "user3@gmail.com","81818183","123123123");
+                "user3@gmail.com","81818183","1");
         criarUsuario("Usuario 4", "00930465024", "12/09/1995/","Rua 4",
-                "user4@gmail.com","81818184","123123123");
+                "user4@gmail.com","81818184","1");
         criarUsuario("Usuario 5", "43758223091", "13/09/1995/","Rua 5",
-                "user5@gmail.com","81818185","123123123");
+                "user5@gmail.com","81818185","1");
         criarUsuario("Usuario 6", "40469093072", "14/09/1995/","Rua 6",
-                "user6@gmail.com","81818186","123123123");
+                "user6@gmail.com","81818186","1");
         criarUsuario("Usuario 7", "72030524000", "15/09/1995/","Rua 7",
-                "user7@gmail.com","81818187","123123123");
+                "user7@gmail.com","81818187","1");
 
     }
     private void popularProfissional(){
         criarProfissional("profissional 1","16530439030","01/01/1990",
-                "Eu amo batata","prof1@gmail.com","91919191",  "","123123123","Pernambuco","Abreu e Lima");
+                "Eu amo batata","prof1@gmail.com","91919191",  "","1","Pernambuco","Abreu e Lima");
         criarProfissional("profissional 2","12892393043","02/02/1990",
                 "Eu gosto muito de batata","prof2@gmail.com","91919192",
-                "","123123123","Pernambuco","Recife");
+                "","1","Pernambuco","Recife");
         criarProfissional("profissional 3","12594541001","03/03/1990",
                 "Eu gosto demais de batata","prof3@gmail.com","91919193",
-                "","123123123","Pernambuco","Recife");
+                "","1","Pernambuco","Recife");
         criarProfissional("profissional 4","76205781026","04/04/1990",
                 "Eu gosto mesmo de batata","prof4@gmail.com","91919194",
-                "","123123123","Pernambuco","Recife");
+                "","1","Pernambuco","Recife");
         criarProfissional("profissional 5","11744475083","05/05/1990",
                 "Eu gosto pra caramba de batata","prof5@gmail.com","91919195",
-                "","123123123","Pernambuco","Recife");
+                "","1","Pernambuco","Recife");
         criarProfissional("profissional 6","95732263080","06/06/1990",
                 "Eu gosto horrores de batata","prof6@gmail.com","91919196",
-                "","123123123","Pernambuco","Recife");
+                "","1","Pernambuco","Recife");
         criarProfissional("profissional 7","23136712080","07/07/1990",
                 "Eu gosto bastante de batata","prof7@gmail.com","91919197",
-                "","123123123","Pernambuco","Recife");
+                "","1","Pernambuco","Recife");
     }
 
     private void criarUsuario(String nome, String cpf, String nascimento, String endereco, String email,
