@@ -45,6 +45,7 @@ public class ProfissionalDAO {
         values.put(DBHelper.COL_SENHA_PROFISSIONAL, profissional.getSenha());
         values.put(DBHelper.COL_ESTADO_PROFISSIONAL, profissional.getEstado());
         values.put(DBHelper.COL_CIDADE_PROFISSIONAL, profissional.getCidade());
+        values.put(DBHelper.COL_FOTO_PROFISSIONAL, profissional.getFoto());
 
         long id = db.insert(TABELA_PROFISSIONAL, null, values);
         db.close();
@@ -116,6 +117,7 @@ public class ProfissionalDAO {
         result.setSenha(cursor.getString(8));
         result.setEstado(cursor.getString(9));
         result.setCidade(cursor.getString(10));
+        result.setFoto(cursor.getBlob(11));
 
         return result;
     }
@@ -154,7 +156,7 @@ public class ProfissionalDAO {
     public static void alteraFotoProfissional(Profissional profissional){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(DBHelper.COL_FOTO_PROFISSIONAL,profissional.getFoto());
+        values.put("foto", profissional.getFoto());
         db.update(TABELA_PROFISSIONAL,values, "id = ?",
                 new String[]{String.valueOf(profissional.getId())});
         db.close();
