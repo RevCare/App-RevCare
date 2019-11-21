@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
@@ -45,30 +46,27 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view_usuario);
         getSupportActionBar().hide();
-        Spinner spinner = findViewById(R.id.spinner);
-        Spinner spinner2 = findViewById(R.id.spinner2);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.estados, android.R.layout.simple_spinner_item);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.cidadesPE, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter2);
-        spinner2.setOnItemSelectedListener(this);
-        spinner.setOnItemSelectedListener(this);
-        ImageButton atualizar = findViewById(R.id.btnAtt);
-        atualizar.setOnClickListener(new View.OnClickListener() {
-
-                 @Override
-                 public void onClick(View v) {
-                     finish();
-                     startActivity(getIntent());
-                 }
-             }
-        );
+        Button btnAllPro = findViewById(R.id.buttonAllPro);
+        Button btnRecPro = findViewById(R.id.buttonRecommendedPro);
         initProfissionais();
+
+        btnRecPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(getIntent());
+            }
+        });
+        btnAllPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
+                profissionais = dao.getAllProfissional();
+                adicionaNoArray(dao,profissionais);
+                initRecyclerView();
+            }
+        });
+
     }
 
     @Override
