@@ -37,7 +37,7 @@ public class AvaliacaoDAO {
         values.put(DBHelper.COL_FK_ID_PROFISSIONAL, avaliacao.getIdProfissional());
         values.put(DBHelper.COL_FK_ID_USUARIO, avaliacao.getIdUsuario());
         values.put(DBHelper.COL_LIKE, 0);
-        values.put(DBHelper.COL_DESLIKE, -1);
+        values.put(DBHelper.COL_DESLIKE, 1);
         db.insert(TABELA_AVALIACAO, null, values);
         db.close();
         return avaliacao;
