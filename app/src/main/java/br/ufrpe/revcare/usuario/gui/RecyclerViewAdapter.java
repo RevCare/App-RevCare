@@ -2,10 +2,12 @@ package br.ufrpe.revcare.usuario.gui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,13 +27,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<String> mEmail = new ArrayList<>();
     private ArrayList<Integer> mLikes = new ArrayList<>();
     private ArrayList<Integer> mDeslikes = new ArrayList<>();
+    private ArrayList<Bitmap> mFotos = new ArrayList<>();
     private Float qtdLikes;
     private Float qtdDeslikes;
     private Float porcentagemLikes;
     private Float votosTotais;
     private Context mContext;
 
-    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> cidade, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao, ArrayList<Integer> likes, ArrayList<Integer> deslikes, ArrayList<String> estado) {
+    public RecyclerViewAdapter(Context context, ArrayList<String> nome, ArrayList<String> cidade, ArrayList<String> telefone, ArrayList<String> email, ArrayList<String> descricao, ArrayList<Integer> likes, ArrayList<Integer> deslikes, ArrayList<String> estado, ArrayList<Bitmap> foto) {
         this.mNome = nome;
         this.mCidade = cidade;
         this.mTelefone = telefone;
@@ -41,6 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mLikes = likes;
         this.mDeslikes = deslikes;
         this.mEstado = estado;
+        this.mFotos = foto;
     }
     @NonNull
     @Override
@@ -62,6 +66,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.nome.setText(mNome.get(position));
         holder.cidade.setText(mCidade.get(position));
         holder.estado.setText(mEstado.get((position)));
+        if (mFotos.get(position) != null){
+
+            holder.imagem.setImageBitmap(mFotos.get(position));
+        }
 
 
         holder.btnVerMais.setOnClickListener(new View.OnClickListener() {
@@ -88,6 +96,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView nome;
         TextView cidade;
+        ImageView imagem;
         RelativeLayout parentLayout;
         Button btnVerMais;
         TextView likes;
@@ -101,6 +110,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             btnVerMais = itemView.findViewById(R.id.btnVerMais);
             likes = itemView.findViewById(R.id.qtdLikes);
             estado = itemView.findViewById(R.id.estado);
+            imagem = itemView.findViewById(R.id.image);
         }
     }
 }

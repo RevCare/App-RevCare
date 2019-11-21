@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +20,7 @@ import java.util.List;
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.avaliacao.negocio.AvaliacaoServices;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
+import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class RecyclerViewUsuario extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -32,6 +35,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     private ArrayList<Integer> mLikes = new ArrayList<Integer>();
     private ArrayList<Integer> mDeslikes = new ArrayList<Integer>();
     private ArrayList<String> mEstado = new ArrayList<>();
+    private ArrayList<Bitmap> mFotos = new ArrayList<>();
 
 
 
@@ -110,6 +114,14 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
                 mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
                 mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
                 mEstado.add(profissionais.get(i).getEstado());
+                byte[] imagemEmBits = profissionais.get(i).getFoto();
+                if(profissionais.get(i).getFoto()!=null) {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
+                    mFotos.add(bitmap);
+                }
+                else{
+                    mFotos.add(null);
+                }
 
             }
         }
@@ -119,7 +131,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.usuariorecylcer);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mCidade, mTelefone, mEmail, mDescricao, mLikes, mDeslikes, mEstado);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mCidade, mTelefone, mEmail, mDescricao, mLikes, mDeslikes, mEstado,mFotos);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
