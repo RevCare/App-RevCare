@@ -25,8 +25,8 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
     private ArrayList<String> mNomes = new ArrayList<>();
     private ArrayList<String> mCidade = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
-    private List<Profissional> profissionaisRecomendados = null;
-    private List<Profissional> profissionais = null;
+    private List<Profissional> profissionaisRecomendados = new ArrayList<>();
+    private List<Profissional> profissionais = new ArrayList<>();
     private ArrayList<String> mTelefone = new ArrayList<>();
     private ArrayList<String> mDescricao = new ArrayList<>();
     private ArrayList<String> mEmail = new ArrayList<>();
@@ -97,8 +97,8 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
                 mLikes.add(dao.contarLikes(profissionaisRecomendados.get(i).getId()));
                 mDeslikes.add(dao.contarDeslikes(profissionaisRecomendados.get(i).getId()));
                 mEstado.add(profissionaisRecomendados.get(i).getEstado());
-                byte[] imagemEmBits = profissionais.get(i).getFoto();
-                if(profissionais.get(i).getFoto()!=null) {
+                byte[] imagemEmBits = profissionaisRecomendados.get(i).getFoto();
+                if(profissionaisRecomendados.get(i).getFoto()!=null) {
                     Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
                     mFotos.add(bitmap);
                 }

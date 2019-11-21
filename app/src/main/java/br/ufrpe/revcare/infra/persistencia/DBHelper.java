@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "revtestt.bd";
-    private static final int DB_VERSION = 5;
+    private static final int DB_VERSION = 6;
     
     public static final String TABELA_USUARIO = "Tabela_Usuario";
     public static final String COL_ID_USUARIO = "id";
