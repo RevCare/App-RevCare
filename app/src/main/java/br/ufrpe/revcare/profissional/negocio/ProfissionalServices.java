@@ -48,4 +48,11 @@ public class ProfissionalServices {
     public void updateDescricaoProfissional(Profissional profissional){
         dao.updateDescricaoProfissional(profissional);
     }
+    public Profissional consultarEmail(String email){
+        return dao.consultarEmail(email);
+    }
+    public Profissional consultarCpf(String cpf){
+        return dao.consultarCpf(cpf);
+    }
+
 }

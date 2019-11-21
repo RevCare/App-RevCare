@@ -45,7 +45,7 @@ import br.ufrpe.revcare.infra.gui.MainActivity;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.negocio.ProfissionalServices;
 import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
-import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
+
 
 import static android.os.Environment.getExternalStoragePublicDirectory;
 // Funçoes de capturar foto e etc tiradas do aplicativo Trainee
