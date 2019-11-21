@@ -55,10 +55,13 @@ public class AvaliacaoServices {
     }
 
     private ArrayList<Profissional> getProfissionaisRecomendadas(Map<String, Double> predicoes, Context context) {
+
         ArrayList<Profissional> recomendados = new ArrayList<>();
-        for (String profissional : predicoes.keySet()) {
-            Profissional profissionalAtual = profissionalByID(profissional, context);
-            profissionalAtual.setAvaliacaoUsuario(predicoes.get(profissional));
+        for (Map.Entry<String,Double> entry : predicoes.entrySet()) {
+            String key = entry.getKey();
+            Double value = entry.getValue();
+            Profissional profissionalAtual = profissionalByID(key, context);
+            profissionalAtual.setAvaliacaoUsuario(value);
             Double nota = avaliacaoProfissionalUsuario(profissionalAtual, context);
             if (nota == null) {
                 recomendados.add(profissionalAtual);

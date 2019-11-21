@@ -29,10 +29,11 @@ public class CadastroUsuario extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     cadastrar();
+                    finish();
+
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Não foi possível realizar o cadastro.", Toast.LENGTH_LONG).show();
-
+                    Toast.makeText(getApplicationContext(),"Não foi possível cadastrar.", Toast.LENGTH_LONG).show();
                 }
             }
         });

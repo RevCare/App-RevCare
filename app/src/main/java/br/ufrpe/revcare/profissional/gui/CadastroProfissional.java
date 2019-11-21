@@ -47,9 +47,14 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
             public void onClick(View view) {
                 try {
                     cadastrar();
+                    finish();
                 } catch (Exception e) {
                     e.printStackTrace();
+<<<<<<< HEAD
                     Toast.makeText(getApplicationContext(),"Não foi possível cadastro.", Toast.LENGTH_LONG).show();
+=======
+                    Toast.makeText(getApplicationContext(),"Não foi possível cadastrar.", Toast.LENGTH_LONG).show();
+>>>>>>> b342466491c88b2c4c4bfd7a20012078d5a52851
                 }
 
             }
