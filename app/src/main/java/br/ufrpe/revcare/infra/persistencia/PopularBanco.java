@@ -3,8 +3,6 @@ package br.ufrpe.revcare.infra.persistencia;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
-import br.ufrpe.revcare.avaliacao.dominio.Avaliacao;
 import br.ufrpe.revcare.avaliacao.persistencia.AvaliacaoDAO;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;

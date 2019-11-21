@@ -45,7 +45,7 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
         android:layout_width="180dp"
         android:layout_height="20dp"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="39dp"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="70dp"
         android:text="Escolha um estado"
@@ -56,7 +56,7 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="1dp"
+        android:layout_marginStart="45dp"
         android:layout_marginLeft="35dp"
         android:layout_marginTop="90dp" />
 
@@ -92,15 +92,5 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
         android:layout_marginTop="17dp"
         android:layout_marginEnd="18dp"
         android:background="@drawable/refresh" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="69dp"
-        android:background="@drawable/ic_search_black_24dp"
-        />
 
 </RelativeLayout>

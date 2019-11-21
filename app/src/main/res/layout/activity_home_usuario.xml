@@ -19,15 +19,33 @@
         tools:ignore="MissingConstraints" />
 
     <Button
+        android:id="@+id/imagemUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="82dp"
+        android:background="#AF0D25"
+        android:src="@drawable/ic_action_name"
+        android:text="Trocar foto"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/image4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
         android:id="@+id/buttonSairUsuario"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="100dp"
-        android:layout_height="55dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="294dp"
         android:background="#00FFFFFF"
         android:text="Sair"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="1dp" />
+        app:layout_constraintBottom_toTopOf="@+id/nomeUsuarioHome"
+        app:layout_constraintStart_toStartOf="@+id/barra_superior"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image"
@@ -45,6 +63,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_marginBottom="349dp"
         android:layout_toEndOf="@+id/image"
         android:text="Shawn Mendes"
         android:textAlignment="center"
@@ -53,7 +72,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSairUsuario" />
 
     <TextView
         android:id="@+id/enderecoUsuarioHome"
