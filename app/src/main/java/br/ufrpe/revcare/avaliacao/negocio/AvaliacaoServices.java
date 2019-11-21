@@ -63,7 +63,7 @@ public class AvaliacaoServices {
             Profissional profissionalAtual = profissionalByID(key, context);
             profissionalAtual.setAvaliacaoUsuario(value);
             Double nota = avaliacaoProfissionalUsuario(profissionalAtual, context);
-            if (nota == null) {
+            if (nota == null && (profissionalAtual.getAvaliacaoUsuario() >= 1.0)) {
                 recomendados.add(profissionalAtual);
             }
         }

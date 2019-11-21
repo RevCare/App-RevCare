@@ -88,49 +88,35 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         AvaliacaoServices services = new AvaliacaoServices(getApplicationContext());
         profissionaisRecomendados = services.getRecomendacao(getApplicationContext());
         if (profissionaisRecomendados.size() != 0) {
-            for (int i = 0; i < profissionaisRecomendados.size(); i++) {
-                mNomes.add(profissionaisRecomendados.get(i).getNome());
-                mCidade.add(profissionaisRecomendados.get(i).getCidade());
-                mTelefone.add(profissionaisRecomendados.get(i).getTelefone());
-                mEmail.add(profissionaisRecomendados.get(i).getEmail());
-                mDescricao.add(profissionaisRecomendados.get(i).getDescricao());
-                mLikes.add(dao.contarLikes(profissionaisRecomendados.get(i).getId()));
-                mDeslikes.add(dao.contarDeslikes(profissionaisRecomendados.get(i).getId()));
-                mEstado.add(profissionaisRecomendados.get(i).getEstado());
-                byte[] imagemEmBits = profissionaisRecomendados.get(i).getFoto();
-                if(profissionaisRecomendados.get(i).getFoto()!=null) {
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
-                    mFotos.add(bitmap);
-                }
-                else{
-                    mFotos.add(null);
-                }
-            }
+            adicionaNoArray(dao, profissionaisRecomendados);
 
         }else{
             profissionais = dao.getAllProfissional();
-            for (int i = 0; i < profissionais.size(); i++) {
-                mNomes.add(profissionais.get(i).getNome());
-                mCidade.add(profissionais.get(i).getCidade());
-                mTelefone.add(profissionais.get(i).getTelefone());
-                mEmail.add(profissionais.get(i).getEmail());
-                mDescricao.add(profissionais.get(i).getDescricao());
-                mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
-                mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
-                mEstado.add(profissionais.get(i).getEstado());
-                byte[] imagemEmBits = profissionais.get(i).getFoto();
-                if(profissionais.get(i).getFoto()!=null) {
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
-                    mFotos.add(bitmap);
-                }
-                else{
-                    mFotos.add(null);
-                }
-
-            }
+            adicionaNoArray(dao, profissionais);
         }
         initRecyclerView();
 
+    }
+
+    private void adicionaNoArray(ProfissionalDAO dao, List<Profissional> profissionais) {
+        for (int i = 0; i < profissionais.size(); i++) {
+            mNomes.add(profissionais.get(i).getNome());
+            mCidade.add(profissionais.get(i).getCidade());
+            mTelefone.add(profissionais.get(i).getTelefone());
+            mEmail.add(profissionais.get(i).getEmail());
+            mDescricao.add(profissionais.get(i).getDescricao());
+            mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
+            mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
+            mEstado.add(profissionais.get(i).getEstado());
+            byte[] imagemEmBits = profissionais.get(i).getFoto();
+            if (profissionais.get(i).getFoto() != null) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
+                mFotos.add(bitmap);
+            } else {
+                mFotos.add(null);
+            }
+
+        }
     }
 
     private void initRecyclerView(){
