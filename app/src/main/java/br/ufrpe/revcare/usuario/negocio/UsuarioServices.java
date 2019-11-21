@@ -37,5 +37,11 @@ public class UsuarioServices {
             SessaoUsuario.horaLogin = new Date();
         }
     }
+    public Usuario consultarEmail(String email){
+        return dao.consultar(email);
+    }
+    public Usuario consultarCpf(String cpf){
+        return dao.consultarCpf(cpf);
+    }
 
 }

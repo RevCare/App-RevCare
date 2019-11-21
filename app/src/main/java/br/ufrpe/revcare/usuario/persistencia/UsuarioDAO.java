@@ -73,14 +73,14 @@ public class UsuarioDAO  {
         db.close();
         return result;
     }
-    public Usuario consultarCpf(String email) {
+    public Usuario consultarCpf(String cpf) {
         Usuario result = null;
         String query =
                 " SELECT * " +
                         " FROM " + TABELA_USUARIO +
                         " WHERE " + COL_CPF_USUARIO + " = ? ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query, new String[]{email});
+        Cursor cursor = db.rawQuery(query, new String[]{cpf});
         if (cursor.moveToFirst()) {
             result = criarUsuario(cursor);
         }

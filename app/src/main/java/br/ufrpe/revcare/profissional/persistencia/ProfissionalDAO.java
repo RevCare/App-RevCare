@@ -88,14 +88,14 @@ public class ProfissionalDAO {
         return result;
     }
 
-    public Profissional consultarCpf(String email) {
+    public Profissional consultarCpf(String cpf) {
         Profissional result = null;
         String query =
                 " SELECT * " +
                         " FROM " + TABELA_PROFISSIONAL +
                         " WHERE " + COL_CPF_PROFISSIONAL + " = ? ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query, new String[]{email});
+        Cursor cursor = db.rawQuery(query, new String[]{cpf});
         if (cursor.moveToFirst()) {
             result = criarProfissional(cursor);
         }
@@ -217,7 +217,7 @@ public class ProfissionalDAO {
         Double nota = null;
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
-            int indexNota = cursor.getColumnIndex("notaAvaliacao");
+            int indexNota = cursor.getColumnIndex("like");
             nota = cursor.getDouble(indexNota);
         }
         return nota;

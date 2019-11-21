@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import br.ufrpe.revcare.R;
@@ -62,7 +63,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         if (qtdLikes == 0){
             holder.likes.setText("Nenhuma");
         }else{
-            holder.likes.setText(porcentagemLikes.toString() + "% positivas");}
+            DecimalFormat df = new DecimalFormat("0");
+            holder.likes.setText(df.format(porcentagemLikes).toString() + "% positivas");}
         holder.nome.setText(mNome.get(position));
         holder.cidade.setText(mCidade.get(position));
         holder.estado.setText(mEstado.get((position)));

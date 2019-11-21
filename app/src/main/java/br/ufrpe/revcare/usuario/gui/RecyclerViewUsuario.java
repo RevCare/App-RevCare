@@ -1,18 +1,18 @@
 package br.ufrpe.revcare.usuario.gui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,15 +20,14 @@ import java.util.List;
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.avaliacao.negocio.AvaliacaoServices;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
-import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class RecyclerViewUsuario extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     private ArrayList<String> mNomes = new ArrayList<>();
     private ArrayList<String> mCidade = new ArrayList<>();
     private ArrayList<String> mnota = new ArrayList<>();
-    private List<Profissional> profissionaisRecomendados = null;
-    private List<Profissional> profissionais = null;
+    private List<Profissional> profissionaisRecomendados = new ArrayList<>();
+    private List<Profissional> profissionais = new ArrayList<>();
     private ArrayList<String> mTelefone = new ArrayList<>();
     private ArrayList<String> mDescricao = new ArrayList<>();
     private ArrayList<String> mEmail = new ArrayList<>();
@@ -47,30 +46,27 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recycler_view_usuario);
         getSupportActionBar().hide();
-        Spinner spinner = findViewById(R.id.spinner);
-        Spinner spinner2 = findViewById(R.id.spinner2);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.estados, android.R.layout.simple_spinner_item);
-
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
-                R.array.cidadesPE, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner2.setAdapter(adapter2);
-        spinner2.setOnItemSelectedListener(this);
-        spinner.setOnItemSelectedListener(this);
-        ImageButton atualizar = findViewById(R.id.btnAtt);
-        atualizar.setOnClickListener(new View.OnClickListener() {
-
-                 @Override
-                 public void onClick(View v) {
-                     finish();
-                     startActivity(getIntent());
-                 }
-             }
-        );
+        Button btnAllPro = findViewById(R.id.buttonAllPro);
+        Button btnRecPro = findViewById(R.id.buttonRecommendedPro);
         initProfissionais();
+
+        btnRecPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(getIntent());
+            }
+        });
+        btnAllPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
+                profissionais = dao.getAllProfissional();
+                adicionaNoArray(dao,profissionais);
+                initRecyclerView();
+            }
+        });
+
     }
 
     @Override
@@ -89,44 +85,36 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
         AvaliacaoServices services = new AvaliacaoServices(getApplicationContext());
         profissionaisRecomendados = services.getRecomendacao(getApplicationContext());
-        //um if aqui resolve o possivel arrazylist vazio, so preciso saber se é null ou um arraylist vazio
-        if (profissionaisRecomendados == null) {
-            for (int i = 0; i < profissionaisRecomendados.size(); i++) {
-                mNomes.add(profissionaisRecomendados.get(i).getNome());
-                mCidade.add(profissionaisRecomendados.get(i).getCidade());
-                mTelefone.add(profissionaisRecomendados.get(i).getTelefone());
-                mEmail.add(profissionaisRecomendados.get(i).getEmail());
-                mDescricao.add(profissionaisRecomendados.get(i).getDescricao());
-                mLikes.add(dao.contarLikes(profissionaisRecomendados.get(i).getId()));
-                mDeslikes.add(dao.contarDeslikes(profissionaisRecomendados.get(i).getId()));
-                mEstado.add(profissionaisRecomendados.get(i).getEstado());
-            }
+        if (profissionaisRecomendados.size() != 0) {
+            adicionaNoArray(dao, profissionaisRecomendados);
 
-        }
-        else{
+        }else{
             profissionais = dao.getAllProfissional();
-            for (int i = 0; i < profissionais.size(); i++) {
-                mNomes.add(profissionais.get(i).getNome());
-                mCidade.add(profissionais.get(i).getCidade());
-                mTelefone.add(profissionais.get(i).getTelefone());
-                mEmail.add(profissionais.get(i).getEmail());
-                mDescricao.add(profissionais.get(i).getDescricao());
-                mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
-                mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
-                mEstado.add(profissionais.get(i).getEstado());
-                byte[] imagemEmBits = profissionais.get(i).getFoto();
-                if(profissionais.get(i).getFoto()!=null) {
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
-                    mFotos.add(bitmap);
-                }
-                else{
-                    mFotos.add(null);
-                }
-
-            }
+            adicionaNoArray(dao, profissionais);
         }
         initRecyclerView();
 
+    }
+
+    private void adicionaNoArray(ProfissionalDAO dao, List<Profissional> profissionais) {
+        for (int i = 0; i < profissionais.size(); i++) {
+            mNomes.add(profissionais.get(i).getNome());
+            mCidade.add(profissionais.get(i).getCidade());
+            mTelefone.add(profissionais.get(i).getTelefone());
+            mEmail.add(profissionais.get(i).getEmail());
+            mDescricao.add(profissionais.get(i).getDescricao());
+            mLikes.add(dao.contarLikes(profissionais.get(i).getId()));
+            mDeslikes.add(dao.contarDeslikes(profissionais.get(i).getId()));
+            mEstado.add(profissionais.get(i).getEstado());
+            byte[] imagemEmBits = profissionais.get(i).getFoto();
+            if (profissionais.get(i).getFoto() != null) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
+                mFotos.add(bitmap);
+            } else {
+                mFotos.add(null);
+            }
+
+        }
     }
 
     private void initRecyclerView(){

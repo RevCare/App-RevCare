@@ -28,10 +28,12 @@ public class CadastroUsuario extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    //finish();
                     cadastrar();
+                    finish();
+
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),"Não foi possível cadastrar.", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -73,10 +75,10 @@ public class CadastroUsuario extends AppCompatActivity {
 
     private  boolean confirmaEmail(){
         Usuario result = null;
-        UsuarioDAO dao = new UsuarioDAO(this);
+        UsuarioServices services = new UsuarioServices(this);
         EditText nEmail = findViewById(R.id.emailTextField);
         String email = nEmail.getText().toString().trim();
-        result = dao.consultar(email);
+        result = services.consultarEmail(email);
         if (result != null){
             nEmail.requestFocus();
             nEmail.setError("Preencha novamente o campo.");
@@ -88,10 +90,10 @@ public class CadastroUsuario extends AppCompatActivity {
 
     private  boolean confirmaCpf(){
         Usuario result = null;
-        UsuarioDAO dao = new UsuarioDAO(this);
+        UsuarioServices services = new UsuarioServices(this);
         EditText nCpf = findViewById(R.id.cpfTextField);
         String cpf = nCpf.getText().toString().trim();
-        result = dao.consultarCpf(cpf);
+        result = services.consultarCpf(cpf);
         if (result != null){
             nCpf.requestFocus();
             nCpf.setError("Preencha novamente o campo.");

@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.ufrpe.revcare.avaliacao.dominio.Avaliacao;
 import br.ufrpe.revcare.avaliacao.persistencia.AvaliacaoDAO;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
@@ -35,8 +36,8 @@ public class AvaliacaoServices {
     }
     public boolean deslike(Long idUsuario, Long idProfissional){
         boolean result = false;
-        if(!dao.votado(idUsuario, idProfissional)){
-            dao.deslike(idUsuario, idProfissional);
+        if(!dao.votado(idUsuario,idProfissional)){
+            dao.deslike(idUsuario,idProfissional);
             result = true;
         }
         return result;
@@ -55,12 +56,15 @@ public class AvaliacaoServices {
     }
 
     private ArrayList<Profissional> getProfissionaisRecomendadas(Map<String, Double> predicoes, Context context) {
+
         ArrayList<Profissional> recomendados = new ArrayList<>();
-        for (String profissional : predicoes.keySet()) {
-            Profissional profissionalAtual = profissionalByID(profissional, context);
-            profissionalAtual.setAvaliacaoUsuario(predicoes.get(profissional));
+        for (Map.Entry<String,Double> entry : predicoes.entrySet()) {
+            String key = entry.getKey();
+            Double value = entry.getValue();
+            Profissional profissionalAtual = profissionalByID(key, context);
+            profissionalAtual.setAvaliacaoUsuario(value);
             Double nota = avaliacaoProfissionalUsuario(profissionalAtual, context);
-            if (nota == null) {
+            if (nota == null && (profissionalAtual.getAvaliacaoUsuario() >= 1.0)) {
                 recomendados.add(profissionalAtual);
             }
         }
