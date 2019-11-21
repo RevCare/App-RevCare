@@ -8,6 +8,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.ufrpe.revcare.avaliacao.dominio.Avaliacao;
 import br.ufrpe.revcare.avaliacao.persistencia.AvaliacaoDAO;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
@@ -25,18 +26,18 @@ public class AvaliacaoServices {
         dao = new AvaliacaoDAO(context);
     }
 
-    public boolean like(Long idUsuario, Long idProfissional){
+    public boolean like(Avaliacao avaliacao){
         boolean result = false;
-        if(!dao.votado(idUsuario,idProfissional)){
-            dao.like(idUsuario,idProfissional);
+        if(!dao.votado(avaliacao.getIdUsuario(), avaliacao.getIdProfissional())){
+            dao.like(avaliacao);
             result = true;
         }
         return result;
     }
-    public boolean deslike(Long idUsuario, Long idProfissional){
+    public boolean deslike(Avaliacao avaliacao){
         boolean result = false;
-        if(!dao.votado(idUsuario, idProfissional)){
-            dao.deslike(idUsuario, idProfissional);
+        if(!dao.votado(avaliacao.getIdUsuario(), avaliacao.getIdProfissional())){
+            dao.deslike(avaliacao);
             result = true;
         }
         return result;
