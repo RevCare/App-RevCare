@@ -1,9 +1,5 @@
 package br.ufrpe.revcare.usuario.gui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -13,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +19,6 @@ import java.util.List;
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.avaliacao.negocio.AvaliacaoServices;
 import br.ufrpe.revcare.profissional.dominio.Profissional;
-import br.ufrpe.revcare.profissional.negocio.SessaoProfissional;
 import br.ufrpe.revcare.profissional.persistencia.ProfissionalDAO;
 
 public class RecyclerViewUsuario extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -89,8 +87,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
         ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
         AvaliacaoServices services = new AvaliacaoServices(getApplicationContext());
         profissionaisRecomendados = services.getRecomendacao(getApplicationContext());
-        //um if aqui resolve o possivel arrazylist vazio, so preciso saber se é null ou um arraylist vazio
-        if (profissionaisRecomendados == null) {
+        if (profissionaisRecomendados.size() != 0) {
             for (int i = 0; i < profissionaisRecomendados.size(); i++) {
                 mNomes.add(profissionaisRecomendados.get(i).getNome());
                 mCidade.add(profissionaisRecomendados.get(i).getCidade());
@@ -100,10 +97,17 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
                 mLikes.add(dao.contarLikes(profissionaisRecomendados.get(i).getId()));
                 mDeslikes.add(dao.contarDeslikes(profissionaisRecomendados.get(i).getId()));
                 mEstado.add(profissionaisRecomendados.get(i).getEstado());
+                byte[] imagemEmBits = profissionais.get(i).getFoto();
+                if(profissionais.get(i).getFoto()!=null) {
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(imagemEmBits, 0, imagemEmBits.length);
+                    mFotos.add(bitmap);
+                }
+                else{
+                    mFotos.add(null);
+                }
             }
 
-        }
-        else{
+        }else{
             profissionais = dao.getAllProfissional();
             for (int i = 0; i < profissionais.size(); i++) {
                 mNomes.add(profissionais.get(i).getNome());

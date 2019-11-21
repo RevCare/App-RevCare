@@ -217,7 +217,7 @@ public class ProfissionalDAO {
         Double nota = null;
         if (cursor.getCount() > 0) {
             cursor.moveToFirst();
-            int indexNota = cursor.getColumnIndex("notaAvaliacao");
+            int indexNota = cursor.getColumnIndex("like");
             nota = cursor.getDouble(indexNota);
         }
         return nota;
