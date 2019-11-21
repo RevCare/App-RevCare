@@ -68,10 +68,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.nome.setText(mNome.get(position));
         holder.cidade.setText(mCidade.get(position));
         holder.estado.setText(mEstado.get((position)));
-//        if (mFotos.get(position) != null){
-//
-//            holder.imagem.setImageBitmap(mFotos.get(position));
-//        }
+        if (mFotos.get(position) != null){
+
+            holder.imagem.setImageBitmap(mFotos.get(position));
+        }
 
 
         holder.btnVerMais.setOnClickListener(new View.OnClickListener() {
