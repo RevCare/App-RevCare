@@ -254,6 +254,8 @@ public class HomeProfissional extends AppCompatActivity {
                         Toast.makeText(this, "Imagem alterada com sucesso", Toast.LENGTH_SHORT).show();
                     } catch (Exception e) {
                         e.printStackTrace();
+                        Toast.makeText(this, "Não foi possível alterar a imagem", Toast.LENGTH_SHORT).show();
+
                     }
                 }
         }
