@@ -54,6 +54,8 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
         android:layout_alignParentTop="true"
         android:layout_marginStart="9dp"
         android:layout_marginTop="63dp"
+        android:background="#AF0D25"
+        android:textColor="#FFFFFF"
         android:text="Mostrar Todos" />
 
     <Button
@@ -64,6 +66,8 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
         android:layout_alignParentEnd="true"
         android:layout_marginTop="62dp"
         android:layout_marginEnd="9dp"
+        android:background="#AF0D25"
+        android:textColor="#FFFFFF"
         android:text="Mostrar Recomendados" />
 
 </RelativeLayout>
