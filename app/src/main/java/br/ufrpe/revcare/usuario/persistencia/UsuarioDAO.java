@@ -3,6 +3,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
@@ -17,7 +18,8 @@ import static br.ufrpe.revcare.infra.persistencia.DBHelper.TABELA_USUARIO;
 
 public class UsuarioDAO  {
 
-    private DBHelper dbHelper;
+    private static DBHelper dbHelper;
+
 
     public UsuarioDAO(Context context) {
         dbHelper = new DBHelper(context);
@@ -34,6 +36,8 @@ public class UsuarioDAO  {
         values.put(DBHelper.COL_EMAIL_USUARIO, usuario.getEmail());
         values.put(DBHelper.COL_TELEFONE_USUARIO, usuario.getTelefone());
         values.put(DBHelper.COL_SENHA_USUARIO, usuario.getSenha());
+        values.put(DBHelper.COL_FOTO_USUARIO, usuario.getFoto());
+
 
         long id = db.insert(TABELA_USUARIO, null, values);
         db.close();
@@ -116,7 +120,19 @@ public class UsuarioDAO  {
         result.setCpf(cursor.getString(5));
         result.setEndereco(cursor.getString(6));
         result.setSenha(cursor.getString(7));
+        result.setFoto(cursor.getBlob(8));
+
 
         return result;
+    }
+
+    public static void alteraFotoUsuario(Usuario usuario){
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("foto", usuario.getFoto());
+        db.update(TABELA_USUARIO,values, "id = ?",
+                new String[]{String.valueOf(usuario.getId())});
+        db.close();
+
     }
 }

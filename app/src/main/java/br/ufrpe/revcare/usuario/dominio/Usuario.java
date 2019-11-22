@@ -10,6 +10,15 @@ public class Usuario {
     private String endereco;
     private String senha;
     private String confirmarSenha;
+    private byte[] foto;
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
 
     public String getTelefone() {
         return telefone;

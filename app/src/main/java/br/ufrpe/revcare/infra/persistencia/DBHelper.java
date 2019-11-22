@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "revtestt.bd";
-    private static final int DB_VERSION = 7;
+    private static final int DB_VERSION = 8;
     
     public static final String TABELA_USUARIO = "Tabela_Usuario";
     public static final String COL_ID_USUARIO = "id";
@@ -18,6 +18,8 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_CPF_USUARIO = "cpf";
     public static final String COL_SENHA_USUARIO = "senha";
     public static final String COL_ENDERECO_USUARIO = "endereco";
+    public static final String COL_FOTO_USUARIO = "foto";
+
 
     public static final String TABELA_PROFISSIONAL = "Tabela_Profissional";
     public static final String COL_ID_PROFISSIONAL = "id";
@@ -68,12 +70,13 @@ public class DBHelper extends SQLiteOpenHelper {
                 " %6$s TEXT NOT NULL, " +
                 " %7$s TEXT NOT NULL, " +
                 " %8$s TEXT NOT NULL, " +
-                " %9$s TEXT NOT NULL " +
+                " %9$s TEXT NOT NULL, " +
+                " %10$s BLOB " +
                 ");";
         sqlTbUsuario = String.format(sqlTbUsuario,
                 TABELA_USUARIO, COL_ID_USUARIO, COL_NOME_USUARIO,
                 COL_NASCIMENTO_USUARIO, COL_TELEFONE_USUARIO,
-                COL_EMAIL_USUARIO, COL_CPF_USUARIO, COL_ENDERECO_USUARIO, COL_SENHA_USUARIO);
+                COL_EMAIL_USUARIO, COL_CPF_USUARIO, COL_ENDERECO_USUARIO, COL_SENHA_USUARIO, COL_FOTO_USUARIO);
         db.execSQL(sqlTbUsuario);
     }
 

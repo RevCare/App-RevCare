@@ -43,5 +43,8 @@ public class UsuarioServices {
     public Usuario consultarCpf(String cpf){
         return dao.consultarCpf(cpf);
     }
+    public static void alteraFotoUsuario(Usuario usuario){
+        UsuarioDAO.alteraFotoUsuario(usuario);
+    }
 
 }
