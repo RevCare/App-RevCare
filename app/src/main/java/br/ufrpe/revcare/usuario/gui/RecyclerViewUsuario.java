@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -61,6 +62,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
             @Override
             public void onClick(View v) {
                 ProfissionalDAO dao = new ProfissionalDAO(getApplicationContext());
+                zerarArrays();
                 profissionais = dao.getAllProfissional();
                 adicionaNoArray(dao,profissionais);
                 initRecyclerView();
@@ -89,6 +91,7 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
             adicionaNoArray(dao, profissionaisRecomendados);
 
         }else{
+            Toast.makeText(getApplicationContext(), "Você não tem recomendações ainda.", Toast.LENGTH_SHORT).show();
             profissionais = dao.getAllProfissional();
             adicionaNoArray(dao, profissionais);
         }
@@ -116,12 +119,29 @@ public class RecyclerViewUsuario extends AppCompatActivity implements AdapterVie
 
         }
     }
+    private void zerarArrays(){
+        mNomes = new ArrayList<>();
+        mCidade = new ArrayList<>();
+        mnota = new ArrayList<>();
+        profissionaisRecomendados = new ArrayList<>();
+        profissionais = new ArrayList<>();
+        mTelefone = new ArrayList<>();
+        mDescricao = new ArrayList<>();
+        mEmail = new ArrayList<>();
+        mLikes = new ArrayList<Integer>();
+        mDeslikes = new ArrayList<Integer>();
+        mEstado = new ArrayList<>();
+        mFotos = new ArrayList<>();
+
+    }
 
     private void initRecyclerView(){
         RecyclerView recyclerView = findViewById(R.id.usuariorecylcer);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNomes, mCidade, mTelefone, mEmail, mDescricao, mLikes, mDeslikes, mEstado,mFotos);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
     }
 
 

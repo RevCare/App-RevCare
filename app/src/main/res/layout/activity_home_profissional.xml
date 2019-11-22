@@ -11,16 +11,14 @@
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="55dp"
         android:layout_marginEnd="35dp"
-        android:layout_marginBottom="53dp"
+        android:layout_marginBottom="52dp"
         android:background="#AF0D25"
         android:text="Atualizar Perfil"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblEmail" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/barra_superior2"
@@ -38,16 +36,16 @@
         android:id="@+id/imagemProfissional"
         android:layout_width="wrap_content"
         android:layout_height="44dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="82dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="50dp"
         android:background="#AF0D25"
         android:src="@drawable/ic_action_name"
-        android:textColor="#FFFFFF"
         android:text="Trocar foto"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="@+id/image4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image4"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/barra_superior2" />
 
     <TextView
         android:id="@+id/nomeprofissional"
@@ -55,18 +53,15 @@
         android:layout_height="65dp"
         android:layout_centerVertical="true"
         android:layout_marginStart="54dp"
-        android:layout_marginTop="238dp"
         android:layout_marginEnd="54dp"
-        android:layout_marginBottom="238dp"
         android:layout_toEndOf="@+id/image"
         android:text="@string/nome_do_profissional"
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cpfProfissionalHome"
+        app:layout_constraintBottom_toTopOf="@+id/decricaoprofissional"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/decricaoprofissional"
@@ -86,11 +81,33 @@
         android:id="@+id/lblTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
         android:text="Telefone:"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/telefoneProfissionalHome"
+        app:layout_constraintEnd_toEndOf="@+id/lblCPF"
+        app:layout_constraintStart_toEndOf="@+id/lblCPF" />
+
+    <TextView
+        android:id="@+id/lblCPF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:text="CPF:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/cpfProfissionalHome"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/lblEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:text="Email:"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/emailProfissionalHome"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -106,73 +123,28 @@
         app:layout_constraintTop_toBottomOf="@+id/cpfProfissionalHome" />
 
     <TextView
-        android:id="@+id/lblCPF"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:text="CPF:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/cpfProfissionalHome"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/cpfProfissionalHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="53dp"
         android:text="000.000.000-00"
         android:textColor="#DD000000"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/lblCPF"
-        app:layout_constraintTop_toBottomOf="@+id/lblEndereco" />
-
-    <TextView
-        android:id="@+id/enderecoProfissional"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="13dp"
-        android:text="Rua exemplo"
-        android:textColor="#DD000000"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/telefoneProfissionalHome"
-        app:layout_constraintTop_toBottomOf="@+id/telefoneProfissionalHome" />
+        app:layout_constraintTop_toBottomOf="@+id/decricaoprofissional" />
 
     <TextView
         android:id="@+id/telefoneProfissionalHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginBottom="13dp"
         android:text="(00) 90000-0000"
         android:textColor="#DD000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/lblTelefone"
-        app:layout_constraintTop_toBottomOf="@+id/decricaoprofissional" />
-
-    <TextView
-        android:id="@+id/lblEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:text="Email:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/emailProfissionalHome"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/lblEndereco"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="11dp"
-        android:text="Endereço:"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/enderecoProfissional"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/cpfProfissionalHome"
+        app:layout_constraintStart_toEndOf="@+id/lblTelefone" />
 
     <Button
         android:id="@+id/buttonSairProfissional"
@@ -191,11 +163,12 @@
         android:id="@+id/image4"
         android:layout_width="0dp"
         android:layout_height="117dp"
-        android:layout_marginStart="155dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/nomeprofissional"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="49dp"
+        android:background="#cecece"
         app:layout_constraintEnd_toStartOf="@+id/imagemProfissional"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barra_superior2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

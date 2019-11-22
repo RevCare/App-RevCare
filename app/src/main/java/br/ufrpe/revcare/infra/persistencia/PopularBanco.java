@@ -29,10 +29,23 @@ public class PopularBanco {
             popularProfissional();
         }
 
+        if (!bancoIsPopuladoAvaliacao()){
+            popularAvaliacao();
+        }
+
     }
 
     private boolean bancoIsPopulado() {
         String query = "SELECT * FROM TABELA_USUARIO";
+        Cursor cursor = this.execQuery(query);
+        boolean populado = false;
+        if (cursor.moveToFirst()) {
+            populado = true;
+        }
+        return populado;
+    }
+    private boolean bancoIsPopuladoAvaliacao() {
+        String query = "SELECT * FROM TABELA_AVALIACAO";
         Cursor cursor = this.execQuery(query);
         boolean populado = false;
         if (cursor.moveToFirst()) {
@@ -49,6 +62,7 @@ public class PopularBanco {
         }
         return populado;
     }
+
     private Cursor execQuery(String query) {
         DBHelper dbHelper;
         dbHelper = new DBHelper(nContext);
@@ -95,6 +109,44 @@ public class PopularBanco {
                 "Eu gosto bastante de batata","prof7@gmail.com","91919197",
                 "","1","Pernambuco","Recife");
     }
+    private void popularAvaliacao(){
+        criarAvaliacao(1,3,1);
+        criarAvaliacao(1,4,0);
+        criarAvaliacao(1,5,0);
+        criarAvaliacao(1,1,0);
+        criarAvaliacao(1,7,1);
+
+        criarAvaliacao(2,2,1);
+        criarAvaliacao(2,5,0);
+        criarAvaliacao(2,6,1);
+        criarAvaliacao(2,4,0);
+        criarAvaliacao(2,7,1);
+
+        criarAvaliacao(4,2,1);
+        criarAvaliacao(4,7,1);
+        criarAvaliacao(4,1,0);
+        criarAvaliacao(4,3,1);
+        criarAvaliacao(4,5,1);
+
+        criarAvaliacao(6,4,1);
+        criarAvaliacao(6,5,0);
+        criarAvaliacao(6,6,0);
+        criarAvaliacao(6,7,0);
+        criarAvaliacao(6,1,0);
+
+        criarAvaliacao(7,3,1);
+        criarAvaliacao(7,4,0);
+        criarAvaliacao(7,5,0);
+        criarAvaliacao(7,1,1);
+        criarAvaliacao(7,7,1);
+
+    }
+
+
+
+
+
+
 
     private void criarUsuario(String nome, String cpf, String nascimento, String endereco, String email,
                               String telefone, String senha) {
@@ -123,8 +175,12 @@ public class PopularBanco {
         profissional.setCidade(cidade);
         profissionalDAO.cadastrar(profissional);
     }
-    /*private void criarAvaliacao(long idProfissional, long idUsuario, Integer like, Integer deslike){
-        Avaliacao avaliacao = new Avaliacao();
-        avaliacaoDAO
-    }*/
+
+    private void criarAvaliacao (long idUsuario, long idProfissional, int like){
+        if (like == 1) {
+            avaliacaoDAO.like(idUsuario,idProfissional);
+        }else{
+            avaliacaoDAO.deslike(idUsuario,idProfissional);
+        }
+    }
 }
