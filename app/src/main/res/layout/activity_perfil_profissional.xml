@@ -12,12 +12,13 @@
         android:layout_width="183dp"
         android:layout_height="91dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="29dp"
         android:src="@drawable/ic_action_name"
+        app:layout_constraintBottom_toBottomOf="@+id/nomeProfissionalPerfil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barra_superior" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/lblEmail"
@@ -47,12 +48,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="178dp"
         android:layout_marginBottom="177dp"
         android:text="email@email.com"
         android:textColor="#DD000000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lblEmail" />
+        app:layout_constraintStart_toEndOf="@+id/lblEmail"
+        app:layout_constraintTop_toBottomOf="@+id/descricaoprofissionalPerfil" />
 
     <TextView
         android:id="@+id/lblEndereco"
@@ -69,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="15dp"
         android:text="Rua exemplo"
         android:textColor="#DD000000"
         android:textSize="16sp"
@@ -99,22 +102,23 @@
         android:textColor="#000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/descricaoprofissionalPerfil"
-        android:layout_width="328dp"
+        android:layout_width="0dp"
         android:layout_height="131dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="41dp"
         android:background="#80CACACA"
         android:textColor="#000000"
         android:textColorHint="#000000"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/nomeProfissionalPerfil" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/barra_superior"
@@ -151,5 +155,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblEndereco" />
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>

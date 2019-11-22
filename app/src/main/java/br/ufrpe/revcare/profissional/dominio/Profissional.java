@@ -14,6 +14,16 @@ public class Profissional {
     private String cidade;
     private byte[] foto;
 
+    public Double getAvaliacaoUsuario() {
+        return avaliacaoUsuario;
+    }
+
+    public void setAvaliacaoUsuario(Double avaliacaoUsuario) {
+        this.avaliacaoUsuario = avaliacaoUsuario;
+    }
+
+    private Double avaliacaoUsuario;
+
     public byte[] getFoto() {
         return foto;
     }
