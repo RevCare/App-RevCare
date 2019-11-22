@@ -19,19 +19,19 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/imagemUsuario"
-        android:layout_width="wrap_content"
-        android:layout_height="44dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="82dp"
-        android:background="#AF0D25"
+        android:id="@+id/imagemuser"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/ic_camera_alt_black_24dp"
         android:src="@drawable/ic_action_name"
-        android:text="Trocar foto"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/image4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/nomeUsuarioHome"
+        app:layout_constraintEnd_toEndOf="@+id/nomeUsuarioHome"
+        app:layout_constraintStart_toEndOf="@+id/emailUsuarioHome" />
 
     <Button
         android:id="@+id/buttonSairUsuario"
@@ -39,11 +39,10 @@
         android:layout_width="100dp"
         android:layout_height="0dp"
         android:layout_marginTop="1dp"
-        android:layout_marginBottom="294dp"
         android:background="#00FFFFFF"
         android:text="Sair"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/nomeUsuarioHome"
+        app:layout_constraintBottom_toBottomOf="@+id/barra_superior"
         app:layout_constraintStart_toStartOf="@+id/barra_superior"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,9 +51,9 @@
         android:layout_width="173dp"
         android:layout_height="173dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="3dp"
         android:src="@drawable/ic_action_name"
-        app:layout_constraintBottom_toTopOf="@+id/nomeUsuarioHome"
+        app:layout_constraintBottom_toBottomOf="@+id/imagemuser"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -63,23 +62,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="349dp"
+        android:layout_marginBottom="37dp"
         android:layout_toEndOf="@+id/image"
         android:text="Shawn Mendes"
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lblTelefone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSairUsuario" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/enderecoUsuarioHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="6dp"
         android:text="Rua exemplo"
         android:textColor="#DD000000"
         android:textSize="16sp"
@@ -90,24 +88,22 @@
         android:id="@+id/lblEndereco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="Endereço:"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/lblTelefone"
-        app:layout_constraintTop_toBottomOf="@+id/lblTelefone" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/enderecoUsuarioHome"
+        app:layout_constraintStart_toStartOf="@+id/lblTelefone" />
 
     <TextView
         android:id="@+id/lblTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="37dp"
         android:text="Telefone:"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nomeUsuarioHome" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/telefoneUsuarioHome"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/cpfUsuarioHome"
@@ -136,12 +132,12 @@
         android:id="@+id/lblEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginBottom="237dp"
         android:text="Email:"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/lblEndereco"
-        app:layout_constraintTop_toBottomOf="@+id/lblEndereco" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/lblEndereco" />
 
     <TextView
         android:id="@+id/emailUsuarioHome"
@@ -160,11 +156,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="33dp"
         android:text="(00) 90000-0000"
         android:textColor="#DD000000"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/lblEndereco"
+        app:layout_constraintBottom_toTopOf="@+id/emailUsuarioHome"
         app:layout_constraintStart_toEndOf="@+id/lblEndereco" />
 
     <Button
@@ -175,7 +171,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="122dp"
         android:layout_marginEnd="35dp"
-        android:layout_marginBottom="121dp"
+        android:layout_marginBottom="120dp"
         android:background="#AF0D25"
         android:text="Procurar Profissional"
         android:textColor="#FFFFFF"
