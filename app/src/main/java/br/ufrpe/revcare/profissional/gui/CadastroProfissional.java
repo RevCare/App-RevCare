@@ -3,6 +3,8 @@ package br.ufrpe.revcare.profissional.gui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 
 import br.ufrpe.revcare.R;
 import br.ufrpe.revcare.infra.gui.MainActivity;
@@ -43,8 +47,11 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
             public void onClick(View view) {
                 try {
                     cadastrar();
+                    finish();
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),"Não foi possível cadastro.", Toast.LENGTH_LONG).show();
+
                 }
 
             }
@@ -98,10 +105,10 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
     }
     private  boolean confirmaEmail(){
         Profissional result = null;
-        ProfissionalDAO dao = new ProfissionalDAO(this);
+        ProfissionalServices services = new ProfissionalServices(this);
         EditText nEmail = findViewById(R.id.emailTextField);
         String email = nEmail.getText().toString().trim();
-        result = dao.consultarEmail(email);
+        result = services.consultarEmail(email);
         if (result != null){
             nEmail.requestFocus();
             nEmail.setError("Preencha novamente o campo.");
@@ -112,10 +119,10 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
     }
     private  boolean confirmaCpf(){
         Profissional result = null;
-        ProfissionalDAO dao = new ProfissionalDAO(this);
+        ProfissionalServices services = new ProfissionalServices(this);
         EditText nCpf = findViewById(R.id.cpfTextField);
         String cpf = nCpf.getText().toString().trim();
-        result = dao.consultarCpf(cpf);
+        result = services.consultarCpf(cpf);
         if (result != null){
             nCpf.requestFocus();
             nCpf.setError("Preencha novamente o campo.");
@@ -137,6 +144,10 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         nConfirmarSenha = findViewById(R.id.caixaConfirmaSenha);
         nEstado = findViewById(R.id.spinnerEstado);
         nCidade = findViewById(R.id.spinnerCidade);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.unknown);
+        ByteArrayOutputStream blob = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, blob);
+        byte[] bitmapdata = blob.toByteArray();
 
 
 
@@ -151,6 +162,7 @@ public class CadastroProfissional extends AppCompatActivity implements AdapterVi
         result.setSenha(nSenha.getText().toString().trim());
         result.setEstado(nEstado.getSelectedItem().toString().trim());
         result.setCidade(nCidade.getSelectedItem().toString().trim());
+        result.setFoto(bitmapdata);
         return result;
     }
 

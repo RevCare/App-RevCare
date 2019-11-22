@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
 import br.ufrpe.revcare.R;
+import br.ufrpe.revcare.avaliacao.dominio.Avaliacao;
 import br.ufrpe.revcare.avaliacao.negocio.AvaliacaoServices;
 import br.ufrpe.revcare.avaliacao.negocio.GuardaProfissional;
 import br.ufrpe.revcare.usuario.gui.RecyclerViewUsuario;
@@ -46,6 +48,7 @@ public class AvaliacaoProfissional extends AppCompatActivity {
             public void onClick(View v) {
                 long idUsuario = SessaoUsuario.getUsuario().getId();
                 long idProfissional = GuardaProfissional.getProfissionalGuardado().getId();
+
                 AvaliacaoServices services = new AvaliacaoServices(getApplicationContext());
                 if (services.deslike(idUsuario, idProfissional)){
                     Toast.makeText(getApplicationContext(), "Você votou neste profissional.", Toast.LENGTH_LONG).show();

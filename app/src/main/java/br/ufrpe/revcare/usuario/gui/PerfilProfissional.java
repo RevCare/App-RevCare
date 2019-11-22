@@ -29,15 +29,17 @@ public class PerfilProfissional extends AppCompatActivity {
                 startActivity(new Intent(PerfilProfissional.this, AvaliacaoProfissional.class));
             }
         });
+
+
     }
 
     private void getIncomingIntent(){
-        if (getIntent().hasExtra("nome") && getIntent().hasExtra("endereco") && getIntent().hasExtra("telefone") && getIntent().hasExtra("email") && getIntent().hasExtra("descricao")){
+        if (getIntent().hasExtra("nome") && getIntent().hasExtra("endereco") && getIntent().hasExtra("telefone") && getIntent().hasExtra("email") && getIntent().hasExtra("cidade")){
             String nome = getIntent().getStringExtra("nome");
             String endereco = getIntent().getStringExtra("endereco");
             String telefone = getIntent().getStringExtra("telefone");
             String email = getIntent().getStringExtra("email");
-            String descricao = getIntent().getStringExtra("descricao");
+            String descricao = getIntent().getStringExtra("cidade");
 
             setDadosTela(nome, endereco,telefone, email, descricao);
         }

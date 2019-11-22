@@ -45,6 +45,7 @@ public class ProfissionalDAO {
         values.put(DBHelper.COL_SENHA_PROFISSIONAL, profissional.getSenha());
         values.put(DBHelper.COL_ESTADO_PROFISSIONAL, profissional.getEstado());
         values.put(DBHelper.COL_CIDADE_PROFISSIONAL, profissional.getCidade());
+        values.put(DBHelper.COL_FOTO_PROFISSIONAL, profissional.getFoto());
 
         long id = db.insert(TABELA_PROFISSIONAL, null, values);
         db.close();
@@ -64,6 +65,8 @@ public class ProfissionalDAO {
         if (cursor.moveToFirst()) {
             result = criarProfissional(cursor);
         }
+        db.close();
+        cursor.close();
         return result;
     }
 
@@ -79,20 +82,25 @@ public class ProfissionalDAO {
         if (cursor.moveToFirst()) {
             result = criarProfissional(cursor);
         }
+        cursor.close();
+        db.close();
+
         return result;
     }
 
-    public Profissional consultarCpf(String email) {
+    public Profissional consultarCpf(String cpf) {
         Profissional result = null;
         String query =
                 " SELECT * " +
                         " FROM " + TABELA_PROFISSIONAL +
                         " WHERE " + COL_CPF_PROFISSIONAL + " = ? ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query, new String[]{email});
+        Cursor cursor = db.rawQuery(query, new String[]{cpf});
         if (cursor.moveToFirst()) {
             result = criarProfissional(cursor);
         }
+        cursor.close();
+        db.close();
         return result;
     }
 
@@ -109,6 +117,7 @@ public class ProfissionalDAO {
         result.setSenha(cursor.getString(8));
         result.setEstado(cursor.getString(9));
         result.setCidade(cursor.getString(10));
+        result.setFoto(cursor.getBlob(11));
 
         return result;
     }
@@ -147,8 +156,8 @@ public class ProfissionalDAO {
     public static void alteraFotoProfissional(Profissional profissional){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(DBHelper.COL_FOTO_PROFISSIONAL,profissional.getFoto());
-        db.update(TABELA_PROFISSIONAL,values, COL_ID_PROFISSIONAL + " = ?",
+        values.put("foto", profissional.getFoto());
+        db.update(TABELA_PROFISSIONAL,values, "id = ?",
                 new String[]{String.valueOf(profissional.getId())});
         db.close();
 
@@ -195,5 +204,39 @@ public class ProfissionalDAO {
         cursor.close();
         db.close();
         return result;
+    }
+    public Double getNotaProfissional(long usuario, long profissional) {
+        String query = "SELECT * FROM Tabela_Avaliacao " +
+                "WHERE fk_id_profissional = ? " +
+                "AND fk_id_usuario = ? ";
+        String idUsuario = String.valueOf(usuario);
+        String idProfissional = String.valueOf(profissional);
+        String[] args = {idProfissional, idUsuario};
+        SQLiteDatabase leitorBanco = dbHelper.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Double nota = null;
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            int indexNota = cursor.getColumnIndex("like");
+            nota = cursor.getDouble(indexNota);
+        }
+        return nota;
+    }
+    private Profissional carregarObjeto(String query, String[] args) {
+        SQLiteDatabase leitorBanco = dbHelper.getReadableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        Profissional profis = null;
+        if (cursor.moveToNext()) {
+            profis = criarProfissional(cursor);
+        }
+        cursor.close();
+        leitorBanco.close();
+        return profis;
+    }
+    public Profissional getProfissionalById(long id) {
+        String query = "SELECT * FROM Tabela_Profissional " +
+                "WHERE id = ?";
+        String[] args = {String.valueOf(id)};
+        return this.carregarObjeto(query, args);
     }
 }

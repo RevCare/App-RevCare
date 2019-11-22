@@ -11,7 +11,6 @@
         android:name="android.permission.READ_EXTERNAL_STORAGE"
         android:maxSdkVersion="28" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,7 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".usuario.gui.PerfilProfissional"></activity>
+        <activity android:name=".infra.gui.MainActivity" />
+        <activity android:name=".usuario.gui.PerfilProfissional" />
         <activity android:name=".avaliacao.gui.AvaliacaoProfissional" />
         <activity android:name=".infra.gui.EsqueceuSenha" />
         <activity android:name=".profissional.gui.HomeProfissional" />
@@ -27,13 +27,16 @@
         <activity android:name=".profissional.gui.CadastroProfissional" />
         <activity android:name=".usuario.gui.CadastroUsuario" />
         <activity android:name=".usuario.gui.RecyclerViewUsuario" />
-        <activity android:name=".infra.gui.MainActivity">
+        <activity
+            android:name=".infra.gui.SplashScreen"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="br.ufrpe.revcare.provider"

@@ -11,6 +11,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="7.5dp"
         android:id="@+id/image"
+        android:background="@drawable/unknown"
         android:src="@drawable/ic_action_name"
         />
     <TextView
@@ -23,9 +24,8 @@
         android:textSize="18sp"
         android:textColor="#000"
         />
-
     <TextView
-        android:id="@+id/localizacao"
+        android:id="@+id/estado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -33,7 +33,20 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_toRightOf="@id/image"
-        android:text="Localização"
+        android:text="Estado"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/localizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_toRightOf="@id/estado"
+        android:text="Cidade"
         android:textColor="#000"
         android:textSize="18sp" />
     <TextView

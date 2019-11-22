@@ -5,8 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.HashMap;
+
 import br.ufrpe.revcare.avaliacao.dominio.Avaliacao;
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
+import br.ufrpe.revcare.usuario.dominio.Usuario;
 
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_FK_ID_PROFISSIONAL;
 import static br.ufrpe.revcare.infra.persistencia.DBHelper.COL_FK_ID_USUARIO;
@@ -33,7 +36,7 @@ public class AvaliacaoDAO {
         values.put(DBHelper.COL_FK_ID_PROFISSIONAL, idProfissional);
         values.put(DBHelper.COL_FK_ID_USUARIO, idUsuario);
         values.put(DBHelper.COL_LIKE, 0);
-        values.put(DBHelper.COL_DESLIKE, 1);
+        values.put(DBHelper.COL_DESLIKE, -1);
         db.insert(TABELA_AVALIACAO, null, values);
         db.close();
     }
@@ -59,6 +62,7 @@ public class AvaliacaoDAO {
 
     }
 
+
     public Avaliacao criarAvaliacao(Cursor cursor){
         Avaliacao result = new Avaliacao();
 
@@ -69,5 +73,24 @@ public class AvaliacaoDAO {
         result.setDeslike(cursor.getInt(4));
 
         return result;
+    }
+    public HashMap<String, Double> getAvaliacaoProfissional(Usuario usuario) {
+        String query =  "SELECT * FROM Tabela_Avaliacao " +
+                "WHERE fk_id_usuario = ?";
+        String[] args = {String.valueOf(usuario.getId())};
+        HashMap<String, Double> avaliacaoUsuario = new HashMap<>();
+        SQLiteDatabase leitorBanco = dbHelper.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, args);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                int indexNota = cursor.getColumnIndex("like");
+                Double nota = cursor.getDouble(indexNota);
+                int indexIdProfissional = cursor.getColumnIndex("fk_id_profissional");
+                String idProfissional = cursor.getString(indexIdProfissional);
+                avaliacaoUsuario.put(idProfissional, nota);
+            } while (cursor.moveToNext());
+        }
+        return avaliacaoUsuario;
     }
 }

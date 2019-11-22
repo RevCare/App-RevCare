@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+
 import br.ufrpe.revcare.infra.persistencia.DBHelper;
 import br.ufrpe.revcare.usuario.dominio.Usuario;
 
@@ -51,9 +53,10 @@ public class UsuarioDAO  {
         if (cursor.moveToFirst()){
             result = criarUsuario(cursor);
         }
+        cursor.close();
+        db.close();
         return result;
     }
-
 
     public Usuario consultar(String email) {
         Usuario result = null;
@@ -66,20 +69,37 @@ public class UsuarioDAO  {
         if (cursor.moveToFirst()){
             result = criarUsuario(cursor);
         }
+        cursor.close();
+        db.close();
         return result;
     }
-    public Usuario consultarCpf(String email) {
+    public Usuario consultarCpf(String cpf) {
         Usuario result = null;
         String query =
                 " SELECT * " +
                         " FROM " + TABELA_USUARIO +
                         " WHERE " + COL_CPF_USUARIO + " = ? ";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query, new String[]{email});
+        Cursor cursor = db.rawQuery(query, new String[]{cpf});
         if (cursor.moveToFirst()) {
             result = criarUsuario(cursor);
         }
+        cursor.close();
+        db.close();
         return result;
+    }
+    public ArrayList<Usuario> carregarUsuarios(){
+        String query = "SELECT * FROM Tabela_Usuario";
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        SQLiteDatabase leitorBanco = dbHelper.getWritableDatabase();
+        Cursor cursor = leitorBanco.rawQuery(query, null);
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            do {
+                usuarios.add(this.criarUsuario(cursor));
+            } while (cursor.moveToNext());
+        }
+        return usuarios;
     }
 
     private Usuario criarUsuario(Cursor cursor) {
