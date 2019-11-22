@@ -29,13 +29,7 @@ public class PerfilProfissional extends AppCompatActivity {
                 startActivity(new Intent(PerfilProfissional.this, AvaliacaoProfissional.class));
             }
         });
-        Button verGaleria = findViewById(R.id.buttongaleria);
-        verGaleria.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(PerfilProfissional.this, galeria_profissional_recycler.class));
-            }
-        });
+
 
     }
 
