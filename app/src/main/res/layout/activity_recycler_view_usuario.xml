@@ -32,40 +32,37 @@ tools:context=".usuario.gui.RecyclerViewUsuario">
     app:layout_constraintTop_toTopOf="parent" />
 
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="10dp"
-        android:layout_marginTop="125dp"
-        android:background="@android:color/darker_gray"
-        android:focusable="false" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/usuariorecylcer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp">
+        android:layout_marginTop="120dp">
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
         android:id="@+id/buttonAllPro"
-        android:layout_width="200dp"
+        android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="63dp"
+        android:layout_marginTop="65dp"
         android:background="#AF0D25"
+        android:textSize="16dp"
         android:textColor="#FFFFFF"
         android:text="Mostrar Todos" />
 
     <Button
         android:id="@+id/buttonRecommendedPro"
-        android:layout_width="200dp"
+        android:layout_width="205dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="65dp"
+        android:textSize="16dp"
         android:background="#AF0D25"
         android:textColor="#FFFFFF"
-        android:text="Mostrar Recomendados" />
+        android:text="Recomendados" />
 
 </RelativeLayout>
