@@ -30,6 +30,7 @@ public class PerfilProfissional extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void getIncomingIntent(){
