@@ -320,6 +320,7 @@
                 android:background="@drawable/border"
                 android:inputType="textPersonName"
                 android:textSize="18sp"
+                android:gravity="top"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.077"
                 app:layout_constraintStart_toStartOf="parent"
